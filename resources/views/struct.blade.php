@@ -30,8 +30,8 @@
 
                 <!-- Main Content -->
                 <div id="content">
-
-                    @include($path.'includes.topbar')
+                   
+                @include($path.'includes.topbar')
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
@@ -44,7 +44,7 @@
                 </div>
                 <!-- End of Main Content -->
 
-                
+
 
             </div>
             <!-- End of Content Wrapper -->

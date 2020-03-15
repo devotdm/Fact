@@ -1,6 +1,5 @@
 @extends('struct')
 
-
 @section('content')
 
 
