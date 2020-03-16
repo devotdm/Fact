@@ -1,12 +1,4 @@
-@extends('struct')
-
-@section('header')
-
-@include($path.'includes.topbars.infos')
-
-@endsection
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="row ml-2 mt-3">
     <div class="col-lg-6">
@@ -62,4 +54,5 @@
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('struct', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/clients/info_pro.blade.php ENDPATH**/ ?>

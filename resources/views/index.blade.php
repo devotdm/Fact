@@ -1,5 +1,11 @@
 @extends('struct')
 
+@section('header')
+
+@include($path.'includes.topbar')
+
+@endsection
+
 @section('content')
 
 <!-- Page Heading -->

@@ -14,7 +14,10 @@
         <link href="<?php echo e(asset('fontawesome-free/css/all.css')); ?>" rel="stylesheet" type="text/css">
 
         <link href="<?php echo e(asset('bootstrap/css/bootstrap.css')); ?>" rel="stylesheet">
+        <link href="<?php echo e(asset('bootstrap/css/bootstrap-tagsinput.css')); ?>" rel="stylesheet">
+        
         <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
+        <link href="<?php echo e(asset('css/tagsinput.css')); ?>" rel="stylesheet">
 
     </head>
 
@@ -31,7 +34,7 @@
                 <!-- Main Content -->
                 <div id="content">
                    
-                <?php echo $__env->make($path.'includes.topbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->yieldContent('header'); ?>
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
@@ -78,12 +81,19 @@
         <!-- Bootstrap core JavaScript-->
         <script src="<?php echo e(asset('jquery/jquery.min.js')); ?>"></script>
         <script src="<?php echo e(asset('bootstrap/js/bootstrap.bundle.js')); ?>"></script>
+        <script src="<?php echo e(asset('bootstrap/js/bootstrap-tagsinput.js')); ?>"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="<?php echo e(asset('jquery-easing/jquery.easing.min.js')); ?>"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="<?php echo e(asset('js/sidebar.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/script.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/tagsinput.js')); ?>"></script>
+        
+        <!-- VueJs -->
+        <script src="<?php echo e(asset('vuejs/app.js')); ?>"></script>
+        <script src="<?php echo e(asset('vuejs/script.js')); ?>"></script>
 
     </body>
 

@@ -41,4 +41,4 @@
     </ul>
 
 </nav>
-<!-- End of Topbar --><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////includes/topbars/infos.blade.php ENDPATH**/ ?>
+<!-- End of Topbar -->

@@ -1,5 +1,11 @@
 @extends('struct')
 
+@section('header')
+
+@include($path.'includes.topbars.news')
+
+@endsection
+
 @section('content')
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item bg-white shadow mb-3 mr-4">
@@ -18,9 +24,11 @@
     </li>
 </ul>
 <div class="tab-content row" id="pills-tabContent">
+   
+   <!-- Particulier -->
     <div class="tab-pane fade col-lg-7 col-md-12" id="prt" role="tabpanel" aria-labelledby="prt-tab">
         <form method="post" class="w-100 text-dark">
-           <div class="form-group mt-5">
+           <div class="form-group mt-3">
                 <h3 class="font-weight-bold">Informations</h3>
             </div>
             <div class="form-group">
@@ -69,7 +77,7 @@
                 <input type="text" class="form-control" name="tele" id="tele">
             </div>
             <div class="form-group">
-                <label for="motcle">Mot clés : </label>
+                <label for="motcle" class="d-block">Mot clés : </label>
                 <input type="text" class="form-control" name="motcle" id="motcle">
             </div>
             <div class="form-group">
@@ -79,7 +87,7 @@
     </div>
     <div class="tab-pane fade col-lg-7 col-md-12" id="pro" role="tabpanel" aria-labelledby="pro-tab">
         <form method="post" class="w-100 text-dark">
-            <div class="form-group mt-5">
+            <div class="form-group mt-3">
                 <h3 class="font-weight-bold">Informations</h3>
             </div>
             <div class="form-group">

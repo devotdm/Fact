@@ -1,8 +1,8 @@
 @extends('struct')
 
-@section('topbar')
+@section('header')
 
-
+@include($path.'includes.topbars.lists')
 
 @endsection
 

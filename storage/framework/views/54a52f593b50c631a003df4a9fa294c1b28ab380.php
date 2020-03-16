@@ -1,12 +1,10 @@
-@extends('struct')
+<?php $__env->startSection('header'); ?>
 
-@section('header')
+<?php echo $__env->make($path.'includes.topbars.infos', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-@include($path.'includes.topbars.infos')
+<?php $__env->stopSection(); ?>
 
-@endsection
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="row mt-3">
     <div class="col-lg-6">
@@ -70,4 +68,5 @@
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('struct', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/societes/info.blade.php ENDPATH**/ ?>

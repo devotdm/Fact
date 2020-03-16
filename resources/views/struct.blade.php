@@ -14,7 +14,10 @@
         <link href="{{ asset('fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
 
         <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('bootstrap/css/bootstrap-tagsinput.css') }}" rel="stylesheet">
+        
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/tagsinput.css') }}" rel="stylesheet">
 
     </head>
 
@@ -31,7 +34,7 @@
                 <!-- Main Content -->
                 <div id="content">
                    
-                @include($path.'includes.topbar')
+                    @yield('header')
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
@@ -78,12 +81,19 @@
         <!-- Bootstrap core JavaScript-->
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap-tagsinput.js') }}"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="{{ asset('jquery-easing/jquery.easing.min.js') }}"></script>
 
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('js/sidebar.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/tagsinput.js') }}"></script>
+        
+        <!-- VueJs -->
+        <script src="{{ asset('vuejs/app.js') }}"></script>
+        <script src="{{ asset('vuejs/script.js') }}"></script>
 
     </body>
 
