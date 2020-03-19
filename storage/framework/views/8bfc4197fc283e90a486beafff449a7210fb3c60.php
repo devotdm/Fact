@@ -91,9 +91,6 @@
         <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
     </div>
     
-
-   
-   
     <div class="form-group">
         <h3>Débours</h3>
         <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UN DEBOURS</a>
