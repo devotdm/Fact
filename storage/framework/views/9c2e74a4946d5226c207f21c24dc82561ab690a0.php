@@ -11,6 +11,39 @@
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
+        <?php if($obj=='devis' || $obj=='facture'): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="finalise" role="button" title="Finaliser">
+                <span class="badge badge-success" style="padding: 12px 5px"><i class="far fa-check-circle" style="font-size:22px"></i></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="edit" role="button" title="Modifier">
+                <span class="badge badge-info" style="padding: 12px 5px"><i class="fas fa-pen" style="font-size:22px"></i></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="delete" role="button" title="Supprimer">
+                <span class="badge badge-danger" style="padding: 12px 5px"><i class="fas fa-trash" style="font-size:22px"></i></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="signe" role="button" title="Signer">
+                <span class="badge badge-success" style="padding: 12px 7px"><i class="fas fa-clipboard-check" style="font-size:22px"></i></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="mail" role="button" title="Envoyer par mail">
+                <span class="badge badge-dark" style="padding: 12px 7px"><i class="far fa-envelope" style="font-size:22px"></i></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="download" role="button" title="Télécharger">
+                <span class="badge badge-dark" style="padding: 12px 5px"><i class="fas fa-download" style="font-size:22px"></i></span>
+            </a>
+        </li>
+        <?php endif; ?>
+       <!--        <i class="far fa-calendar-times"></i>-->
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,22 +55,8 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
-                    Logout
-                </a>
             </div>
         </li>
-
     </ul>
 
 </nav>

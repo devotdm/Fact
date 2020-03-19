@@ -43,7 +43,7 @@
 
     <div class="col-lg-6 mb-3">
       <h3 class="text-dark">Votre facture est prete ?</h3><br><br>
-      <p>Finalisez votre facture a l'aide du bouton<i class="far fa-check-circle ml-2 mr-2 text-success"></i>ci-dessus pour pouvoir l'envoyer au client . </p>
+      <p>Finalisez votre facture a l'aide du bouton<span class="badge badge-success ml-2 mr-2" style="padding: 12px 5px"><i class="far fa-check-circle" style="font-size:22px"></i></span>ci-dessus pour pouvoir l'envoyer au client . </p>
       <p>Attention une facture finalisee n'est plus modifiable .</p><br>
 
       <h3 class="text-dark">Documents liés</h3>
@@ -102,7 +102,7 @@
 
 </div>
 <div class="col">
-<h3>Détail</h3>
+<h3>Détails</h3>
 </div>
 
 

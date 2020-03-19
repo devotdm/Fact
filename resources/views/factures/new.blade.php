@@ -93,9 +93,6 @@
         <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
     </div>
     
-
-   
-   
     <div class="form-group">
         <h3>Débours</h3>
         <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UN DEBOURS</a>
@@ -199,7 +196,8 @@
 
 
     <div class="form-group">
-        <textarea class="form-control w-75" id="exampleFormControlTextarea1" rows="3" placeholder="Pied de page(visible sur la facture)" disabled> DEVOSOFT S.A.R.L.TP:50990690-IF:207224501-ICE:001853352000050-CNSS:5297016</textarea>
+       <label for="pied">Pied de page :</label>
+        <textarea class="form-control w-75" id="pied" rows="3" placeholder="Pied de page(visible sur la facture)" disabled> DEVOSOFT S.A.R.L.TP:50990690-IF:207224501-ICE:001853352000050-CNSS:5297016</textarea>
     </div>
 
 
