@@ -49,7 +49,7 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Ajouter un<?php echo e(($obj=='société'||$obj=='facture')?'e':''); ?> <?php echo e($obj); ?></a>
+                <a class="dropdown-item" href="<?php echo e(url( ($obj=='société') ? 'societes/new' : ( ($obj=='devis') ? $obj.'/new' : $obj.'s/new') )); ?>">Ajouter un<?php echo e(($obj=='société'||$obj=='facture')?'e':''); ?> <?php echo e($obj); ?></a>
             </div>
         </li>
 

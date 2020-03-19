@@ -49,7 +49,7 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Ajouter un{{ ($obj=='société'||$obj=='facture')?'e':'' }} {{ $obj }}</a>
+                <a class="dropdown-item" href="{{ url( ($obj=='société') ? 'societes/new' : ( ($obj=='devis') ? $obj.'/new' : $obj.'s/new') ) }}">Ajouter un{{ ($obj=='société'||$obj=='facture')?'e':'' }} {{ $obj }}</a>
             </div>
         </li>
 

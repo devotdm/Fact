@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion menu" id="accordionSidebar">
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion menu overflow-y-auto" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo e($path); ?>">
@@ -76,6 +76,25 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+    
+    <li class="nav-item <?php echo e(($ind==='5')?'active':''); ?>">
+        <a class="nav-link collapsed" href="" >
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Parametres</span>
+        </a>
+    </li>
+
+<!--
+    <li class="nav-item <?php echo e(($ind==='6')?'active':''); ?>">
+        <a class="nav-link collapsed" href="" >
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Deconnecter</span>
+        </a>
+    </li>
+    
+-->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
