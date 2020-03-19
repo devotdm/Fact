@@ -58,3 +58,7 @@ Route::get('factures/list', function () {
 Route::get('factures/new', function () {
     return view('factures.new')->with(array('title'=>'Ajouter une facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
 });
+
+Route::get('factures/info', function () {
+    return view('factures.info')->with(array('title'=>'Infos du facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
+});
