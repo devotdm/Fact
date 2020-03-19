@@ -51,6 +51,10 @@ Route::get('devis/new', function () {
     return view('devis.new')->with(array('title'=>'Ajouter un devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
 });
 
+Route::get('devis/info', function () {
+    return view('devis.info')->with(array('title'=>'Ajouter un devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
+});
+
 Route::get('factures/list', function () {
     return view('factures.list')->with(array('title'=>'Gérer les factures', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
 });
