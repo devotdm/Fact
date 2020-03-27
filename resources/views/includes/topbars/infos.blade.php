@@ -49,13 +49,21 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v fa-lg fa-fw text-dark"></i>
             </a>
+            
+               @if($obj=='client' || $obj=='société')
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                </a>
+                <a class="dropdown-item" href="#">Modifier</a>
+                <a class="dropdown-item" href="#">Supprimer</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item disabled" href="#">Pour ce{{ ($obj=='client')?' '.$obj:'tte '.$obj }}</a>
+                @if($obj=='société')
+                <a class="dropdown-item" href="#">Créer un client</a>
+                @endif
+                <a class="dropdown-item" href="#">Créer un devis</a>
+                <a class="dropdown-item" href="#">Créer une facture</a>
             </div>
+            @endif
         </li>
     </ul>
 

@@ -89,11 +89,14 @@
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('js/sidebar.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
         <script src="{{ asset('js/tagsinput.js') }}"></script>
         
         <!-- VueJs -->
+<!--
         <script src="{{ asset('vuejs/app.js') }}"></script>
         <script src="{{ asset('vuejs/script.js') }}"></script>
+-->
 
     </body>
 

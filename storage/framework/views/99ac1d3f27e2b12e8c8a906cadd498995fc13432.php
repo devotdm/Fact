@@ -89,11 +89,14 @@
         <!-- Custom scripts for all pages-->
         <script src="<?php echo e(asset('js/sidebar.js')); ?>"></script>
         <script src="<?php echo e(asset('js/script.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/scripts.js')); ?>"></script>
         <script src="<?php echo e(asset('js/tagsinput.js')); ?>"></script>
         
         <!-- VueJs -->
+<!--
         <script src="<?php echo e(asset('vuejs/app.js')); ?>"></script>
         <script src="<?php echo e(asset('vuejs/script.js')); ?>"></script>
+-->
 
     </body>
 

@@ -14,8 +14,8 @@
         <a class="nav-item nav-link text-uppercase active" id="nav-tous-tab" data-toggle="tab" href="#nav-tous" role="tab" aria-controls="nav-tous" aria-selected="true">tous</a>
         <a class="nav-item nav-link text-uppercase" id="nav-provisoires-tab" data-toggle="tab" href="#nav-provisoires" role="tab" aria-controls="nav-provisoires" aria-selected="false">provisoires</a>
         <a class="nav-item nav-link text-uppercase" id="nav-finalisés-tab" data-toggle="tab" href="#nav-finalisés" role="tab" aria-controls="nav-finalisés" aria-selected="false">finalisés</a>
-        <a class="nav-item nav-link text-uppercase" id="nav-refusés-tab" data-toggle="tab" href="#nav-refusés" role="tab" aria-controls="nav-refusés" aria-selected="true">refusés</a>
-        <a class="nav-item nav-link text-uppercase" id="nav-signés-tab" data-toggle="tab" href="#nav-signés" role="tab" aria-controls="nav-signés" aria-selected="false">signés</a>
+        <a class="nav-item nav-link text-uppercase" id="nav-payées-tab" data-toggle="tab" href="#nav-payées" role="tab" aria-controls="nav-payées" aria-selected="true">payées</a>
+        <a class="nav-item nav-link text-uppercase" id="nav-apayer-tab" data-toggle="tab" href="#nav-apayer" role="tab" aria-controls="nav-apayer" aria-selected="false">à payer</a>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div class="tab-pane fade" id="nav-refusés" role="tabpanel" aria-labelledby="nav-refusés-tab">
+    <div class="tab-pane fade" id="nav-payées" role="tabpanel" aria-labelledby="nav-payées-tab">
         <div class="row">
             <div class="col">
                 <div class="card shadow mt-4">
@@ -123,7 +123,7 @@
             </div>
         </div>
     </div>
-    <div class="tab-pane fade" id="nav-signés" role="tabpanel" aria-labelledby="nav-signés-tab">
+    <div class="tab-pane fade" id="nav-apayer" role="tabpanel" aria-labelledby="nav-apayer-tab">
         <div class="row">
             <div class="col">
                 <div class="card shadow mt-4">

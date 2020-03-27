@@ -6,7 +6,6 @@
 
 @endsection
 
-
 @section('content')
 
 <form action="" method="post">
@@ -31,81 +30,71 @@
         <label for="devise">Devise(requis)</label>
         <select class="form-control w-50" id="devise">
             <option>Dirham marocain (د م)</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
         </select>
     </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">TVA non appliacale</label>
+    <div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input" id="tva_check">
+        <label class="custom-control-label tva_label" for="tva_check">TVA non applicable</label>
     </div>
 
     <h3 class="text-dark mt-2">Articles</h3>
 
-    <span class="float-right mb-3" >
-        <a href="" class="text-dark p-1"><i class="far fa-window-close"></i></a><br>
-        <a href="" class="text-dark p-1"><i class="far fa-copy"></i></a>
-    </span>
-    <p class="mb-2"><span class="badge badge-primary rounded-circle" style="font-size:20px;">1</span></p>
+    <div class="line">
+        <span class="float-right mb-3" >
+            <a href="" class="text-dark p-1 c_ligne"><i class="far fa-window-close"></i></a><br>
+            <a href="" class="text-dark p-1 d_ligne"><i class="far fa-copy"></i></a>
+        </span>
+        <p class="mb-2"><span class="badge badge-primary rounded-circle nbr" style="font-size:20px;">1</span></p>
 
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Type</label><br>
-        <select class="form-control w-50 d-inline" id="exampleFormControlSelect1">
-            <option>Service</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-row form-group">
-        <div class="col">
-            <label for="qtity">Quantite</label>
-            <input type="number" class="form-control" id="qtity">
-        </div>
-        <div class="col">
-            <label for="ht">Prix HT</label><br>
-            <input type="number" class="form-control" id="ht">
-        </div>
-        <div class="col">
-            <label for="tva">TVA</label>
-            <input type="number" class="form-control" id="tva">
-        </div>
-        <div class="col">
-            <label for="reduction">Reduction</label>
-            <input type="number" class="form-control" id="reduction">
-        </div>
-        <div class="col">
-            <label for="unit">.</label>
-            <select id="unit" class="form-control">
-                <option selected>%</option>
-                <option>devise</option>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Type</label><br>
+            <select class="form-control w-50 d-inline" id="exampleFormControlSelect1">
+                <option>Service</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
             </select>
         </div>
-        <div class="col">
-            <label for="total_ht">Total HT</label>
-            <input type="number" class="form-control" id="total_ht" disabled>
-        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="qtity">Quantite</label>
+                <input type="number" class="form-control inp" value="0" id="qtity">
+            </div>
+            <div class="col">
+                <label for="ht">Prix HT</label><br>
+                <input type="number" step="0.01" class="form-control inp" value="0" id="ht">
+            </div>
+            <div class="col">
+                <label for="tva">TVA</label>
+                <input type="number" step="0.01" class="form-control inp ltva" id="tva" value="0" disabled>
+            </div>
+            <div class="col">
+                <label for="reduction">Reduction</label>
+                <input type="number" step="0.01" class="form-control inp" value="0" id="reduction" placeholder="%">
+            </div>
+            <div class="col">
+                <label for="total_ht">Total HT</label>
+                <input type="number" step="0.01" class="form-control" id="total_ht" readonly>
+            </div>
 
-        <div class="col">
-            <label for="total_ttc">Total TTC</label>
-            <input type="number" class="form-control" id="total_ttc" disabled>
+            <div class="col">
+                <label for="total_ttc">Total TTC</label>
+                <input type="number" step="0.01" class="form-control" id="total_ttc" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="5"></textarea>
         </div>
     </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="5" placeholder="Description">Service one</textarea>
-    </div>
-
-    <div class="form-group">
-        <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
+    <div class="form-group div_ajout">
+        <a href="" class="font-weight-bold text-decoration-none" id="btn"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
     </div>
     <div class="form-row form-group w-50 align-content-right">
         <div class=" col">
             <label for="remise">Remise générale</label>
-            <input type="number" class="form-control" id="remise">
+            <input type="number" step="0.01" class="form-control" id="remise">
         </div>
         <div class=" col">
             <label for="unitr">.</label>
@@ -114,9 +103,7 @@
                 <option>devise</option>
             </select>
         </div>
-
     </div>
-
     <div class="jumbotron p-3 text-dark font-weight-bold">
         <table class="table table-borderless text-dark ">
             <tr>
@@ -145,7 +132,6 @@
                 <td><span id="total">32131</span></td>
             </tr>
         </table>
-
     </div>
     <h3 class="text-dark mt-2">Règlement</h3>
     <div class="form-group">
@@ -178,15 +164,10 @@
             <option>5</option>
         </select>
     </div>
-
-
-
     <h3 class="text-dark mt-2">Textes affichés sur le document</h3><br>
     <div class="form-group">
         <textarea class="form-control w-75" id="exampleFormControlTextarea1" rows="3" placeholder="Texte d'introduction (visible sur le devis)"></textarea>
     </div>
-
-
     <div class="form-group">
         <textarea class="form-control w-75" id="exampleFormControlTextarea1" rows="3" placeholder="Texte de conclusion (visible sur le devis)"></textarea>
     </div>
@@ -199,9 +180,6 @@
     <div class="form-group">
         <textarea class="form-control w-75" id="exampleFormControlTextarea1" rows="3" placeholder="Conditions générales de vente (visible sur le devis)"></textarea>
     </div>
-
-
-
     <h3>Mots clés</h3>
     <div class="form-group">
         <label for="exampleFormControlSelect1"></label>
@@ -214,7 +192,6 @@
         </select>
     </div>
     <button type="submit" name="submit" class="btn btn-success mb-5">Créer le devis</button>
-
 </form>
 
 @endsection

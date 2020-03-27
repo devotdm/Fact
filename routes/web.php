@@ -23,12 +23,8 @@ Route::get('clients/new', function () {
     return view('clients.new')->with(array('title'=>'Ajouter un client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
 });
 
-Route::get('clients/prt/', function () {
-    return view('clients.info_prt')->with(array('title'=>'Infos du client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
-});
-
-Route::get('clients/pro/', function () {
-    return view('clients.info_pro')->with(array('title'=>'Infos du client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
+Route::get('clients/info', function () {
+    return view('clients.info')->with(array('title'=>'Infos du client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
 });
 
 Route::get('societes/list', function () {

@@ -27,70 +27,72 @@
             <option>Dirham marocain (د م  )</option>
         </select>
     </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="tva_app">
-        <label class="form-check-label" for="tva_app">TVA non appliacale</label>
+    <div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input" id="tva_check" onchange="disableInput()">
+        <label class="custom-control-label tva_label" for="tva_check">TVA non applicable</label>
     </div>
 
     <h3 class="text-dark mt-3">Articles</h3>
-    <span class="float-right mb-3">
-        <a href="" class="text-dark p-1"><i class="far fa-window-close"></i></a>
-        <a href="" class="text-dark p-1"><i class="far fa-copy"></i></a>
-    </span>
-    
-    <p class="mb-2"><span class="badge badge-primary rounded-circle" style="font-size:20px;">1</span></p>
-    <div class="form-group">
-        <label for="type">Type</label>
-        <select class="form-control w-50" id="type">
-            <option>Service</option>
-            <option>Produit</option>
-        </select>
-    </div>
-    <div class="form-row form-group">
-        <div class="col">
-            <label for="qtity">Quantite</label>
-            <input type="number" class="form-control" id="qtity">
-        </div>
-        <div class="col">
-            <label for="ht">Prix HT</label><br>
-            <input type="number" class="form-control" id="ht">
-        </div>
+    <div class="line">
+        <span class="float-right mb-3">
+            <a href="" class="text-dark p-1"><i class="far fa-window-close"></i></a>
+            <a href="" class="text-dark p-1"><i class="far fa-copy"></i></a>
+        </span>
 
-        <div class="col">
-            <label for="tva">TVA</label>
-            <input type="number" class="form-control" id="tva">
-        </div>
-
-        <div class="col">
-            <label for="reduction">Reduction</label>
-            <input type="number" class="form-control" id="reduction">
-        </div>
-        <div class="col">
-            <label for="unit">.</label>
-            <select id="unit" class="form-control">
-                <option selected>%</option>
-                <option>devise</option>
+        <p class="mb-2"><span class="badge badge-primary rounded-circle nbr" style="font-size:20px;">1</span></p>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control w-50" id="type">
+                <option>Service</option>
+                <option>Produit</option>
             </select>
         </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="qtity">Quantite</label>
+                <input type="number" class="form-control" id="qtity">
+            </div>
+            <div class="col">
+                <label for="ht">Prix HT</label><br>
+                <input type="number" class="form-control" id="ht">
+            </div>
 
-        <div class="col">
-            <label for="total_ht">Total HT</label>
-            <input type="number" class="form-control" id="total_ht" disabled>
-        </div>
+            <div class="col">
+                <label for="tva">TVA</label>
+                <input type="number" class="form-control ltva" id="tva" disabled>
+            </div>
 
-        <div class="col">
-            <label for="total_ttc">Total TTC</label>
-            <input type="number" class="form-control" id="total_ttc" disabled>
+            <div class="col">
+                <label for="reduction">Reduction</label>
+                <input type="number" class="form-control" id="reduction">
+            </div>
+            <div class="col">
+                <label for="unit">.</label>
+                <select id="unit" class="form-control">
+                    <option selected>%</option>
+                    <option>devise</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <label for="total_ht">Total HT</label>
+                <input type="number" class="form-control" id="total_ht" disabled>
+            </div>
+
+            <div class="col">
+                <label for="total_ttc">Total TTC</label>
+                <input type="number" class="form-control" id="total_ttc" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="5"></textarea>
         </div>
     </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" rows="5" placeholder="Description">Service one</textarea>
+    <div class="form-group div_ajout">
+        <a href="#" class="font-weight-bold text-decoration-none" id="btn"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
     </div>
-    <div class="form-group">
-        <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
-    </div>
-    
+
     <div class="form-group">
         <h3>Débours</h3>
         <a href="#" class="font-weight-bold text-decoration-none"><i class="fas fa-plus mr-2"></i>AJOUTER UN DEBOURS</a>
@@ -181,7 +183,7 @@
             <option>5</option>
         </select>
     </div>
-    
+
     <h3 class="text-dark mb-2">Textes affiches sur le document</h3>
     <div class="form-group">
         <textarea class="form-control w-75" name="text_intro" id="text_intro" rows="5" placeholder="Texte d'introduction(visible sur la facture)"></textarea>
@@ -194,7 +196,7 @@
 
 
     <div class="form-group">
-       <label for="pied">Pied de page :</label>
+        <label for="pied">Pied de page :</label>
         <textarea class="form-control w-75" id="pied" rows="3" placeholder="Pied de page(visible sur la facture)" disabled> DEVOSOFT S.A.R.L.TP:50990690-IF:207224501-ICE:001853352000050-CNSS:5297016</textarea>
     </div>
 
@@ -219,6 +221,8 @@
 
 
 </form>
+
+<script src="<?php echo e(asset('js/scripts.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('struct', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/factures/new.blade.php ENDPATH**/ ?>
