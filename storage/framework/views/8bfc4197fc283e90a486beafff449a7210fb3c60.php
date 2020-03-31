@@ -8,17 +8,22 @@
 <?php $__env->startSection('content'); ?>
 
 
-<form action="" method="post">
+<form action="" method="post" id="form5">
 
     <div class="form-group">
-        <label for="destinataire"><h3 class="text-dark mt-3">Destinataire</h3></label>
-        <select class="form-control w-75" id="destinataire">
-            <option></option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
+        <h3 class="text-dark mt-2">Destinataire</h3>
+        <div class="form-group">
+            <label for="destinataire_"></label>
+            <select class="form-control w-50" id="destinataire_">
+                <option value="" selected disabled>Sélectionner un destinataire</option>
+                <option></option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+              <span class="destf text-danger d-none">veuillez sélectionner un destinataire</span>
+        </div>
     </div>
     <h3 class="text-dark mt-3">Informations</h3>
     <div class="form-group">
@@ -28,7 +33,7 @@
         </select>
     </div>
     <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" id="tva_check" onchange="disableInput()">
+        <input type="checkbox" class="custom-control-input" id="tva_check">
         <label class="custom-control-label tva_label" for="tva_check">TVA non applicable</label>
     </div>
 
@@ -222,7 +227,12 @@
 
 </form>
 
-<script src="<?php echo e(asset('js/scripts.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('scripts'); ?>
+
+<script src="<?php echo e(asset('js/forms/scripts.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('struct', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/factures/new.blade.php ENDPATH**/ ?>

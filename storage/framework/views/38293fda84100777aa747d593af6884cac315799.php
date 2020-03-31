@@ -6,18 +6,19 @@
 
 <?php $__env->startSection('content'); ?>
 
-<form action="" method="post">
+<form action="" method="post" id="form4">
     <h3 class="text-dark mt-2">Destinataire</h3>
     <div class="form-group">
-        <label for="exampleFormControlSelect1"></label>
-        <select class="form-control w-50 d-inline" id="exampleFormControlSelect1">
-            <option value="choose" selected disabled>Nouveau client</option>
+        <label for="destinataire"></label>
+        <select class="form-control w-50" id="destinataire">
+            <option value="" selected disabled>Sélectionner un destinataire</option>
             <option></option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
         </select>
+              <span class="dest text-danger d-none">veuillez sélectionner un destinataire</span>
     </div>
     <h3 class="text-dark mt-2">Informations</h3>
     <div class="form-group">
@@ -54,53 +55,44 @@
                 <option>5</option>
             </select>
         </div>
-        <div class="form-row form-group">
+        <div class="form-row form-group line_row">
             <div class="col">
                 <label for="qtity">Quantite</label>
-                <input type="number" class="form-control inp" value="0" id="qtity">
+                <input type="number" class="form-control inp qtity" value="0">
             </div>
             <div class="col">
                 <label for="ht">Prix HT</label><br>
-                <input type="number" step="0.01" class="form-control inp" value="0" id="ht">
+                <input type="number" step="0.01" class="form-control inp ht" value="0">
             </div>
             <div class="col">
                 <label for="tva">TVA</label>
-                <input type="number" step="0.01" class="form-control inp ltva" id="tva" value="0" disabled>
+                <input type="number" step="0.01" class="form-control inp ltva tva" value="0" disabled>
             </div>
             <div class="col">
                 <label for="reduction">Reduction</label>
-                <input type="number" step="0.01" class="form-control inp" value="0" id="reduction" placeholder="%">
+                <input type="number" step="0.01" class="form-control inp reduction" value="0" placeholder="%">
             </div>
             <div class="col">
                 <label for="total_ht">Total HT</label>
-                <input type="number" step="0.01" class="form-control" id="total_ht" readonly>
+                <input type="number" step="0.01" class="form-control total_ht" readonly>
             </div>
 
             <div class="col">
                 <label for="total_ttc">Total TTC</label>
-                <input type="number" step="0.01" class="form-control" id="total_ttc" readonly>
+                <input type="number" step="0.01" class="form-control total_ttc" readonly>
             </div>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" rows="5"></textarea>
+            <textarea class="form-control description" rows="5"></textarea>
         </div>
     </div>
     <div class="form-group div_ajout">
         <a href="" class="font-weight-bold text-decoration-none" id="btn"><i class="fas fa-plus mr-2"></i>AJOUTER UNE LIGNE</a>
     </div>
-    <div class="form-row form-group w-50 align-content-right">
-        <div class=" col">
-            <label for="remise">Remise générale</label>
-            <input type="number" step="0.01" class="form-control" id="remise">
-        </div>
-        <div class=" col">
-            <label for="unitr">.</label>
-            <select id="unitr" class="form-control w-50" id="unitr">
-                <option selected>%</option>
-                <option>devise</option>
-            </select>
-        </div>
+    <div class="form-group w-25">
+        <label for="remise">Remise générale</label>
+        <input type="number" step="0.01" class="form-control" id="remise" placeholder="%">
     </div>
     <div class="jumbotron p-3 text-dark font-weight-bold">
         <table class="table table-borderless text-dark ">
@@ -112,7 +104,7 @@
             <tr>
                 <td></td>
                 <td>Remise générale </td>
-                <td><span id="remise">312312</span></td>
+                <td><span id="remise_span">312312</span></td>
             </tr>
             <tr>
                 <td></td>
@@ -191,6 +183,13 @@
     </div>
     <button type="submit" name="submit" class="btn btn-success mb-5">Créer le devis</button>
 </form>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('scripts'); ?>
+
+<script src="<?php echo e(asset('js/forms/scripts.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('struct', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/devis/new.blade.php ENDPATH**/ ?>

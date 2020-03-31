@@ -1,3 +1,28 @@
+//const app = new Vue({
+//  el:'#app',
+//  data:{
+//    qt:0,
+//    ht:0,
+//    tva:0,
+//    rdc:0
+//  },
+//  computed:{
+//     totalht:function() {
+//       //must parse cuz Vue turns empty value to string
+//       return Number(this.qt)+
+//         Number(this.ht);
+//     }
+//  },
+//  methods:{
+//    checkForm:function(e) {
+//      this.errors = [];
+//      if(this.total != 100) this.errors.push("Total must be 100!");
+//      if(!this.errors.length) return true;
+//      e.preventDefault();
+//    }
+//  }
+//});
+
 //new Vue({
 //  el:'#app',
 //  data:{

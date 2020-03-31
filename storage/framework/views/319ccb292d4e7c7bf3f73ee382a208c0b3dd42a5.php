@@ -78,7 +78,7 @@
     <hr class="sidebar-divider d-none d-md-block">
     
     <li class="nav-item <?php echo e(($ind==='5')?'active':''); ?>">
-        <a class="nav-link collapsed" href="" >
+        <a class="nav-link collapsed" href="<?php echo e(url('parametres/')); ?>" >
             <i class="fas fa-fw fa-cog"></i>
             <span>Parametres</span>
         </a>
