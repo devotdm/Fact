@@ -46,8 +46,8 @@
         <p class="mb-2"><span class="badge badge-primary rounded-circle nbr" style="font-size:20px;">1</span></p>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Type</label><br>
-            <select class="form-control w-50 d-inline" id="exampleFormControlSelect1">
+            <label for="type">Type</label><br>
+            <select class="form-control w-50 d-inline" id="type">
                 <option>Service</option>
                 <option>2</option>
                 <option>3</option>
@@ -66,7 +66,7 @@
             </div>
             <div class="col">
                 <label for="tva">TVA</label>
-                <input type="number" step="0.01" class="form-control inp ltva tva" value="0" disabled>
+                <input type="number" step="0.01" class="form-control inp ltva tva" value="20">
             </div>
             <div class="col">
                 <label for="reduction">Reduction</label>
@@ -92,34 +92,34 @@
     </div>
     <div class="form-group w-25">
         <label for="remise">Remise générale</label>
-        <input type="number" step="0.01" class="form-control" id="remise" placeholder="%">
+        <input type="number" step="0.01" class="form-control" id="remise" value="0">
     </div>
     <div class="jumbotron p-3 text-dark font-weight-bold">
-        <table class="table table-borderless text-dark ">
+        <table class="table table-borderless text-dark text-right">
             <tr>
-                <td class="w-75"></td>
-                <td>Total HT</td>
-                <td><span id="TotalHT">2100</span></td>
+                <td class="w-50"></td>
+                <td class="w-50">Total HT</td>
+                <td><span id="totalht">0</span></td>
             </tr>
             <tr>
                 <td></td>
-                <td>Remise générale </td>
-                <td><span id="remise_span">312312</span></td>
+                <td>Remise générale</td>
+                <td><span id="remise_span">0</span></td>
             </tr>
             <tr>
                 <td></td>
-                <td>Total HT final </td>
-                <td><span id="HTfinal">32132</span></td>
+                <td>Total HT final</td>
+                <td><span id="htfinal">0</span></td>
             </tr>
             <tr>
                 <td></td>
-                <td>TVA </td>
-                <td><span id="tva_tot">231</span></td>
+                <td>TVA</td>
+                <td><span id="tva_tot">0</span></td>
             </tr>
             <tr>
                 <td></td>
-                <td>Total </td>
-                <td><span id="total">32131</span></td>
+                <td>Total</td>
+                <td><span id="total">0</span></td>
             </tr>
         </table>
     </div>

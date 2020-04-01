@@ -1,10 +1,11 @@
 <?php $__env->startSection('content'); ?>
 
-<form method="post" class="w-100 text-dark" id="form1">
-
+<form method="post" class="w-100 text-dark" id="form6">
     <div class="form-group">
         <label for="email">Adresse email</label>
         <input type="text" name="email" id="email" class="form-control w-50">
+        <span class="email text-danger d-none">n'est pas une adresse email valide</span>
+        <span class="email_ text-danger d-none">doit etre rempli</span>
     </div>
     <div class="form-group">
         <label for="pass">Mot de passe actuel</label>
@@ -23,6 +24,13 @@
     </div>
 
 </form>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('scripts'); ?>
+
+<script src="<?php echo e(asset('js/settings/validate.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('parametres/struct', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/parametres/compte/change.blade.php ENDPATH**/ ?>

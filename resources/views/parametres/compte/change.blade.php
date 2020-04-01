@@ -3,11 +3,12 @@
 
 @section('content')
 
-<form method="post" class="w-100 text-dark" id="form1">
-
+<form method="post" class="w-100 text-dark" id="form6">
     <div class="form-group">
         <label for="email">Adresse email</label>
         <input type="text" name="email" id="email" class="form-control w-50">
+        <span class="email text-danger d-none">n'est pas une adresse email valide</span>
+        <span class="email_ text-danger d-none">doit etre rempli</span>
     </div>
     <div class="form-group">
         <label for="pass">Mot de passe actuel</label>
@@ -26,5 +27,12 @@
     </div>
 
 </form>
+
+@endsection
+
+
+@section('scripts')
+
+<script src="{{ asset('js/settings/validate.js') }}"></script>
 
 @endsection
