@@ -11,7 +11,8 @@
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
-        <?php if($obj=='devis' || $obj=='facture'): ?>
+        
+<!--
         <li class="nav-item">
             <a class="nav-link" href="#" id="finalise" role="button" title="Finaliser">
                 <span class="badge badge-success" style="padding: 12px 5px"><i class="far fa-check-circle" style="font-size:22px"></i></span>
@@ -42,29 +43,12 @@
                 <span class="badge badge-dark" style="padding: 12px 5px"><i class="fas fa-download" style="font-size:22px"></i></span>
             </a>
         </li>
-        <?php endif; ?>
-       <!--        <i class="far fa-calendar-times"></i>-->
+-->
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v fa-lg fa-fw text-dark"></i>
-            </a>
-            
-               <?php if($obj=='client' || $obj=='société'): ?>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Modifier</a>
-                <a class="dropdown-item" href="#">Supprimer</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item disabled" href="#">Pour ce<?php echo e(($obj=='client')?' '.$obj:'tte '.$obj); ?></a>
-                <?php if($obj=='société'): ?>
-                <a class="dropdown-item" href="#">Créer un client</a>
-                <?php endif; ?>
-                <a class="dropdown-item" href="#">Créer un devis</a>
-                <a class="dropdown-item" href="#">Créer une facture</a>
-            </div>
-            <?php endif; ?>
+            <?php echo $__env->make($path.'includes.dropdown', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </li>
+        
     </ul>
 
 </nav>

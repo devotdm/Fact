@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $('#tva_check').change(tvaAppli);
-    
+
     function tvaAppli(){
         if($("#tva_check").is(':checked')){
             $('.ltva').prop('disabled', true);
@@ -13,6 +13,50 @@ $(document).ready(function () {
         }
     }
 
+    function nbrSpan(){
+        for (var i = 0; i < $('.line').length; i++) {
+            var $cmp = i+1;
+            $('.nbr').eq(i).text($cmp);
+        }
+    }
+
+    function closeAbility(){
+        if($('.line').length == 1){
+            if(!$('.c_ligne').hasClass('disabled'));
+            $('.c_ligne').addClass('disabled');
+        }
+        else {
+            if($('.c_ligne').hasClass('disabled'))
+                $('.c_ligne').removeClass('disabled');
+        }
+    }
+
+
+    function closeLine(event){
+        event.preventDefault();
+        $(this).parent().parent().remove();
+
+        nbrSpan();
+        closeAbility();
+    }
+
+    function duplicateLine(event){
+        event.preventDefault();
+        var line = $(this).parent().parent();
+        var new_line = line.clone();
+        new_line.appendTo('.container-fluid').insertAfter(line);
+
+        nbrSpan();
+        closeAbility();
+        
+        console.log($('.line').length);
+
+        $('.c_ligne').click(closeLine);
+        
+        $('.d_ligne').click(duplicateLine);
+        
+    }
+
     var new_data = $('.line').clone();
     $('#btn').click(function(e){
         e.preventDefault();
@@ -22,10 +66,13 @@ $(document).ready(function () {
         });
         tvaAppli();
 
-        for (var $i = 0; $i < $('.line').length; $i++) {
-            var $cmp = $i+1;
-            $('.nbr').eq($i).text($cmp);
-        }
+        nbrSpan();
+        closeAbility();
+
+        $('.c_ligne').click(closeLine);
+        
+        $('.d_ligne').click(duplicateLine);
+        
     });
 
     setInterval(calcLigne,500);
@@ -33,18 +80,18 @@ $(document).ready(function () {
     function calcLigne() {
         var $tht = 0;
         var $tva_t = 0;
-        for (var $i = 0; $i < $('.line').length; $i++) {
-            var $qt = parseFloat($(".qtity").eq($i).val());
-            var $ht = parseFloat($(".ht").eq($i).val());
-            var $tvap = parseFloat($(".tva").eq($i).val());
-            var $rdp = parseFloat($(".reduction").eq($i).val());
+        for (var i = 0; i < $('.line').length; i++) {
+            var $qt = parseFloat($(".qtity").eq(i).val());
+            var $ht = parseFloat($(".ht").eq(i).val());
+            var $tvap = parseFloat($(".tva").eq(i).val());
+            var $rdp = parseFloat($(".reduction").eq(i).val());
             var $t = $qt*$ht;
             var $rdn = $t*$rdp/100;
             var $tvan = $t*$tvap/100;
             $t -= $rdn;
             var $tf = $t+$tvan;
-            $(".total_ht").eq($i).val($t);
-            $(".total_ttc").eq($i).val($tf);
+            $(".total_ht").eq(i).val($t);
+            $(".total_ttc").eq(i).val($tf);
             $tht += parseFloat($t);
             $tva_t += parseFloat($tvan);
         }
@@ -59,13 +106,16 @@ $(document).ready(function () {
         $("#total").text(($total).toFixed(2));
     }
 
-    //        $('.c_ligne').click(function(e){
-    //            e.preventDefault();
-    //            $(this).parent().parent().remove();
-    //    
-    //            // for (var $i = 0; $i < $('.line').length; $i++) {
-    //            //     var $cmp = $i+1;
-    //            //     $('.nbr').eq($i).text($cmp);
-    //            // }
-    //        });
+    //    setInterval(function(){
+    //        console.log($('.line').length);
+    //    },500);
+
+
+    $('.c_ligne').click(closeLine);
+    
+    $('.d_ligne').click(duplicateLine);
+    
+
+
+
 });
