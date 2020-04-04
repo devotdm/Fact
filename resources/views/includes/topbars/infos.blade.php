@@ -6,49 +6,48 @@
         <i class="fa fa-bars"></i>
     </button>
 
-    <h3 class="ml-2">Titre</h3>
-
+    <h3 class="ml-2"> {{ $header }} </h3>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
-        
-<!--
-        <li class="nav-item">
-            <a class="nav-link" href="#" id="finalise" role="button" title="Finaliser">
-                <span class="badge badge-success" style="padding: 12px 5px"><i class="far fa-check-circle" style="font-size:22px"></i></span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" id="edit" role="button" title="Modifier">
-                <span class="badge badge-info" style="padding: 12px 5px"><i class="fas fa-pen" style="font-size:22px"></i></span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" id="delete" role="button" title="Supprimer">
-                <span class="badge badge-danger" style="padding: 12px 5px"><i class="fas fa-trash" style="font-size:22px"></i></span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" id="signe" role="button" title="Signer">
-                <span class="badge badge-success" style="padding: 12px 7px"><i class="fas fa-clipboard-check" style="font-size:22px"></i></span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" id="mail" role="button" title="Envoyer par mail">
-                <span class="badge badge-dark" style="padding: 12px 7px"><i class="far fa-envelope" style="font-size:22px"></i></span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" id="download" role="button" title="Télécharger">
-                <span class="badge badge-dark" style="padding: 12px 5px"><i class="fas fa-download" style="font-size:22px"></i></span>
-            </a>
-        </li>
+
+        <!--
+<li class="nav-item">
+<a class="nav-link" href="#" id="finalise" role="button" title="Finaliser">
+<span class="badge badge-success" style="padding: 12px 5px"><i class="far fa-check-circle" style="font-size:22px"></i></span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" id="edit" role="button" title="Modifier">
+<span class="badge badge-info" style="padding: 12px 5px"><i class="fas fa-pen" style="font-size:22px"></i></span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" id="delete" role="button" title="Supprimer">
+<span class="badge badge-danger" style="padding: 12px 5px"><i class="fas fa-trash" style="font-size:22px"></i></span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" id="signe" role="button" title="Signer">
+<span class="badge badge-success" style="padding: 12px 7px"><i class="fas fa-clipboard-check" style="font-size:22px"></i></span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" id="mail" role="button" title="Envoyer par mail">
+<span class="badge badge-dark" style="padding: 12px 7px"><i class="far fa-envelope" style="font-size:22px"></i></span>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" id="download" role="button" title="Télécharger">
+<span class="badge badge-dark" style="padding: 12px 5px"><i class="fas fa-download" style="font-size:22px"></i></span>
+</a>
+</li>
 -->
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             @include($path.'includes.dropdown')
         </li>
-        
+
     </ul>
 
 </nav>

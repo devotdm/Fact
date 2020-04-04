@@ -17,24 +17,32 @@
     </div>
 </nav>
 <div class="row">
+    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col">
         <div class="card shadow mt-4">
             <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
-                <span><h5 class="card-title mb-3 font-weight-bold text-dark"><a href="<?php echo e(url('factures/info')); ?>">Provisioire</a></h5>
+                <span><h5 class="card-title mb-3 font-weight-bold text-dark">
+                    <?php if($data->statut=='provisoire'): ?>
+                    <a href="<?php echo e(url('factures/info')); ?>"> <?php echo e(ucfirst(trans($data->statut))); ?></a>
+                    <?php else: ?>
+                    <a href="<?php echo e(url('factures/info')); ?>"> <?php echo e($data->id_num); ?></a><span class="text-important"><?php echo e(ucfirst(trans($data->statut))); ?></span>
+                    <?php endif; ?>
+                    </h5>
                     <h6><a class="text-dark" href="<?php echo e(url('clients/info')); ?>">Client Test</a> - <a class="text-dark" href="<?php echo e(url('societes/info')); ?>">Societe Test</a></h6>
                 </span>
                 <div class="dropdown no-arrow">
-                <?php echo $__env->make($path.'includes.dropdown', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make($path.'includes.dropdown', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
             </div>
             <div class="card-body">
-                <p class="card-text"><i class="fas fa-sticky-note mr-3"></i>1000.00د .م</p>
-                <p class="card-text"><i class="far fa-clock mr-2"></i>06 mars 2020</p>
+                <span class="card-text"><i class="fas fa-sticky-note mr-2"></i><?php echo e($data->total.' '.$data->devise); ?></span>
+                <span class="card-text ml-3"><i class="far fa-clock mr-2"></i><?php echo e(date('d F Y', strtotime($data->created_at))); ?></span>
                 <hr>
                 <span class="text-white bg-danger p-2">Motcle</span>
             </div>
         </div>
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 
 <?php $__env->stopSection(); ?>

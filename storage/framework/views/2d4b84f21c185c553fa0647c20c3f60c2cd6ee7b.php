@@ -7,23 +7,31 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="row">
+    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col-lg-4 col-md-6 col-sm-12">
-        <div class="card shadow mt-4">
+        <div class="card shadow mt-4" style="height: 13rem;">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <span><h5 class="card-title mb-3 font-weight-bold text-dark"><a href="<?php echo e(url('societes/info')); ?>">Societe Test</a></h5>
+                <span><h5 class="card-title mb-3 font-weight-bold text-dark"><a href="<?php echo e(url('societes/info/'.$data->id)); ?>"> <?php echo e($data->nom); ?> </a></h5>
                 <h6 class="card-subtitle text-muted">2 Clients</h6></span>
                 <div class="dropdown no-arrow">
                     <?php echo $__env->make($path.'includes.dropdown', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
             </div>
             <div class="card-body">
-                <p class="card-text"><i class="fas fa-location-arrow mr-2"></i>Sociéte 1,Rue sociéte 1,Safi,Maroc</p>
-                <p class="card-text"><i class="fas fa-phone-alt mr-2"></i>0223812771</p>
+                <?php if(isset($data->adresse)): ?>
+                <p class="card-text"><i class="fas fa-location-arrow mr-2"></i> <?php echo e($data->adresse); ?> </p>
+                <?php endif; ?>
+                <?php if(isset($data->tele)): ?>
+                <p class="card-text"><i class="fas fa-phone-alt mr-2"></i> <?php echo e($data->tele); ?> </p>
+                <?php endif; ?>
+<!--
                 <hr>
                 <span class="text-white bg-danger p-2">Motcle</span>
+-->
             </div>
         </div>
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 
 

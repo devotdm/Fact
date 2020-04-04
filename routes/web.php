@@ -15,45 +15,31 @@ Route::get('/', function () {
     return view('index')->with(array('title'=>'Accueil' , 'ind'=>'0'  , 'path'=>''));
 });
 
-Route::get('clients/list', function () {
-    return view('clients.list')->with(array('title'=>'Gérer les clients', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
-});
+Route::get('clients/list', "ClientCtrl@ShowList");
 
 Route::get('clients/new', function () {
     return view('clients.new')->with(array('title'=>'Ajouter un client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
 });
 
-Route::get('clients/info', function () {
-    return view('clients.info')->with(array('title'=>'Infos du client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
-});
+Route::get('clients/info/{id}', "ClientCtrl@ShowInfo");
 
-Route::get('societes/list', function () {
-    return view('societes.list')->with(array('title'=>'Gérer les sociétés', 'obj'=>'société' , 'ind'=>'2' , 'path'=>'../'));
-});
+Route::get('societes/list', "SocieteCtrl@ShowList");
 
 Route::get('societes/new', function () {
     return view('societes.new')->with(array('title'=>'Ajouter une société', 'obj'=>'société' , 'ind'=>'2' , 'path'=>'../'));
 });
 
-Route::get('societes/info', function () {
-    return view('societes.info')->with(array('title'=>'Infos du société', 'obj'=>'société' , 'ind'=>'2' , 'path'=>'../'));
-});
+Route::get('societes/info/{id}', "SocieteCtrl@ShowInfo");
 
-Route::get('devis/list', function () {
-    return view('devis.list')->with(array('title'=>'Gérer les devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
-});
+Route::get('devis/list', "DevisCtrl@ShowList");
 
 Route::get('devis/new', function () {
     return view('devis.new')->with(array('title'=>'Ajouter un devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
 });
 
-Route::get('devis/info', function () {
-    return view('devis.info')->with(array('title'=>'Ajouter un devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
-});
+Route::get('devis/info/{id}', "DevisCtrl@ShowInfo");
 
-Route::get('factures/list', function () {
-    return view('factures.list')->with(array('title'=>'Gérer les factures', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
-});
+Route::get('factures/list', "FactureCtrl@ShowList");
 
 Route::get('factures/new', function () {
     return view('factures.new')->with(array('title'=>'Ajouter une facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));

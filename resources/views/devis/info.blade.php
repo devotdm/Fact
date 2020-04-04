@@ -17,40 +17,40 @@
             <tbody>
                 <tr class="border-bottom">
                     <td class="text-secondary w-50">Statut : </td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ ucfirst(trans($data->statut)) }}</td>
                 </tr>
                 <tr class="border-bottom">
                     <td class="text-secondary">Créé le :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $data->created_at }}</td>
                 </tr>
                 <tr class="border-bottom">
                     <td class="text-secondary">Derniére modification le  :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $data->updated_at }}</td>
                 </tr>
-
+                @if(isset($data->duree))
                  <tr class="border-bottom">
                     <td class="text-secondary">Durée de validité :</td>
-                    <td class="text-dark font-weight-bold"></td>
-
+                    <td class="text-dark font-weight-bold">{{ $data->duree.' jours' }}</td>
                 </tr>
-
+                @endif
+                @if(isset($data->duree))
                 <tr class="border-bottom">
                     <td class="text-secondary">Mots clés :</td>
-                    <td class="text-dark font-weight-bold"></td>
-
+                    <td class="text-dark font-weight-bold">{{ $data->mot_cle }}</td>
                 </tr>
+                @endif
             </tbody>
         </table>
     </div>
-
-
-
+    
     <div class="col-lg-6 mb-3">
-      <h3 class="text-dark">Votre devis est prete ?</h3><br><br>
+     @if($data->statut == 'provisoire')
+      <h3 class="text-dark">Votre devis est prete ?</h3>
       <p>Finalisez votre devis a l'aide du bouton<i class="far fa-check-circle ml-2 mr-2 text-success"></i>ci-dessus pour pouvoir l'envoyer au client. </p>
       <p>Attention un devis finalisé n'est plus modifiable.</p>
+      @endif
       <h3 class="text-dark">Documents liés</h3>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aucun document lié </p>
+      <p>aucun document lié </p>
     </div>
 
     <div class="col-lg-6 mb-3">
@@ -93,18 +93,18 @@
             <tbody>
                 <tr class="border-bottom">
                     <td class="text-secondary w-50">Conditions de règlement :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $data->cond_reg }}</td>
                 </tr>
                 <tr class="border-bottom">
                     <td class="text-secondary">Mode de règlement :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $data->mode_reg }}</td>
                 </tr>
             </tbody>
         </table>
 
 </div>
 <div class="col">
-<h3>Détail</h3>
+<h3>Détails</h3>
 </div>
 
 
@@ -120,13 +120,12 @@
 
             </tr>
             <tr class="border-bottom">
-                <td class="font-weight-bold">Service</td>
-                <td class="font-weight-bold">Service X</td>
-                <td class="font-weight-bold text-right">500,00</td>
-                <td class="font-weight-bold text-right">2</td>
-                <td class="font-weight-bold text-right">20%</td>
-                <td class="font-weight-bold text-right">1 000,00</td>
-
+                <td class="font-weight-bold"></td>
+                <td class="font-weight-bold"></td>
+                <td class="font-weight-bold text-right"></td>
+                <td class="font-weight-bold text-right"></td>
+                <td class="font-weight-bold text-right"></td>
+                <td class="font-weight-bold text-right"></td>
             </tr>
         
             <tr>
@@ -136,13 +135,13 @@
             </tr>
             <tr>
                 <td colspan="4" class="font-weight-bold text-right pb-0"></td>
-                <td class="font-weight-bold text-right">TVA(20%)</td>
+                <td class="font-weight-bold text-right">Total TVA</td>
                 <td class="font-weight-bold text-right">200,00</td>
             </tr>
             <tr>
                 <td colspan="4" class="font-weight-bold text-right pb-0"></td>
                 <td class="font-weight-bold text-right">Total TTC</td>
-                <td class="font-weight-bold text-right">1 200,00</td>
+                <td class="font-weight-bold text-right">{{ $data->total }}</td>
             </tr>
         </table>
 </div>

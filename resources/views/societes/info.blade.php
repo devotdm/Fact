@@ -17,26 +17,48 @@
     <div class="col-lg-6">
         <table class="table table-borderless mt-3">
             <tbody>
+                @if(isset($data->code_ice))
                 <tr class="border-bottom">
-                    <td class="text-secondary w-50">Numero de societe :</td>
-                    <td class="text-dark font-weight-bold">Gerant</td>
+                    <td class="text-secondary">Numero de societe :</td>
+                    <td class="text-dark font-weight-bold">{{ $data->code_ice }}</td>
                 </tr>
+                @endif
+                @if(isset($data->tva))
+                <tr class="border-bottom">
+                    <td class="text-secondary">Numero de tva :</td>
+                    <td class="text-dark font-weight-bold">{{ $data->tva }}</td>
+                </tr>
+                @endif
+                @if(isset($_data->adresse))
                 <tr class="border-bottom">
                     <td class="text-secondary">Adresse :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $_data->adresse }}</td>
                 </tr>
+                @endif
+                @if(isset($data->pays))
                 <tr class="border-bottom">
                     <td class="text-secondary">Pays :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $_data->pays }}</td>
                 </tr>
+                @endif
+                @if(isset($data->tele))
                 <tr class="border-bottom">
                     <td class="text-secondary">Numero de telephone : </td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $data->tele }}</td>
                 </tr>
+                @endif
+                @if(isset($data->site))
                 <tr class="border-bottom">
                     <td class="text-secondary">Site internet :</td>
-                    <td class="text-dark font-weight-bold"></td>
+                    <td class="text-dark font-weight-bold">{{ $_data->site }}</td>
                 </tr>
+                @endif
+                @if(isset($data->mot_cle))
+                <tr class="border-bottom">
+                    <td class="text-secondary">Mot clés :</td>
+                    <td class="text-dark font-weight-bold">{{ $data->mot_cle }}</td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>
