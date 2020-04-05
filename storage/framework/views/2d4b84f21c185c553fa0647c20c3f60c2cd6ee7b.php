@@ -11,7 +11,8 @@
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="card shadow mt-4" style="height: 13rem;">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <span><h5 class="card-title mb-3 font-weight-bold text-dark"><a href="<?php echo e(url('societes/info/'.$data->id)); ?>"> <?php echo e($data->nom); ?> </a></h5>
+                <span><h5 class="card-title mb-3 font-weight-bold text-dark">
+                <a href="<?php echo e(url('societes/info/'.$data->id)); ?>"> <?php echo e($data->nom); ?> </a></h5>
                 <h6 class="card-subtitle text-muted">2 Clients</h6></span>
                 <div class="dropdown no-arrow">
                     <?php echo $__env->make($path.'includes.dropdown', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

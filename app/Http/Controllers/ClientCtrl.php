@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Client;
 use App\Societe;
+use App\Devi;
+use App\Facture;
 
 class ClientCtrl extends Controller
 {
@@ -13,20 +15,27 @@ class ClientCtrl extends Controller
         $data = Client::All();
         $count = count($data);
 
-        return view('clients.list')->with(array('data'=> $data, 'count'=> $count,'title'=>'Gérer les clients', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
+        return view('clients.list')->with(array('data'=> $data, 'count'=> $count, 'title'=>'Gérer les clients', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
     }
 
     function ShowInfo($id) {
         $data = Client::find($id);
-        $_data = Societe::find($data->societe_id);
+
+        $dataD = Client::with(['devis' => function($query) { $query->with('client'); }])
+            ->where('id',$id)->first()->devis;
+
+        $dataF = Client::with(['factures' => function($query) { $query->with('client'); }])
+            ->where('id',$id)->first()->factures;
+
+        $countD = count($dataD);
+        $countF = count($dataF);
         
-        $header = "";
-        if(isset($data->societe_id)){
-            $header = $data->prenom." ".$data->nom." de ".$_data->nom;
-        } else {
-            $header = $data->prenom." ".$data->nom;
-        }
+        $header = $data->prenom." ".$data->nom;
+        if(isset($data->societe_id))
+            $header .= " de ".$data->societe->nom;
         
-        return view('clients.info')->with(array('data'=> $data, '_data'=> $_data, 'header'=> $header, 'title'=>'Infos du client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
+        return view('clients.info')->with(array('data'=> $data, 'header'=> $header,
+        'dataD'=> $dataD, 'dataF'=> $dataF, 'countD'=> $countD, 'countF'=> $countF, 
+         'title'=>'Infos du client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../../'));
     }
 }

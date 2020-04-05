@@ -33,6 +33,8 @@ Route::get('societes/info/{id}', "SocieteCtrl@ShowInfo");
 
 Route::get('devis/list', "DevisCtrl@ShowList");
 
+Route::get('devis/list/{s}', "DevisCtrl@ShowListF");
+
 Route::get('devis/new', function () {
     return view('devis.new')->with(array('title'=>'Ajouter un devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
 });
@@ -41,13 +43,13 @@ Route::get('devis/info/{id}', "DevisCtrl@ShowInfo");
 
 Route::get('factures/list', "FactureCtrl@ShowList");
 
+Route::get('factures/list/{s}', "FactureCtrl@ShowListF");
+
 Route::get('factures/new', function () {
     return view('factures.new')->with(array('title'=>'Ajouter une facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
 });
 
-Route::get('factures/info', function () {
-    return view('factures.info')->with(array('title'=>'Infos du facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
-});
+Route::get('factures/info/{id}', "FactureCtrl@ShowInfo");
 
 Route::get('parametres/', function () {
     return view('parametres.preferences.general')->with(array('title'=>'Paramètres | Préférences générales', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));

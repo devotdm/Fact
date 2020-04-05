@@ -10,6 +10,11 @@ class Ligne extends Model
     
     public function devis()
     {
-        return $this->belongsTo('App\Devi','devis_id');
+        return $this->belongsTo('App\Devi','devi_id');
+    }
+
+    public function facture()
+    {
+        return $this->belongsTo('App\Facture','facture_id');
     }
 }
