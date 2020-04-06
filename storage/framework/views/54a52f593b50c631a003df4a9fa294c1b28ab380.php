@@ -27,16 +27,16 @@
                     <td class="text-dark font-weight-bold"><?php echo e($data->tva); ?></td>
                 </tr>
                 <?php endif; ?>
-                <?php if(isset($_data->adresse)): ?>
+                <?php if(isset($data->adresse)): ?>
                 <tr class="border-bottom">
                     <td class="text-secondary">Adresse :</td>
-                    <td class="text-dark font-weight-bold"><?php echo e($_data->adresse); ?></td>
+                    <td class="text-dark font-weight-bold"><?php echo e($data->adresse); ?></td>
                 </tr>
                 <?php endif; ?>
                 <?php if(isset($data->pays)): ?>
                 <tr class="border-bottom">
                     <td class="text-secondary">Pays :</td>
-                    <td class="text-dark font-weight-bold"><?php echo e($_data->pays); ?></td>
+                    <td class="text-dark font-weight-bold"><?php echo e($data->pays); ?></td>
                 </tr>
                 <?php endif; ?>
                 <?php if(isset($data->tele)): ?>
@@ -48,7 +48,7 @@
                 <?php if(isset($data->site)): ?>
                 <tr class="border-bottom">
                     <td class="text-secondary">Site internet :</td>
-                    <td class="text-dark font-weight-bold"><?php echo e($_data->site); ?></td>
+                    <td class="text-dark font-weight-bold"><?php echo e($data->site); ?></td>
                 </tr>
                 <?php endif; ?>
                 <?php if(isset($data->mot_cle)): ?>
@@ -61,28 +61,28 @@
         </table>
     </div>
 </div>
-<?php if($count > 0): ?>
+<?php if(count($_data) > 0): ?>
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Clients(<?php echo e($count); ?>)</h4>
+        <h4 class="font-weight-bold">Clients(<?php echo e(count($_data)); ?>)</h4>
     </div>
     <?php echo $__env->make($path.'includes.layouts.clients.list',["data"=> $_data], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <?php endif; ?>
 
-<?php if($countD > 0): ?>
+<?php if(count($dataD) > 0): ?>
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Devis(<?php echo e($countD); ?>)</h4>
+        <h4 class="font-weight-bold">Devis(<?php echo e(count($dataD)); ?>)</h4>
     </div>
     <?php echo $__env->make($path.'includes.layouts.devis',["data"=> $dataD], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <?php endif; ?>
 
-<?php if($countF > 0): ?>
+<?php if(count($dataF) > 0): ?>
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Factures(<?php echo e($countF); ?>)</h4>
+        <h4 class="font-weight-bold">Factures(<?php echo e(count($dataF)); ?>)</h4>
     </div>
     <?php echo $__env->make($path.'includes.layouts.factures',["data"=> $dataF], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>

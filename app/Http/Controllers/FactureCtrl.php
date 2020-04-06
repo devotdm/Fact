@@ -11,38 +11,45 @@ class FactureCtrl extends Controller
 {
     function ShowList() {
         $data = Facture::All();
-        $count = count($data);
         $url = "";
         
-        return view('factures.list')->with(array('data'=> $data, 'count'=> $count, 'url'=> $url,
-            'title'=>'Gérer les factures', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
+        return view('factures.list')->with(array('data'=> $data, 'url'=> $url,
+            'title'=>'Factures', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
     }
 
     function ShowListF($s) {
-        $data = Facture::where('statut',$s)->get();
-        $count = count($data);
+        if($s=='provisoire') {
+            $data = Facture::where('statut',$s)->get();
+        }
+        else if($s=='finalisé') {
+            $data = Facture::whereNotNull('date_finalise')->get();
+        }
+        else if($s=='payée') {
+            $data = Facture::whereNotNull('date_payee')->get();
+        } else {
+            $data = Facture::whereNotNull('date_finalise')->whereNull('date_payee')->get();
+        }
         $url = $s;
 
-        return view('factures.list')->with(array('data'=> $data, 'count'=> $count, 'url'=> $url,
-            'title'=>'Gérer les factures', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
+        return view('factures.list')->with(array('data'=> $data, 'url'=> $url,
+            'title'=>'Factures', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
     }
 
     function ShowInfo($id) {
         $data = Facture::find($id);
-        $_data = Facture::with(['lignes' => function($query) { $query->with('Facture'); }])
-            ->where('id',$id)->first()->lignes;
+        $_data = Facture::where('id',$id)->first()->lignes;
         $dataC = Client::find($data->client_id);
         $dataS = Societe::find($dataC->societe_id);
 
-        $header = "";
+        $title = "Facture ";
         if($data->statut=='provisoire'){
-            $header = "Facture ".$data->statut;
+            $title .= $data->statut;
         } else {
-            $header = $data->id_num;
+            $title .= $data->id_num;
         }
 
-        return view('factures.info')->with(array('data'=> $data, '_data'=> $_data, 'header'=> $header, 'dataC'=> $dataC , 'dataS'=> $dataS, 
-         'title'=>'Infos du facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../../'));
+        return view('factures.info')->with(array('data'=> $data, '_data'=> $_data, 'dataC'=> $dataC , 'dataS'=> $dataS
+        ,'title'=>$title, 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../../'));
     }
 
 }

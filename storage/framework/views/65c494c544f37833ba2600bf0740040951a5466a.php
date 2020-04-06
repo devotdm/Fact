@@ -9,12 +9,32 @@
                 </tr>
                 <tr class="border-bottom">
                     <td class="text-secondary">Créé le :</td>
-                    <td class="text-dark font-weight-bold"><?php echo e($data->created_at); ?></td>
+                    <td class="text-dark font-weight-bold"><?php echo e(date('d F Y', strtotime($data->created_at)).' à '.date('h:m A', strtotime($data->created_at))); ?></td>
                 </tr>
+                <?php if(isset($data->updated_at)): ?>
                 <tr class="border-bottom">
                     <td class="text-secondary">Derniére modification le  :</td>
-                    <td class="text-dark font-weight-bold"><?php echo e($data->updated_at); ?></td>
+                    <td class="text-dark font-weight-bold"><?php echo e(date('d F Y', strtotime($data->updated_at)).' à '.date('h:m A', strtotime($data->updated_at))); ?></td>
+                </tr> 
+                <?php endif; ?>
+                <?php if($data->statut == 'finalisé'): ?>
+                <tr class="border-bottom">
+                    <td class="text-secondary">Finalisé le :</td>
+                    <td class="text-dark font-weight-bold"><?php echo e(date('d F Y', strtotime($data->date_finalise)).' à '.date('h:m A', strtotime($data->date_finalise))); ?></td>
                 </tr>
+                <?php endif; ?>
+                <?php if($data->statut == 'signé'): ?>
+                <tr class="border-bottom">
+                    <td class="text-secondary"><?php echo e(ucfirst(trans($data->statut))); ?> le :</td>
+                    <td class="text-dark font-weight-bold"><?php echo e(date('d F Y', strtotime($data->date_signe)).' à '.date('h:m A', strtotime($data->date_signe))); ?></td>
+                </tr>
+                <?php endif; ?>
+                <?php if($data->statut == 'payée'): ?>
+                <tr class="border-bottom">
+                    <td class="text-secondary"><?php echo e(ucfirst(trans($data->statut))); ?> le :</td>
+                    <td class="text-dark font-weight-bold"><?php echo e(date('d F Y', strtotime($data->date_payee)).' à '.date('h:m A', strtotime($data->date_payee))); ?></td>
+                </tr>
+                <?php endif; ?>
                 <?php if($ind == 3 && isset($data->duree)): ?>
                  <tr class="border-bottom">
                     <td class="text-secondary">Durée de validité :</td>
@@ -32,13 +52,13 @@
     </div>
     
     <div class="col-lg-6 mb-3">
-     <?php if($data->statut == 'provisoire'): ?>
-      <h3 class="text-dark">Votre devis est prete ?</h3>
-      <p>Finalisez votre devis a l'aide du bouton<i class="far fa-check-circle ml-2 mr-2 text-success"></i>ci-dessus pour pouvoir l'envoyer au client. </p>
-      <p>Attention un devis finalisé n'est plus modifiable.</p>
-      <?php endif; ?>
-      <h3 class="text-dark">Documents liés</h3>
-      <p>aucun document lié </p>
+        <?php if($data->statut == 'provisoire'): ?>
+        <h3 class="text-dark">Votre devis est prete ?</h3>
+        <p>Finalisez votre devis a l'aide du bouton<i class="far fa-check-circle ml-2 mr-2 text-success"></i>ci-dessus pour pouvoir l'envoyer au client. </p>
+        <p>Attention un devis finalisé n'est plus modifiable.</p>
+        <?php endif; ?>
+        <h3 class="text-dark">Documents liés</h3>
+        <p>aucun document lié </p>
     </div>
 
     <div class="col-lg-6 mb-3">

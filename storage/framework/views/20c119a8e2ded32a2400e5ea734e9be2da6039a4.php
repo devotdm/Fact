@@ -27,6 +27,7 @@
         <?php endif; ?>
         
         <?php if(isset($data->societe_id)): ?>
+
         <?php if(isset($data->societe->nom)): ?>
         <tr class="border-bottom">
             <td class="text-secondary">Societe :</td>
@@ -39,8 +40,8 @@
             <td class="text-dark font-weight-bold"><?php echo e($data->societe->adresse); ?></td>
         </tr>
         <?php endif; ?>
-        <?php if(isset($data->pays)): ?>
-        <tr class="border-bottom">
+        <?php if(isset($data->societe->pays)): ?>
+        <tr class="border-bottom">  
             <td class="text-secondary">Pays :</td>
             <td class="text-dark font-weight-bold"><?php echo e($data->societe->pays); ?></td>
         </tr>

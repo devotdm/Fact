@@ -6,7 +6,7 @@
         <i class="fa fa-bars"></i>
     </button>
 
-    <h3 class="ml-2"> <?php echo e($header); ?> </h3>
+    <h3 class="ml-2"> <?php echo e($title); ?> </h3>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 

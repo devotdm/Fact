@@ -1,12 +1,12 @@
 @foreach($data as $data)
-<div class="col">
+<div class="col-12">
     <div class="card shadow mt-4">
         <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
             <span><h5 class="card-title mb-3 font-weight-bold text-dark">
                 @if($data->statut=='provisoire')
                 <a href="{{ url('devis/info/'.$data->id) }}"> {{ ucfirst(trans($data->statut)) }}</a>
                 @else
-                <a href="{{ url('devis/info/'.$data->id) }}"> {{ $data->id_num }}</a><span class="text-important">{{ ucfirst(trans($data->statut)) }}</span>
+                <a href="{{ url('devis/info/'.$data->id) }}"> {{ $data->id_num }}</a><span class="text-success ml-2">{{ ucfirst(trans($data->statut)) }}</span>
                 @endif
                 </h5>
                 <h6><a class="text-dark" href="{{ url('clients/info/'.$data->client->id) }}">{{ $data->client->prenom.' '.$data->client->nom }}</a>

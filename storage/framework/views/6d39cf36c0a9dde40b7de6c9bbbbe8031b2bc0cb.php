@@ -6,7 +6,7 @@
         <i class="fa fa-bars"></i>
     </button>
     
-    <h3 class="ml-2"><?php echo e(($obj=='société'||$obj=='facture')?'Nouvelle':'Nouveau'); ?> <?php echo e($obj); ?></h3>
+    <h3 class="ml-2"> <?php echo e($title); ?> </h3>
 
 </nav>
 <!-- End of Topbar --><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////includes/topbars/news.blade.php ENDPATH**/ ?>

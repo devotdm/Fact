@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Devi extends Model
 {
     protected $fillable = ["client_id", "duree", "devise", "statut", "date_statut", "id_num", "total_ht", "remise","total_tva", "total", 
-        "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devis_id"];
+        "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id"];
     
     public function lignes()
     {

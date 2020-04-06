@@ -6,7 +6,7 @@
         <i class="fa fa-bars"></i>
     </button>
     
-    <h3 class="ml-2">{{ ($obj=='société'||$obj=='facture')?'Nouvelle':'Nouveau' }} {{ $obj }}</h3>
+    <h3 class="ml-2"> {{ $title }} </h3>
 
 </nav>
 <!-- End of Topbar -->

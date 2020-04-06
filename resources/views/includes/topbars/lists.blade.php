@@ -6,7 +6,7 @@
         <i class="fa fa-bars"></i>
     </button>
     
-    <h3 class="ml-2">{{ ucfirst(trans($obj)) }}{{ ($obj=='devis'?'':'s') }}({{ $count }})</h3>
+    <h3 class="ml-2">{{ $title.'('.count($data).')' }}</h3>
     <!-- Topbar Search -->
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search topsearch">
         <div class="input-group">

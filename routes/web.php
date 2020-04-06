@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('clients/list', "ClientCtrl@ShowList");
 
 Route::get('clients/new', function () {
-    return view('clients.new')->with(array('title'=>'Ajouter un client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
+    return view('clients.new')->with(array('title'=>'Nouveau client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
 });
 
 Route::get('clients/info/{id}', "ClientCtrl@ShowInfo");
@@ -26,7 +26,7 @@ Route::get('clients/info/{id}', "ClientCtrl@ShowInfo");
 Route::get('societes/list', "SocieteCtrl@ShowList");
 
 Route::get('societes/new', function () {
-    return view('societes.new')->with(array('title'=>'Ajouter une société', 'obj'=>'société' , 'ind'=>'2' , 'path'=>'../'));
+    return view('societes.new')->with(array('title'=>'Nouvelle société', 'obj'=>'société' , 'ind'=>'2' , 'path'=>'../'));
 });
 
 Route::get('societes/info/{id}', "SocieteCtrl@ShowInfo");
@@ -36,7 +36,7 @@ Route::get('devis/list', "DevisCtrl@ShowList");
 Route::get('devis/list/{s}', "DevisCtrl@ShowListF");
 
 Route::get('devis/new', function () {
-    return view('devis.new')->with(array('title'=>'Ajouter un devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
+    return view('devis.new')->with(array('title'=>'Nouveau devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
 });
 
 Route::get('devis/info/{id}', "DevisCtrl@ShowInfo");
@@ -46,7 +46,7 @@ Route::get('factures/list', "FactureCtrl@ShowList");
 Route::get('factures/list/{s}', "FactureCtrl@ShowListF");
 
 Route::get('factures/new', function () {
-    return view('factures.new')->with(array('title'=>'Ajouter une facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
+    return view('factures.new')->with(array('title'=>'Nouvelle facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
 });
 
 Route::get('factures/info/{id}', "FactureCtrl@ShowInfo");

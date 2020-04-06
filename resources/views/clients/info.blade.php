@@ -19,19 +19,19 @@
     </div>
 </div>
 
-@if ($countD > 0)
+@if (count($dataD) > 0)
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Devis({{ $countD }})</h4>
+        <h4 class="font-weight-bold">Devis({{ count($dataD) }})</h4>
     </div>
     @include($path.'includes.layouts.devis',["data"=> $dataD])
 </div>
 @endif
 
-@if ($countF > 0)
+@if (count($dataF) > 0)
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Factures({{ $countF }})</h4>
+        <h4 class="font-weight-bold">Factures({{ count($dataF) }})</h4>
     </div>
     @include($path.'includes.layouts.factures',["data"=> $dataF])
 </div>

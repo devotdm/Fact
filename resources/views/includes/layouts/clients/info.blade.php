@@ -27,6 +27,7 @@
         @endif
         
         @if(isset($data->societe_id))
+
         @if(isset($data->societe->nom))
         <tr class="border-bottom">
             <td class="text-secondary">Societe :</td>
@@ -39,8 +40,8 @@
             <td class="text-dark font-weight-bold">{{ $data->societe->adresse }}</td>
         </tr>
         @endif
-        @if(isset($data->pays))
-        <tr class="border-bottom">
+        @if(isset($data->societe->pays))
+        <tr class="border-bottom">  
             <td class="text-secondary">Pays :</td>
             <td class="text-dark font-weight-bold">{{ $data->societe->pays }}</td>
         </tr>

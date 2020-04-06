@@ -17,19 +17,19 @@
     </div>
 </div>
 
-<?php if($countD > 0): ?>
+<?php if(count($dataD) > 0): ?>
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Devis(<?php echo e($countD); ?>)</h4>
+        <h4 class="font-weight-bold">Devis(<?php echo e(count($dataD)); ?>)</h4>
     </div>
     <?php echo $__env->make($path.'includes.layouts.devis',["data"=> $dataD], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 <?php endif; ?>
 
-<?php if($countF > 0): ?>
+<?php if(count($dataF) > 0): ?>
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Factures(<?php echo e($countF); ?>)</h4>
+        <h4 class="font-weight-bold">Factures(<?php echo e(count($dataF)); ?>)</h4>
     </div>
     <?php echo $__env->make($path.'includes.layouts.factures',["data"=> $dataF], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>

@@ -1,12 +1,12 @@
 <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<div class="col">
+<div class="col-12">
     <div class="card shadow mt-4">
         <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
             <span><h5 class="card-title mb-3 font-weight-bold text-dark">
                 <?php if($data->statut=='provisoire'): ?>
                 <a href="<?php echo e(url('factures/info/'.$data->id)); ?>"> <?php echo e(ucfirst(trans($data->statut))); ?></a>
                 <?php else: ?>
-                <a href="<?php echo e(url('factures/info/'.$data->id)); ?>"> <?php echo e($data->id_num); ?></a><span class="text-important"><?php echo e(ucfirst(trans($data->statut))); ?></span>
+                <a href="<?php echo e(url('factures/info/'.$data->id)); ?>"> <?php echo e($data->id_num); ?></a><span class="text-success ml-2"><?php echo e(ucfirst(trans($data->statut))); ?></span>
                 <?php endif; ?>
                 </h5>
                 <h6><a class="text-dark" href="<?php echo e(url('clients/info/'.$data->client->id)); ?>"><?php echo e($data->client->prenom.' '.$data->client->nom); ?></a>

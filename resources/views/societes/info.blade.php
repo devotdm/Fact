@@ -29,16 +29,16 @@
                     <td class="text-dark font-weight-bold">{{ $data->tva }}</td>
                 </tr>
                 @endif
-                @if(isset($_data->adresse))
+                @if(isset($data->adresse))
                 <tr class="border-bottom">
                     <td class="text-secondary">Adresse :</td>
-                    <td class="text-dark font-weight-bold">{{ $_data->adresse }}</td>
+                    <td class="text-dark font-weight-bold">{{ $data->adresse }}</td>
                 </tr>
                 @endif
                 @if(isset($data->pays))
                 <tr class="border-bottom">
                     <td class="text-secondary">Pays :</td>
-                    <td class="text-dark font-weight-bold">{{ $_data->pays }}</td>
+                    <td class="text-dark font-weight-bold">{{ $data->pays }}</td>
                 </tr>
                 @endif
                 @if(isset($data->tele))
@@ -50,7 +50,7 @@
                 @if(isset($data->site))
                 <tr class="border-bottom">
                     <td class="text-secondary">Site internet :</td>
-                    <td class="text-dark font-weight-bold">{{ $_data->site }}</td>
+                    <td class="text-dark font-weight-bold">{{ $data->site }}</td>
                 </tr>
                 @endif
                 @if(isset($data->mot_cle))
@@ -63,28 +63,28 @@
         </table>
     </div>
 </div>
-@if ($count > 0)
+@if (count($_data) > 0)
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Clients({{ $count }})</h4>
+        <h4 class="font-weight-bold">Clients({{ count($_data) }})</h4>
     </div>
     @include($path.'includes.layouts.clients.list',["data"=> $_data])
 </div>
 @endif
 
-@if ($countD > 0)
+@if (count($dataD) > 0)
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Devis({{ $countD }})</h4>
+        <h4 class="font-weight-bold">Devis({{ count($dataD) }})</h4>
     </div>
     @include($path.'includes.layouts.devis',["data"=> $dataD])
 </div>
 @endif
 
-@if ($countF > 0)
+@if (count($dataF) > 0)
 <div class="row mb-4">
     <div class="col-12">
-        <h4 class="font-weight-bold">Factures({{ $countF }})</h4>
+        <h4 class="font-weight-bold">Factures({{ count($dataF) }})</h4>
     </div>
     @include($path.'includes.layouts.factures',["data"=> $dataF])
 </div>
