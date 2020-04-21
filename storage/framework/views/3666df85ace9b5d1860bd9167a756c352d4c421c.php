@@ -1,47 +1,109 @@
-
 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fas fa-ellipsis-v fa-md fa-fw text-dark"></i>
 </a>
 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-    <?php if($obj=='facture' || $obj=='devis'): ?>
-    <a class="dropdown-item" href="#">Finaliser</a>
+    <?php if( ($obj=='facture' || $obj=='devis') && $data->statut == 'provisoire'): ?>
+    <a class="dropdown-item" href="" data-toggle="modal" data-target="#confirm-finalise<?php echo e($index); ?>">Finaliser</a>
     <?php endif; ?>
-    <a class="dropdown-item" href="#">Modifier</a>
-    <a class="dropdown-item" href="#">Supprimer</a>
-    <?php if($obj=='devis'): ?>
-    <a class="dropdown-item" href="#">Marquer comme signé</a>
-    <a class="dropdown-item" href="#">Marquer comme refusé</a>
-    <a class="dropdown-item" href="#">Annuler la signature</a>
+    <?php if($obj != 'devis' || ($obj == 'devis' && $data->statut == 'provisoire')): ?>
+    <a class="dropdown-item" href="<?php echo e(url($road.'/edit/'.$data->id)); ?>">Modifier</a>
+    <a class="dropdown-item" href="" data-toggle="modal" data-target="#confirm-delete<?php echo e($index); ?>">Supprimer</a>
     <?php endif; ?>
-    <?php if($obj=='facture'): ?>
-    <a class="dropdown-item" href="#">Marquer comme payée</a>
-    <a class="dropdown-item" href="#">Annuler la paiement</a>
+    <?php if($obj=='devis' && ($data->statut == 'finalisé' || !isset($data->statut))): ?>
+    <a class="dropdown-item" href="" data-toggle="modal" data-target="#confirm-signature<?php echo e($index); ?>">Marquer comme signé</a>
+    <a class="dropdown-item" href="<?php echo e(url($road.'/statut/'.$data->id.'/refusé')); ?>">Marquer comme refusé</a>
     <?php endif; ?>
-    <?php if($obj=='facture' || $obj=='devis'): ?>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Télécharger</a>
-    <a class="dropdown-item" href="#">Envoyer par e-mail</a>
+    <?php if($obj=='devis' && $data->statut == 'signé'): ?>
+    <a class="dropdown-item" href="" data-toggle="modal" data-target="#confirm-cancel<?php echo e($index); ?>">Annuler la signature</a>
     <?php endif; ?>
+    <?php if($obj=='devis' && $data->statut == 'refusé'): ?>
+    <a class="dropdown-item" href="" data-toggle="modal" data-target="#confirm-cancel<?php echo e($index); ?>">Annuler le refus</a>
+    <?php endif; ?>
+    <?php if($obj=='facture' && ($data->statut == 'finalisé' || !isset($data->statut))): ?>
+    <a class="dropdown-item" href="">Marquer comme payée</a>
+    <?php endif; ?>
+    <?php if($obj=='facture' && $data->statut == 'payée'): ?>
+    <a class="dropdown-item" href="">Annuler la paiement</a>
+    <?php endif; ?>
+    
     <div class="dropdown-divider"></div>
     <span class="dropdown-item disabled">Pour ce<?php echo e(($obj=='client' || $obj=='devis') ? ' '.$obj : 'tte '.$obj); ?></span>
     <?php if($obj=='société'): ?>
-    <a class="dropdown-item" href="#">Créer un client</a>
+    <a class="dropdown-item" href="<?php echo e(url('clients/new/'.$data->id)); ?>">Créer un client</a>
     <?php endif; ?>
     <?php if($obj!='facture'): ?>
-    <a class="dropdown-item" href="#">Créer une facture</a>
+    <a class="dropdown-item" href="">Créer une facture</a>
     <?php endif; ?>
     <?php if($obj!='devis'): ?>
-    <a class="dropdown-item" href="#">Créer un devis</a>
+    <a class="dropdown-item" href="">Créer un devis</a>
     <?php endif; ?>
     <?php if($obj=='facture'): ?>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Duppliquer la facture</a>
-    <a class="dropdown-item" href="#">Duppliquer en devis</a>
+    <a class="dropdown-item" href="">Duppliquer la facture</a>
+    <a class="dropdown-item" href="">Duppliquer en devis</a>
     <?php endif; ?>
     <?php if($obj=='devis'): ?>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Duppliquer le devis</a>
-    <a class="dropdown-item" href="#">Duppliquer en facture</a>
+    <a class="dropdown-item" href="">Duppliquer le devis</a>
+    <a class="dropdown-item" href="">Duppliquer en facture</a>
     <?php endif; ?>
 </div>
-<?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////includes/dropdown.blade.php ENDPATH**/ ?>
+
+<div class="modal fade" id="confirm-delete<?php echo e($index); ?>" tabindex="-1" role="dialog"
+          aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">Voulez-vous vraiment supprimer ce<?php echo e(($obj=='client' || $obj=='devis') ? ' '.$obj : 'tte '.$obj); ?> ?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                <a href="<?php echo e(url($road.'/delete/'.$data->id)); ?>" class="btn btn-success btn-ok">Confirmer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-finalise<?php echo e($index); ?>" tabindex="-1" role="dialog"
+          aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Vous êtes sur le point de transformer ce brouillon en <?php echo e($obj); ?> officiel. <br> <br> Cela lui attribuera un numéro et vous permettra de l'envoyer à votre client. <br> <br>
+                Cette action n'est pas réversible. Vous ne pourrez plus modifier ou effacer ce devis. <br> <br> Confirmez-vous cette action ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                <a href="<?php echo e(url($road.'/statut/'.$data->id.'/finalisé')); ?>" class="btn btn-success btn-ok">Confirmer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-signature<?php echo e($index); ?>" tabindex="-1" role="dialog"
+          aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Marquer ce <?php echo e($obj); ?> comme signé ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                <a href="<?php echo e(url($road.'/statut/'.$data->id.'/signé')); ?>" class="btn btn-success btn-ok">Confirmer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-cancel<?php echo e($index); ?>" tabindex="-1" role="dialog"
+          aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               Voulez-vous vraiment annuler l'action de ce <?php echo e($obj); ?> ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                <a href="<?php echo e(url($road.'/cancel/'.$data->id)); ?>" class="btn btn-success btn-ok">Confirmer</a>
+            </div>
+        </div>
+    </div>
+</div><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////includes/dropdown.blade.php ENDPATH**/ ?>

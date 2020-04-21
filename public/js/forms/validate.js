@@ -37,6 +37,7 @@ $(document).ready(function () {
         $("#form2").submit(function (event){
         var nom = $("#nom_").val();
         var prenom = $("#prenom_").val();
+        var societe = $("#societe option:selected").val();
         var email = $("#email_").val();
         var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
         if(nom == ""){
@@ -56,6 +57,15 @@ $(document).ready(function () {
         } else {
             if(!$(".prenom_").hasClass("d-none"))
                 $(".prenom_").toggleClass("d-none");
+        }
+        if(societe == ""){
+            event.preventDefault();
+            $('.scroll-to-top').click();
+            if($(".soct").hasClass("d-none"))
+                $(".soct").toggleClass("d-none");
+        } else {
+            if(!$(".soct").hasClass("d-none"))
+                $(".soct").toggleClass("d-none");
         }
         if(email != "" && !pattern.test(email)){
             event.preventDefault();

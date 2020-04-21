@@ -72,7 +72,7 @@
 </div>
 @endif
 
-@if (count($dataD) > 0)
+{{-- @if (count($dataD) > 0)
 <div class="row mb-4">
     <div class="col-12">
         <h4 class="font-weight-bold">Devis({{ count($dataD) }})</h4>
@@ -88,6 +88,6 @@
     </div>
     @include($path.'includes.layouts.factures',["data"=> $dataF])
 </div>
-@endif
+@endif --}}
 
 @endsection

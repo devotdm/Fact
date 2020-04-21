@@ -16,7 +16,7 @@
                 </h6>
             </span>
             <div class="dropdown no-arrow">
-                <?php echo $__env->make($path.'includes.dropdown', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make($path.'includes.dropdown',['index' => '0' , 'road' => 'factures'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
         </div>
         <div class="card-body">

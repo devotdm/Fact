@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Devi extends Model
 {
-    protected $fillable = ["client_id", "duree", "devise", "statut", "date_statut", "id_num", "total_ht", "remise","total_tva", "total", 
+    protected $fillable = ["client_id", "duree", "devise", "statut", "date_statut", "id_num", "total_ht", "remise","total_tva", "total_ttc", 
         "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id"];
     
     public function lignes()
@@ -16,6 +16,18 @@ class Devi extends Model
 
     public function client()
     {
-        return $this->belongsTo('App\Client','client_id');
+        return $this->belongsTo('App\Client');
     }
+    
+    public function devis()
+    {
+        return $this->belongsTo('App\Devi');
+    }
+
+    public function facture()
+    {
+        return $this->belongsTo('App\Facture');
+    }
+
+    
 }

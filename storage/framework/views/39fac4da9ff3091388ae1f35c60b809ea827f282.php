@@ -7,142 +7,60 @@
 <?php $__env->startSection('content'); ?>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item bg-white shadow mb-3 mr-4">
-        <a class="nav-link p-3 pr-5 d-flex" id="prt-tab" data-toggle="pill" href="#prt" role="tab" aria-controls="prt" aria-selected="false">
+        <a class="nav-link p-3 pr-5 d-flex <?php echo e((!isset($societe) && !$errors->isEmpty() && !$errors->has('societe_id'))?'active':''); ?>" id="prt-tab" data-toggle="pill" href="#prt" role="tab" aria-controls="prt" aria-selected="false">
             <i class="fas fa-fw fa-user-tie fa-4x"></i>
             <span><h5>Particulier</h5>
                 <h6>client avec société</h6></span>
         </a>
     </li>
     <li class="nav-item bg-white shadow mb-3 mr-4">
-        <a class="nav-link p-3 pr-5 d-flex" id="pro-tab" data-toggle="pill" href="#pro" role="tab" aria-controls="pro" aria-selected="false">
+        <a class="nav-link p-3 pr-5 d-flex <?php echo e((isset($societe) || (!$errors->isEmpty() && $errors->has('societe_id'))?'active':'')); ?>" id="pro-tab" data-toggle="pill" href="#pro" role="tab" aria-controls="pro" aria-selected="false">
             <i class="fas fa-fw fa-building fa-4x"></i>
-            <span><h5>Professionnel</h5>
-                <h6>client sans société</h6></span>
+            <span>
+              <h5>Professionnel</h5>
+              <h6>client sans société</h6>
+            </span>
         </a>
     </li>
 </ul>
 <div class="tab-content row" id="pills-tabContent">
    
    <!-- Particulier -->
-    <div class="tab-pane fade col-lg-7 col-md-12" id="prt" role="tabpanel" aria-labelledby="prt-tab">
-      <form method="post" class="w-100 text-dark" id="form1">
-         <div class="form-group mt-3">
-              <h3 class="font-weight-bold">Informations</h3>
-          </div>
-          <div class="form-group">
-              <label for="email">Email : </label>
-              <input type="text" class="form-control" name="email" id="email">
-              <span class="email text-danger d-none">n'est pas une adresse email valide</span>
-          </div>
-          <div class="form-group">
-              <label for="prenom">Prénom(requis) :</label>
-              <input type="text" class="form-control" name="prenom" id="prenom">
-              <span class="prenom text-danger d-none">doit etre rempli</span>
-          </div>
-          <div class="form-group">
-              <label for="nom">Nom de famille(requis) :</label>
-              <input type="text" class="form-control" name="nom" id="nom">
-              <span class="nom text-danger d-none">doit etre rempli</span>
-          </div>
-          <div class="form-group">
-              <label for="fonction">Fonction :</label>
-              <input type="text" class="form-control" name="fonction" id="fonction">
-          </div>
-          <div class="form-group mt-3">
-              <h4>Cordonnées du client : </h4>
-          </div>
-          <div class="form-group">
-              <label for="adresse">Adresse : </label>
-              <textarea class="form-control" name="adresse" id="adresse" cols="30" rows="5" v-model="adresse"></textarea>
-          </div>
-          <div class="form-group">
-              <label for="codep">Code postal</label>
-              <input type="text" class="form-control" name="codep" id="codep">
-          </div>
-          <div class="form-group">
-              <label for="ville">Ville</label>
-              <input type="text" class="form-control" name="ville" id="ville">
-          </div>
-          <div class="form-group">
-              <label for="pays">Pays</label>
-              <select class="form-control" name="pays" id="pays">
-                  <option value="maroc">Maroc</option>
-                  <option value="france">France</option>
-              </select>
-          </div>
-          <div class="form-group">
-              <label for="site">Site internet : </label>
-              <input type="text" class="form-control" name="site" id="site">
-          </div>
-          <div class="form-group">
-              <label for="tele">Numero du téléphone</label>
-              <input type="text" class="form-control" name="tele" id="tele">
-          </div>
-          <div class="form-group">
-              <label for="motcle" class="d-block">Mot clés : </label>
-              <input type="text" class="form-control" name="motcle" id="motcle">
-          </div>
-          <div class="form-group">
-              <button type="submit" name="submit1" class="btn btn-success mb-5">Créer le client</button>
-          </div>
-      </form>
+    <div class="tab-pane fade col-lg-7 col-md-12 <?php echo e((!isset($societe) && !$errors->isEmpty() && !$errors->has('societe_id'))?'active show':''); ?>" id="prt" role="tabpanel" aria-labelledby="prt-tab">
+
+      <?php echo e(Form::open(array('url' => 'clients/create' , 'method' => 'post' ,
+        'class' => "w-100" , 'name' => 'form1', 'id' => 'form1' ))); ?>
+
+         
+        <?php echo $__env->make($path.'clients.layouts.form1', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success mb-5">Créer le client</button>
+        </div>
+
+      <?php echo e(Form::close()); ?>
+
+
   </div>
-    <div class="tab-pane fade col-lg-7 col-md-12" id="pro" role="tabpanel" aria-labelledby="pro-tab">
-      
+
        <!-- Professionnel -->
-        <form method="post" class="w-100 text-dark" id="form2">
-            <div class="form-group mt-3">
-                <h3 class="font-weight-bold">Informations</h3>
-            </div>
-            <div class="form-group">
-                <label for="email">Email : </label>
-                <input type="text" class="form-control" name="email" id="email_">
-              <span class="email_ text-danger d-none">n'est pas une adresse email valide</span>
-            </div>
+    <div class="tab-pane fade col-lg-7 col-md-12 <?php echo e((isset($societe) || (!$errors->isEmpty() && $errors->has('societe_id'))?'active show':'')); ?>" id="pro" role="tabpanel" aria-labelledby="pro-tab">
+      
+        <?php echo e(Form::open(array('url' => 'clients/create_' , 'method' => 'post' ,
+          'class' => "w-100" , 'name' => 'form2', 'id' => 'form2' ))); ?>
 
-            <div class="form-group">
-                <label for="prenom">Prénom(requis) :</label>
-                <input type="text" class="form-control" name="prenom" id="prenom_">
-              <span class="prenom_ text-danger d-none">doit etre rempli</span>
-            </div>
 
-            <div class="form-group">
-                <label for="nom">Nom de famille(requis) :</label>
-                <input type="text" class="form-control" name="nom" id="nom_">
-              <span class="nom_ text-danger d-none">doit etre rempli</span>
-            </div>
+          <?php echo $__env->make($path.'clients.layouts.form2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-            <div class="form-group">
-                <label for="fonction">Fonction :</label>
-                <input type="text" class="form-control" name="fonction" id="fonction_">
-            </div>
-            <div class="form-group mt-3">
-                <h4>Cordonnées du client : </h4>
-            </div>
-            <div class="form-group">
-                <label for="tele">Numero du téléphone</label>
-                <input type="text" class="form-control" name="tele" id="tele_">
-            </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success mb-5">Créer le client</button>
+          </div>
 
-            <div class="form-group">
-                <label for="societe"><h4>Société</h4></label>
-                <select class="form-control" name="societe" id="societe">
-<!--                    <option value=""><a href=""></a></option>-->
-                    <option value="">Maroc</option>
-                </select>
-            </div>
+        <?php echo e(Form::close()); ?>
 
-            <div class="form-group">
-                <label for="motcle"><h4>Mot clés : </h4></label>
-                <input type="text" class="form-control" name="motcle" id="motcle_">
-            </div>
 
-            <div class="form-group">
-                <button type="submit" name="submitpro" class="btn btn-success mb-5">Créer le client</button>
-            </div>
-
-        </form>
     </div>
+
 </div>
 
 <?php $__env->stopSection(); ?>

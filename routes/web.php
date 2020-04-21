@@ -17,37 +17,63 @@ Route::get('/', function () {
 
 Route::get('clients/list', "ClientCtrl@ShowList");
 
-Route::get('clients/new', function () {
-    return view('clients.new')->with(array('title'=>'Nouveau client', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
-});
-
 Route::get('clients/info/{id}', "ClientCtrl@ShowInfo");
+
+Route::get('clients/new', "ClientCtrl@add");
+
+Route::get('clients/new/{id}', "ClientCtrl@add_");
+
+Route::post('clients/create', "ClientCtrl@create");
+
+Route::post('clients/create_', "ClientCtrl@create_");
+
+Route::get('clients/edit/{id}', "ClientCtrl@edit");
+
+Route::put('clients/update/{id}', "ClientCtrl@update");
+
+Route::put('clients/update_/{id}', "ClientCtrl@update_");
+
+Route::get('clients/delete/{id}', "ClientCtrl@delete");
 
 Route::get('societes/list', "SocieteCtrl@ShowList");
 
-Route::get('societes/new', function () {
-    return view('societes.new')->with(array('title'=>'Nouvelle société', 'obj'=>'société' , 'ind'=>'2' , 'path'=>'../'));
-});
+Route::get('societes/new', "SocieteCtrl@add");
+
+Route::post('societes/create', "SocieteCtrl@create");
 
 Route::get('societes/info/{id}', "SocieteCtrl@ShowInfo");
+
+Route::get('societes/edit/{id}', "SocieteCtrl@edit");
+
+Route::put('societes/update/{id}', "SocieteCtrl@update");
+
+Route::get('societes/delete/{id}', "SocieteCtrl@delete");
 
 Route::get('devis/list', "DevisCtrl@ShowList");
 
 Route::get('devis/list/{s}', "DevisCtrl@ShowListF");
 
-Route::get('devis/new', function () {
-    return view('devis.new')->with(array('title'=>'Nouveau devis', 'obj'=>'devis' , 'ind'=>'3' , 'path'=>'../'));
-});
+Route::get('devis/new', "DevisCtrl@add");
+
+Route::post('devis/create', "DevisCtrl@create");
 
 Route::get('devis/info/{id}', "DevisCtrl@ShowInfo");
+
+Route::get('devis/edit/{id}', "DevisCtrl@edit");
+
+Route::put('devis/update/{id}', "DevisCtrl@update");
+
+Route::get('devis/delete/{id}', "DevisCtrl@delete");
+
+Route::get('devis/statut/{id}/{s}', "DevisCtrl@statut");
+
+Route::get('devis/cancel/{id}', "DevisCtrl@cancel");
 
 Route::get('factures/list', "FactureCtrl@ShowList");
 
 Route::get('factures/list/{s}', "FactureCtrl@ShowListF");
 
-Route::get('factures/new', function () {
-    return view('factures.new')->with(array('title'=>'Nouvelle facture', 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../'));
-});
+Route::get('factures/new', "FactureCtrl@add");
 
 Route::get('factures/info/{id}', "FactureCtrl@ShowInfo");
 

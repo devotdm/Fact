@@ -1,3 +1,4 @@
+
 <div class="line">
     <span class="float-right mb-3" >
         <a href="" class="btn-link text-danger disabled d-block mb-2 c_ligne" title="Supprimer la ligne"><i class="fas fa-times fa-2x"></i></a>
@@ -6,47 +7,52 @@
     <p class="mb-2"><span class="badge badge-primary rounded-circle nbr" style="font-size:20px;">1</span></p>
 
     <div class="form-group">
-        <label for="type">Type</label><br>
-        <select class="form-control w-50 d-inline" id="type">
-            <option>Service</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
+        <label for="type">Type</label>
+        <?php echo e(Form::select('type[]',$articles,null, ['class'=>'form-control w-50' , 'id' => 'type'])); ?>
+
+        <span class="text-danger"><?php echo e($errors->first('type[]')); ?></span>
     </div>
     <div class="form-row form-group line_row">
         <div class="col">
-            <label for="qtity">Quantite</label>
-            <input type="number" class="form-control inp qtity" value="0">
+            <label for="quantity">Quantite</label>
+            <input name="quantity[]" type="number" class="form-control inp qtity" value="0">
+            
+            <span class="text-danger"><?php echo e($errors->first('quantity[]')); ?></span>
         </div>
         <div class="col">
-            <label for="ht">Prix HT</label><br>
-            <input type="number" step="0.01" class="form-control inp ht" value="0">
+            <label for="prix">Prix HT</label><br>
+            <input name="prix[]" type="number" step="0.01" class="form-control inp ht" value="0">
+            
+        <span class="text-danger"><?php echo e($errors->first('prix[]')); ?></span>
         </div>
         <div class="col">
             <label for="tva">TVA</label>
-            <input type="number" step="0.01" class="form-control inp ltva tva" value="20">
+            <input name="tva[]" type="number" step="0.01" class="form-control inp ltva tva" value="20">
+            
         </div>
         <div class="col">
             <label for="reduction">Reduction</label>
-            <input type="number" step="0.01" class="form-control inp reduction" value="0" placeholder="%">
+            <input name="reduction[]" type="number" step="0.01" class="form-control inp reduction" value="0" placeholder="%">
+            
         </div>
         <div class="col">
-            <label for="total_ht">Total HT</label>
+            <label for="total_">Total HT</label>
             <input type="number" step="0.01" class="form-control total_ht" readonly>
         </div>
 
         <div class="col">
-            <label for="total_ttc">Total TTC</label>
-            <input type="number" step="0.01" class="form-control total_ttc" readonly>
+            <label for="total">Total TTC</label>
+            <input name="total[]" type="number" step="0.01" class="form-control total_ttc" readonly>
+            
         </div>
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control description" rows="5"></textarea>
+        <textarea name="description[]" class="form-control description" rows="5"></textarea>
+        
     </div>
 </div>
+
 
 
 <div class="form-group div_ajout">
@@ -54,34 +60,34 @@
 </div>
 <div class="form-group w-25">
     <label for="remise">Remise générale</label>
-    <input type="number" step="0.01" class="form-control" id="remise" value="0">
+    <input name="remise" type="number" step="0.01" class="form-control" id="remise" value="0">
 </div>
 <div class="jumbotron p-3 text-dark font-weight-bold">
     <table class="table table-borderless text-dark text-right">
         <tr>
             <td class="w-50"></td>
             <td class="w-50">Total HT</td>
-            <td><span id="totalht">0</span></td>
+            <td><input type="text" name="total_ht" value="0" id="totalht" readonly style="width:90px;background:none;border:none;outline:none;"></td>
         </tr>
         <tr>
             <td></td>
             <td>Remise générale</td>
-            <td><span id="remise_span">0</span></td>
+            <td><input type="text" name="remise" value="0" id="remise_span" readonly style="width:90px;background:none;border:none;outline:none;"></td>
         </tr>
         <tr>
             <td></td>
             <td>Total HT final</td>
-            <td><span id="htfinal">0</span></td>
+            <td><input type="text" value="0" id="htfinal" readonly style="width:90px;background:none;border:none;outline:none;"></td>
         </tr>
         <tr>
             <td></td>
             <td>TVA</td>
-            <td><span id="tva_tot">0</span></td>
+            <td><input type="text" name="total_tva" value="0" id="tva_tot" readonly style="width:90px;background:none;border:none;outline:none;"></td>
         </tr>
         <tr>
             <td></td>
             <td>Total</td>
-            <td><span id="total">0</span></td>
+            <td><input type="text" name="total_ttc" value="0" id="total" readonly style="width:90px;background:none;border:none;outline:none;"></td>
         </tr>
     </table>
 </div><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////includes/lignes.blade.php ENDPATH**/ ?>

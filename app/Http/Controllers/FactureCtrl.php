@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Facture;
+use App\Devi;
+use App\Ligne;
 use App\Client;
 use App\Societe;
+use App\Facture;
+use App\Article;
 
 class FactureCtrl extends Controller
 {
@@ -40,6 +43,9 @@ class FactureCtrl extends Controller
         $_data = Facture::where('id',$id)->first()->lignes;
         $dataC = Client::find($data->client_id);
         $dataS = Societe::find($dataC->societe_id);
+        
+        $doc1 = Devi::where('devi_id',$id);
+        $doc2 = Facture::where('facture_id',$id);
 
         $title = "Facture ";
         if($data->statut=='provisoire'){
@@ -48,8 +54,15 @@ class FactureCtrl extends Controller
             $title .= $data->id_num;
         }
 
-        return view('factures.info')->with(array('data'=> $data, '_data'=> $_data, 'dataC'=> $dataC , 'dataS'=> $dataS
+        return view('factures.info')->with(array('data'=> $data, '_data'=> $_data, 'dataC'=> $dataC , 'dataS'=> $dataS ,'doc1' => $doc1 , 'doc2' => $doc2 
         ,'title'=>$title, 'obj'=>'facture' , 'ind'=>'4' , 'path'=>'../../'));
     }
 
+    function add() {
+        $clients = Client::pluck('nom','id')->prepend('Sélectionnez un destinataire','');
+        $articles = Article::pluck('titre','titre')->prepend('Sélectionnez un type','');
+
+        return view('factures.new')->with(array('title'=>'Nouvelle facture', 'obj'=>'facture' ,
+            'clients' => $clients ,'articles' => $articles , 'ind'=>'4' , 'path'=>'../'));
+    }
 }

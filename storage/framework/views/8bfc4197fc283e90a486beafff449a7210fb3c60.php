@@ -14,14 +14,8 @@
         <h3 class="text-dark mt-2">Destinataire</h3>
         <div class="form-group">
             <label for="destinataire_"></label>
-            <select class="form-control w-50" id="destinataire_">
-                <option value="" selected readonly>Sélectionner un destinataire</option>
-                <option></option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <?php echo e(Form::select('destinataire_',$clients,null, ['class'=>'form-control w-50' , 'id' => 'destinataire_'])); ?>
+
             <span class="destf text-danger d-none">veuillez sélectionner un destinataire</span>
         </div>
     </div>
@@ -29,7 +23,7 @@
     <div class="form-group">
         <label for="devise">Devise(requis)</label>
         <select class="form-control w-50" id="devise">
-            <option>Dirham marocain (د م  )</option>
+            <option value="Dirham marocain">Dirham marocain</option>
         </select>
     </div>
     <div class="custom-control custom-checkbox mr-sm-2">
@@ -39,37 +33,29 @@
 
     <h3 class="text-dark mt-2">Articles</h3>
 
-    <?php echo $__env->make($path.'includes.lignes', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make($path.'includes.lignes',['articles' => $articles ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
     <h3 class="text-dark">Reglement</h3>
     <div class="form-group">
-        <label for="condition">Conditions de reglement</label>
-        <select class="form-control w-50" id="condition">
-            <option>A reception</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+        <label for="cond_reg">Conditions de règlement</label><br>
+        <select name="cond_reg" class="form-control w-50 d-inline" id="cond_reg">
+            <option value="A réception">A réception</option>
+            <option value="Fin du mois">Fin du mois</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="mode">Mode de reglement</label>
-        <select class="form-control w-50" id="mode">
-            <option>Cheque</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+        <label for="mode_reg">Mode de reglement</label><br>
+        <select name="mode_reg" class="form-control w-50 d-inline" id="mode_reg">
+            <option value="Chèque">Chèque</option>
+            <option value="Carte bancaire">Carte bancaire</option>
+            <option value="Especes">Especes</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="interet">Interet de retard</label>
-        <select class="form-control w-50" id="interet">
-            <option>Pas d'interets de retard</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+        <label for="intr_retard">Interet de retard</label><br>
+        <select name="intr_retard" class="form-control w-50 d-inline" id="intr_retard">
+            <option value="">Pas d'intérets de retard</option>
+            <option value="À préciser">À préciser</option>
         </select>
     </div>
     <div class="form-group">

@@ -17,7 +17,7 @@
     </div>
 </nav>
 <div class="row">
-    <?php echo $__env->make($path.'includes.layouts.factures',["data"=> $data], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make($path.'factures.layouts.list',["data"=> $data], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 
 <?php $__env->stopSection(); ?>

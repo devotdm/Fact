@@ -48,13 +48,10 @@ $(document).ready(function () {
 
         nbrSpan();
         closeAbility();
-        
-        console.log($('.line').length);
 
         $('.c_ligne').click(closeLine);
         
         $('.d_ligne').click(duplicateLine);
-        
     }
 
     var new_data = $('.line').clone();
@@ -90,8 +87,8 @@ $(document).ready(function () {
             var $tvan = $t*$tvap/100;
             $t -= $rdn;
             var $tf = $t+$tvan;
-            $(".total_ht").eq(i).val($t);
-            $(".total_ttc").eq(i).val($tf);
+            $(".total_ht").eq(i).val($t.toFixed(2));
+            $(".total_ttc").eq(i).val($tf.toFixed(2));
             $tht += parseFloat($t);
             $tva_t += parseFloat($tvan);
         }
@@ -99,23 +96,24 @@ $(document).ready(function () {
         $rms = $tht*$rms/100;
         var $htf = $tht - $rms;
         var $total = $htf + $tva_t;
-        $("#totalht").text(($tht).toFixed(2));
-        $("#remise_span").text(($rms).toFixed(2));
-        $("#htfinal").text(($htf).toFixed(2));
-        $("#tva_tot").text(($tva_t).toFixed(2));
-        $("#total").text(($total).toFixed(2));
+        $("#totalht").val(($tht).toFixed(2));
+        $("#remise_span").val(($rms).toFixed(2));
+        $("#htfinal").val(($htf).toFixed(2));
+        $("#tva_tot").val(($tva_t).toFixed(2));
+        $("#total").val(($total).toFixed(2));
     }
 
-    //    setInterval(function(){
-    //        console.log($('.line').length);
-    //    },500);
+       setInterval(function(){
+           console.log($('.line').length);
+       },500);
 
 
     $('.c_ligne').click(closeLine);
     
     $('.d_ligne').click(duplicateLine);
     
-
+    //setInterval(nbrSpan,500);
+    setInterval(closeAbility,500);
 
 
 });

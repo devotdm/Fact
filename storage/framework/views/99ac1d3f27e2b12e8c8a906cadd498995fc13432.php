@@ -19,6 +19,13 @@
         <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
         <link href="<?php echo e(asset('css/tagsinput.css')); ?>" rel="stylesheet">
 
+        <style type="text/css">
+            body * {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+        </style>
+
+
     </head>
 
     <body id="page-top">
@@ -33,7 +40,11 @@
 
                 <!-- Main Content -->
                 <div id="content">
-
+                    
+                    <?php if(Session::has('success')): ?>
+                    <?php echo $__env->make($path.'includes.toast', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php endif; ?>
+                    
                     <?php echo $__env->yieldContent('header'); ?>
 
                     <!-- Begin Page Content -->
@@ -81,6 +92,7 @@
         <!-- Bootstrap core JavaScript-->
         <script src="<?php echo e(asset('jquery/jquery.min.js')); ?>"></script>
         <script src="<?php echo e(asset('bootstrap/js/bootstrap.bundle.js')); ?>"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="<?php echo e(asset('bootstrap/js/bootstrap-tagsinput.js')); ?>"></script>
 
         <!-- Core plugin JavaScript-->
@@ -89,10 +101,17 @@
         <!-- Custom scripts for all pages-->
         <script src="<?php echo e(asset('js/sidebar.js')); ?>"></script>
         <script src="<?php echo e(asset('js/script.js')); ?>"></script>
-        <script src="<?php echo e(asset('js/forms/validate.js')); ?>"></script>
         <script src="<?php echo e(asset('js/tagsinput.js')); ?>"></script>
 
-        <!-- VueJs -->
+        <script>
+            $(document).ready(function(){
+                $(".toast").toast();
+                $(".toast").css("top","1%");
+                setTimeout(function(){
+                    $(".toast").css("top","-20%");
+                },5000);
+            });
+        </script>
         
         <?php echo $__env->yieldContent('scripts'); ?>
 

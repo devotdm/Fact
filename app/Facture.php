@@ -19,4 +19,13 @@ class Facture extends Model
         return $this->belongsTo('App\Client','client_id');
     }
     
+    public function devis()
+    {
+        return $this->belongsTo('App\Devi','devi_id');
+    }
+
+    public function facture()
+    {
+        return $this->belongsTo('App\Facture','facture_id');
+    }
 }

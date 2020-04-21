@@ -58,7 +58,9 @@
         <p>Attention un devis finalisé n'est plus modifiable.</p>
         <?php endif; ?>
         <h3 class="text-dark">Documents liés</h3>
+        <?php if(!isset($data->devi_id) && !isset($data->facture_id)): ?>
         <p>aucun document lié </p>
+        <?php endif; ?>
     </div>
 
     <div class="col-lg-6 mb-3">
@@ -102,15 +104,15 @@
                 <td class="text-secondary text-right">Reduction</td>
                 <td class="text-secondary text-right">Total HT</td>
             </tr>
-            <?php $__currentLoopData = $_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $data->lignes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ligne): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr class="border-bottom">
-                <td class="font-weight-bold"><?php echo e($_data->type); ?></td>
-                <td class="font-weight-bold"><?php echo e($_data->description); ?></td>
-                <td class="font-weight-bold text-right"><?php echo e($_data->prix); ?></td>
-                <td class="font-weight-bold text-right"><?php echo e($_data->quantity); ?></td>
-                <td class="font-weight-bold text-right"><?php echo e($_data->tva); ?></td>
-                <td class="font-weight-bold text-right"><?php echo e($_data->reduction); ?></td>
-                <td class="font-weight-bold text-right"><?php echo e($_data->total); ?></td>
+                <td class="font-weight-bold"><?php echo e($ligne->type); ?></td>
+                <td class="font-weight-bold"><?php echo e($ligne->description); ?></td>
+                <td class="font-weight-bold text-right"><?php echo e($ligne->prix); ?></td>
+                <td class="font-weight-bold text-right"><?php echo e($ligne->quantity); ?></td>
+                <td class="font-weight-bold text-right"><?php echo e($ligne->tva); ?></td>
+                <td class="font-weight-bold text-right"><?php echo e($ligne->reduction); ?></td>
+                <td class="font-weight-bold text-right"><?php echo e($ligne->total); ?></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
@@ -127,7 +129,7 @@
             <tr>
                 <td colspan="5" class="font-weight-bold text-right pb-0"></td>
                 <td class="font-weight-bold text-right">Total TTC</td>
-                <td class="font-weight-bold text-right"><?php echo e($data->total); ?></td>
+                <td class="font-weight-bold text-right"><?php echo e($data->total_ttc); ?></td>
             </tr>
         </table>
 </div>

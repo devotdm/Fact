@@ -17,7 +17,7 @@
     </div>
 </nav>
 <div class="row">
-    <?php echo $__env->make($path.'includes.layouts.devis',["data"=> $data], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make($path.'devis.layouts.list',["data"=> $data], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 
 <?php $__env->stopSection(); ?>

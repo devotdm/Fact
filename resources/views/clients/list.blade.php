@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="row">
-    @include($path.'includes.layouts.clients.list',["data"=> $data])
+    @include($path.'clients.layouts.list',["data"=> $data])
 </div>
 
 @endsection

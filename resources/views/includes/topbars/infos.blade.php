@@ -45,7 +45,13 @@
 -->
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-            @include($path.'includes.dropdown')
+            @if($obj == 'société')
+            @include($path.'includes.dropdown',['index' => '00', 'road' => 'societes'])
+            @elseif($obj == 'devis')
+            @include($path.'includes.dropdown',['index' => '00', 'road' => $obj])
+            @else
+            @include($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s'])
+            @endif
         </li>
 
     </ul>
