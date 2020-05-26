@@ -19,7 +19,7 @@
     </div>
 </nav>
 <div class="row">
-    @include($path.'devis.layouts.list',["data"=> $data])
+    @include($path.'devis.layouts.list',["data"=> $data , "tbl"=> $obj])
 </div>
 
 @endsection

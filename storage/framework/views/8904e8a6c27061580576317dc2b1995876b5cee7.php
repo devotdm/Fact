@@ -28,4 +28,4 @@
         </div>
     </div>
 </div>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////clients/layouts/list.blade.php ENDPATH**/ ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views///////clients/layouts/list.blade.php ENDPATH**/ ?>

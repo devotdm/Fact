@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Devi;
 use App\Ligne;
 use App\Client;
@@ -65,4 +65,60 @@ class FactureCtrl extends Controller
         return view('factures.new')->with(array('title'=>'Nouvelle facture', 'obj'=>'facture' ,
             'clients' => $clients ,'articles' => $articles , 'ind'=>'4' , 'path'=>'../'));
     }
+
+    function add_($id) {
+        $client = Client::find($id);
+        $clients = Client::pluck('nom','id')->prepend('Sélectionnez un destinataire','');
+        $articles = Article::pluck('titre','titre')->prepend('Sélectionnez un type','');
+
+        return view('factures.new')->with(array('title'=>'Nouvelle facture', 'obj'=>'facture' , 'client' => $client, 'clients' => $clients ,'articles' => $articles , 'ind'=>'4' , 'path'=>'../'));
+    }
+
+    function create() {
+        Request::validate([
+            'client_id' => 'required'
+            // 'type[]' => 'required',
+            // 'quantity[]' => 'required',
+            // 'prix[]' => 'required',
+        ],
+        [
+            'required' => 'requis'
+        ]);
+
+        $data = Facture::create(Request::all());
+        // for ($i=0; $i < count(Request::get('type')) ; $i++) { 
+        //     $ligne = new Ligne();
+        //     $ligne->type = Request::get('type')[$i];
+        //     $ligne->prix = Request::get('prix')[$i]; 
+        //     $ligne->quantity = Request::get('quantity')[$i];
+        //     $ligne->tva = Request::get('tva')[$i]; 
+        //     $ligne->reduction = Request::get('reduction')[$i];
+        //     $ligne->total = Request::get('total')[$i]; 
+        //     $ligne->description = Request::get('description')[$i];
+        //     $ligne->facture_id = $data->id;
+        //     $ligne->save();
+        // }
+        
+
+        return redirect('factures/info/'.$data->id);
+    }
+
+
+    function statut($id,$s){
+        $data = Facture::find($id);
+        $data->statut = $s;
+        $data->save();
+
+        return redirect('factures/info/'.$data->id);
+    }
+
+    function cancel($id){
+        $data = Facture::find($id);
+        $data->statut = "finalisé";
+        $data->date_payee = null;
+        $data->save();
+
+        return redirect('factures/info/'.$data->id);
+    }
+
 }

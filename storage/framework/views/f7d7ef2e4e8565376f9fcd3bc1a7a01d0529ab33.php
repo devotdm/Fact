@@ -1,6 +1,6 @@
-<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<div class="col-12">
-    <div class="card shadow mt-4">
+<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<div class="col-12 mb-3">
+    <div class="card shadow mt-2">
         <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
             <span><h5 class="card-title mb-3 font-weight-bold text-dark">
                 <?php if($data->statut=='provisoire'): ?>
@@ -16,7 +16,7 @@
                 </h6>
             </span>
             <div class="dropdown no-arrow">
-                <?php echo $__env->make($path.'includes.dropdown',['index' => '0' , 'road' => 'factures'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make($path.'includes.dropdown',['road' => 'factures' , "tbl"=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
         </div>
         <div class="card-body">

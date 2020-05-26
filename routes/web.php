@@ -55,6 +55,8 @@ Route::get('devis/list/{s}', "DevisCtrl@ShowListF");
 
 Route::get('devis/new', "DevisCtrl@add");
 
+Route::get('devis/new/{id}', "DevisCtrl@add_");
+
 Route::post('devis/create', "DevisCtrl@create");
 
 Route::get('devis/info/{id}', "DevisCtrl@ShowInfo");
@@ -75,7 +77,15 @@ Route::get('factures/list/{s}', "FactureCtrl@ShowListF");
 
 Route::get('factures/new', "FactureCtrl@add");
 
+Route::get('factures/new/{id}', "FactureCtrl@add_");
+
+Route::post('factures/create', "FactureCtrl@create");
+
 Route::get('factures/info/{id}', "FactureCtrl@ShowInfo");
+
+Route::get('factures/statut/{id}/{s}', "FactureCtrl@statut");
+
+Route::get('factures/cancel/{id}', "FactureCtrl@cancel");
 
 Route::get('parametres/', function () {
     return view('parametres.preferences.general')->with(array('title'=>'Paramètres | Préférences générales', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));

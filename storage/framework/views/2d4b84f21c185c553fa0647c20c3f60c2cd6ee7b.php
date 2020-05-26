@@ -15,7 +15,7 @@
                 <a href="<?php echo e(url('societes/info/'.$data->id)); ?>"> <?php echo e($data->nom); ?> </a></h5>
                 <h6 class="card-subtitle text-muted"><?php echo e($data->clients_count); ?> Clients</h6></span>
                 <div class="dropdown no-arrow">
-                    <?php echo $__env->make($path.'includes.dropdown',['index' => $index, 'road' => 'societes'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make($path.'includes.dropdown',['index' => $index, 'road' => 'societes' , "tbl"=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
             </div>
             <div class="card-body">

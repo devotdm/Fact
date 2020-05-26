@@ -1,6 +1,6 @@
 @foreach($data as $index => $data)
 <div class="col-12 mb-3">
-    <div class="card shadow mt-4">
+    <div class="card shadow mt-2">
         <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
             <span><h5 class="card-title mb-3 font-weight-bold text-dark">
                 @if($data->statut=='provisoire')
@@ -21,9 +21,9 @@
         </div>
         <div class="card-body">
             <span class="card-text"><i class="fas fa-sticky-note mr-2"></i>{{ $data->total.' '.$data->devise }}</span>
-            <span class="card-text ml-3" title="créé le"><i class="far fa-clock mr-2"></i>{{ date('d F Y', strtotime($data->created_at)) }}</span>
+            <span class="card-text ml-3" title="créé le"><i class="far fa-clock mr-2"></i>{{ $data->created_at->format('d M Y ') }}</span>
             @if ($data->statut=='signé')
-               <span class="card-text ml-3" title="signé le"><i class="far fa-calendar-check mr-2"></i></i>{{ date('d F Y', strtotime($data->created_at)) }}</span>
+               <span class="card-text ml-3" title="signé le"><i class="far fa-calendar-check mr-2"></i></i>{{ $data->date_signe->format('d M Y') }}</span>
             @endif
             <hr>
             <span class="text-white bg-danger p-2">Motcle</span>

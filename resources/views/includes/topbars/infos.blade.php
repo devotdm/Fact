@@ -46,11 +46,11 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             @if($obj == 'société')
-            @include($path.'includes.dropdown',['index' => '00', 'road' => 'societes'])
+            @include($path.'includes.dropdown',['index' => '00', 'road' => 'societes', 'tbl'=> $obj])
             @elseif($obj == 'devis')
-            @include($path.'includes.dropdown',['index' => '00', 'road' => $obj])
+            @include($path.'includes.dropdown',['index' => '00', 'road' => $obj, 'tbl'=> $obj])
             @else
-            @include($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s'])
+            @include($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s', 'tbl'=> $obj])
             @endif
         </li>
 

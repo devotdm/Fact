@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Facture extends Model
 {
-    protected $fillable = ["client_id", "devise", "statut", "date_statut", "id_num", "total_ht", "remise","total_tva", "total",
-     "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id"];
+    protected $fillable = ["client_id", "devise", "statut", "date_finalise", "date_payee", "id_num", "total_ht", "remise","total_tva", "total", "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id"];
+
+    protected $dates = ["date_finalise", "date_signe"];
 
     public function lignes()
     {
@@ -16,16 +17,16 @@ class Facture extends Model
 
     public function client()
     {
-        return $this->belongsTo('App\Client','client_id');
+        return $this->belongsTo('App\Client');
     }
     
     public function devis()
     {
-        return $this->belongsTo('App\Devi','devi_id');
+        return $this->belongsTo('App\Devi');
     }
 
     public function facture()
     {
-        return $this->belongsTo('App\Facture','facture_id');
+        return $this->belongsTo('App\Facture');
     }
 }

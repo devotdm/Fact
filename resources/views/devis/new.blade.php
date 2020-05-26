@@ -11,9 +11,11 @@
     {{ Form::open(array('url' => 'devis/create' , 'method' => 'post' ,
      'id' => 'form4' )) }}
     
-    @include($path.'devis.layouts.form')
-    <button type="submit" name="submit" class="btn btn-success mb-5">Créer le devis</button>
-      {{ Form::close() }}
+	    @include($path.'devis.layouts.form')
+	    
+	    <button type="submit" name="submit" class="btn btn-success mb-5">Créer le devis</button>
+
+    {{ Form::close() }}
 
 @endsection
 

@@ -7,36 +7,24 @@
         </tr>
         <tr class="border-bottom">
             <td class="text-secondary">Créé le :</td>
-            <td class="text-dark font-weight-bold">{{ date('d F Y', strtotime($data->created_at)).' à '.date('h:m A', strtotime($data->created_at)) }}</td>
+            <td class="text-dark font-weight-bold">{{ $data->created_at }}</td>
         </tr>
         @if (isset($data->updated_at))
         <tr class="border-bottom">
             <td class="text-secondary">Derniére modification le  :</td>
-            <td class="text-dark font-weight-bold">{{ date('d F Y', strtotime($data->updated_at)).' à '.date('h:m A', strtotime($data->updated_at)) }}</td>
+            <td class="text-dark font-weight-bold">{{ $data->updated_at }}</td>
         </tr> 
         @endif
         @if($data->statut == 'finalisé')
         <tr class="border-bottom">
             <td class="text-secondary">Finalisé le :</td>
-            <td class="text-dark font-weight-bold">{{ date('d F Y', strtotime($data->date_finalise)).' à '.date('h:m A', strtotime($data->date_finalise)) }}</td>
-        </tr>
-        @endif
-        @if($data->statut == 'signé')
-        <tr class="border-bottom">
-            <td class="text-secondary">{{ ucfirst(trans($data->statut)) }} le :</td>
-            <td class="text-dark font-weight-bold">{{ date('d F Y', strtotime($data->date_signe)).' à '.date('h:m A', strtotime($data->date_signe)) }}</td>
+            <td class="text-dark font-weight-bold">{{ $data->date_finalise }}</td>
         </tr>
         @endif
         @if($data->statut == 'payée')
         <tr class="border-bottom">
             <td class="text-secondary">{{ ucfirst(trans($data->statut)) }} le :</td>
-            <td class="text-dark font-weight-bold">{{ date('d F Y', strtotime($data->date_payee)).' à '.date('h:m A', strtotime($data->date_payee)) }}</td>
-        </tr>
-        @endif
-        @if($ind == 3 && isset($data->duree))
-         <tr class="border-bottom">
-            <td class="text-secondary">Durée de validité :</td>
-            <td class="text-dark font-weight-bold">{{ $data->duree.' jours' }}</td>
+            <td class="text-dark font-weight-bold">{{ $data->date_payee }}</td>
         </tr>
         @endif
         @if(isset($data->mot_cle))

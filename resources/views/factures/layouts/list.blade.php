@@ -1,6 +1,6 @@
-@foreach($data as $data)
-<div class="col-12">
-    <div class="card shadow mt-4">
+@foreach($data as $index => $data)
+<div class="col-12 mb-3">
+    <div class="card shadow mt-2">
         <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
             <span><h5 class="card-title mb-3 font-weight-bold text-dark">
                 @if($data->statut=='provisoire')
@@ -16,7 +16,7 @@
                 </h6>
             </span>
             <div class="dropdown no-arrow">
-                @include($path.'includes.dropdown',['index' => '0' , 'road' => 'factures'])
+                @include($path.'includes.dropdown',['road' => 'factures'])
             </div>
         </div>
         <div class="card-body">

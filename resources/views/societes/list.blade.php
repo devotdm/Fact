@@ -17,7 +17,7 @@
                 <a href="{{ url('societes/info/'.$data->id) }}"> {{  $data->nom }} </a></h5>
                 <h6 class="card-subtitle text-muted">{{ $data->clients_count }} Clients</h6></span>
                 <div class="dropdown no-arrow">
-                    @include($path.'includes.dropdown',['index' => $index, 'road' => 'societes'])
+                    @include($path.'includes.dropdown',['index' => $index, 'road' => 'societes' , "tbl"=> $obj])
                 </div>
             </div>
             <div class="card-body">

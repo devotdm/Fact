@@ -46,11 +46,11 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <?php if($obj == 'société'): ?>
-            <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => 'societes'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => 'societes', 'tbl'=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php elseif($obj == 'devis'): ?>
-            <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => $obj, 'tbl'=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php else: ?>
-            <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s', 'tbl'=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php endif; ?>
         </li>
 

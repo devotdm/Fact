@@ -58,9 +58,22 @@ class DevisCtrl extends Controller
             'clients' => $clients ,'articles' => $articles , 'ind'=>'3' , 'path'=>'../'));
     }
 
+    function add_($id) {
+        $client = Client::find($id);
+        $clients = Client::pluck('nom','id')->prepend('Sélectionnez un destinataire','');
+        $articles = Article::pluck('titre','titre')->prepend('Sélectionnez un type','');
+
+        return view('devis.new')->with(array('title'=>'Nouveau devis', 'obj'=>'devis' ,
+            'client' => $client ,'clients' => $clients ,'articles' => $articles ,
+             'ind'=>'3' , 'path'=>'../'));
+    }
+
     function create() {
         Request::validate([
             'client_id' => 'required'
+            // 'type' => 'required',
+            // 'quantity' => 'required|numeric|min:1',
+            // 'prix' => 'required|numeric|min:1',
         ],
         [
             'required' => 'requis'
@@ -120,6 +133,7 @@ class DevisCtrl extends Controller
     function cancel($id){
         $data = Devi::find($id);
         $data->statut = "finalisé";
+        $data->date_signe = null;
         $data->save();
 
         return redirect('devis/info/'.$data->id);

@@ -20,7 +20,7 @@
     </div>
 </nav>
 <div class="row">
-    @include($path.'factures.layouts.list',["data"=> $data])
+    @include($path.'factures.layouts.list',["data"=> $data , "tbl"=> $obj])
 </div>
 
 @endsection
