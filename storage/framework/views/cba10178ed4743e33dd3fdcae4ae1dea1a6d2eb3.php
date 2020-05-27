@@ -9,7 +9,7 @@
     <?php echo e(Form::model($data,array('url' => 'devis/update' , 'method' => 'put'))); ?>
 
     
-    <?php echo $__env->make($path.'includes.layouts.forms.devis', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make($path.'devis.layouts.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
     <button type="submit" name="submit" class="btn btn-success mb-5">Modifier le devis</button>
       <?php echo e(Form::close()); ?>

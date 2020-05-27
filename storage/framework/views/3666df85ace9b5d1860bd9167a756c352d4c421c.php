@@ -39,11 +39,11 @@
     <a class="dropdown-item" href="<?php echo e(url('clients/new/'.$data->id)); ?>">Créer un client</a>
     <?php endif; ?>
 
-    <?php if($tbl!='devis'): ?>
+    <?php if($tbl!='devis' && $tbl!='société'): ?>
     <a class="dropdown-item" href="<?php echo e(url('devis/new/'.$data->id)); ?>">Créer un devis</a>
     <?php endif; ?>
 
-    <?php if($tbl!='facture'): ?>
+    <?php if($tbl!='facture' && $tbl!='société'): ?>
     <a class="dropdown-item" href="<?php echo e(url('factures/new/'.$data->id)); ?>">Créer une facture</a>
     <?php endif; ?>
 

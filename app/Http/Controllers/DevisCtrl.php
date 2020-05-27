@@ -96,17 +96,17 @@ class DevisCtrl extends Controller
         return redirect('devis/info/'.$data->id);
     }
 
-    // function edit($id){
-    //     $data = Devi::find($id);
-    //     $clients = Client::pluck('nom','id')->prepend('Sélectionnez un destinataire','');
-    //     $articles = Article::pluck('titre','titre')->prepend('Sélectionnez un type','');
+    function edit($id){
+        $data = Devi::find($id);
+        $clients = Client::pluck('nom','id')->prepend('Sélectionnez un destinataire','');
+        $articles = Article::pluck('titre','titre')->prepend('Sélectionnez un type','');
 
-    //     $title = "Modifier le devis pour ".$data->client->prenom." ".$data->client->nom;
+        $title = "Modifier le devis pour ".$data->client->prenom." ".$data->client->nom;
 
-    //     return view('devis.edit')->with(array('title' => $title, 'obj' => 'devis' ,
-    //         'clients' => $clients ,'articles' => $articles ,
-    //         'data' => $data , 'ind'=>'3' , 'path'=>'../../'));
-    // }
+        return view('devis.edit')->with(array('title' => $title, 'obj' => 'devis' ,
+            'clients' => $clients ,'articles' => $articles ,
+            'data' => $data , 'ind'=>'3' , 'path'=>'../../'));
+    }
 
     function delete($id){
         $data = Devi::find($id);

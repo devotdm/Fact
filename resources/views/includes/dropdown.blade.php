@@ -44,11 +44,11 @@
     <a class="dropdown-item" href="{{ url('clients/new/'.$data->id) }}">Créer un client</a>
     @endif
 
-    @if($tbl!='devis')
+    @if($tbl!='devis' && $tbl!='société')
     <a class="dropdown-item" href="{{ url('devis/new/'.$data->id) }}">Créer un devis</a>
     @endif
 
-    @if($tbl!='facture')
+    @if($tbl!='facture' && $tbl!='société')
     <a class="dropdown-item" href="{{ url('factures/new/'.$data->id) }}">Créer une facture</a>
     @endif
 
