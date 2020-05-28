@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="card-body">
-            <span class="card-text"><i class="fas fa-sticky-note mr-2"></i>{{ $data->total.' '.$data->devise }}</span>
+            <span class="card-text"><i class="fas fa-sticky-note mr-2"></i>{{ $data->total_ttc.' '.$data->devise }}</span>
             <span class="card-text ml-3"><i class="far fa-clock mr-2"></i>{{ date('d F Y', strtotime($data->created_at)) }}</span>
             @if ($data->statut=='payée')
                 <span class="card-text ml-3" title="payée le"><i class="far fa-calendar-check mr-2"></i></i>{{ date('d F Y', strtotime($data->created_at)) }}</span>

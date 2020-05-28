@@ -1,3 +1,4 @@
+<input type="hidden" name="devi_id">
 <div class="form-group">
     <h3 class="text-dark mt-2">Destinataire</h3>
     <div class="form-group">

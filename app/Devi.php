@@ -8,6 +8,7 @@ class Devi extends Model
 {
     protected $fillable = ["client_id", "duree", "devise", "statut", "date_finalise", "date_signe", "id_num", "total_ht", "remise","total_tva", "total_ttc", 
         "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id"];
+        
     protected $dates = ["date_finalise", "date_signe"];
     
     public function lignes()

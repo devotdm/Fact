@@ -1,4 +1,3 @@
-<input type="hidden" name="devi_id">
 <div class="form-group">
     <h3 class="text-dark mt-2">Destinataire</h3>
     <div class="form-group">
@@ -80,4 +79,4 @@
 <option>5</option>
 </select>
 </div>
---><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////factures/layouts/form.blade.php ENDPATH**/ ?>
+--><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views///////factures/layouts/form.blade.php ENDPATH**/ ?>

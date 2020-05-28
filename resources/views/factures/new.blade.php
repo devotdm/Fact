@@ -9,9 +9,12 @@
 
 @section('content')
 
-
-    {{ Form::open(array('url' => 'factures/create' , 'method' => 'post' ,
+	@if(!isset($devi))
+   	 {{ Form::open(array('url' => 'factures/create' , 'method' => 'post' ,
          'id' => 'form5' )) }}
+    @else
+     {{ Form::model($devi,array('url' => 'factures/create' , 'method' => 'put')) }}
+    @endif
 
         @include($path.'factures.layouts.form')
 

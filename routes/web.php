@@ -83,42 +83,36 @@ Route::post('factures/create', "FactureCtrl@create");
 
 Route::get('factures/info/{id}', "FactureCtrl@ShowInfo");
 
+Route::get('factures/edit/{id}', "FactureCtrl@edit");
+
+Route::put('factures/update/{id}', "FactureCtrl@update");
+
+Route::get('factures/delete/{id}', "FactureCtrl@delete");
+
 Route::get('factures/statut/{id}/{s}', "FactureCtrl@statut");
 
 Route::get('factures/cancel/{id}', "FactureCtrl@cancel");
 
 Route::get('parametres/', function () {
-    return view('parametres.preferences.general')->with(array('title'=>'Paramètres | Préférences générales', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
-});
-
-Route::get('parametres/preferences/devis', function () {
-    return view('parametres.preferences.devis')->with(array('title'=>'Paramètres | Préférences pour les devis', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
-});
-
-Route::get('parametres/preferences/factures', function () {
-    return view('parametres.preferences.factures')->with(array('title'=>'Paramètres | Préférences pour les factures', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
-});
-
-Route::get('parametres/preferences/numerotation', function () {
-    return view('parametres.preferences.numerotation')->with(array('title'=>'Paramètres | Préférences pour la numérotation', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
+    return view('parametres.preferences.general')->with(array('title'=>'Préférences générales', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
 });
 
 Route::get('parametres/types_articles', function () {
-    return view('parametres.types_articles.list')->with(array('title'=>'Paramètres | Types d\'article', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
+    return view('parametres.types_articles.list')->with(array('title'=>'Types d\'article', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
 });
 
 Route::get('parametres/update', function () {
-    return view('parametres.update')->with(array('title'=>'Paramètres | Cordonnées', 'obj'=>'' , 'ind'=>'7' , 'path'=>'../'));
+    return view('parametres.update')->with(array('title'=>'Cordonnées', 'obj'=>'' , 'ind'=>'7' , 'path'=>'../'));
 });
 
 Route::get('parametres/types_articles/new', function () {
-    return view('parametres.types_articles.new')->with(array('title'=>'Paramètres | Nouveau type d\'article', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
+    return view('parametres.types_articles.new')->with(array('title'=>'Nouveau type d\'article', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
 });
 
 Route::get('parametres/compte/change', function () {
-    return view('parametres.compte.change')->with(array('title'=>'Paramètres | Compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
+    return view('parametres.compte.change')->with(array('title'=>'Compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
 });
 
 Route::get('parametres/compte/delete', function () {
-    return view('parametres.compte.delete')->with(array('title'=>'Paramètres | Supprimer mon compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
+    return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
 });

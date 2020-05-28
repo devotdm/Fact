@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="card-body">
-            <span class="card-text"><i class="fas fa-sticky-note mr-2"></i>{{ $data->total.' '.$data->devise }}</span>
+            <span class="card-text"><i class="fas fa-sticky-note mr-2"></i>{{ $data->total_ttc.' '.$data->devise }}</span>
             <span class="card-text ml-3" title="créé le"><i class="far fa-clock mr-2"></i>{{ $data->created_at->format('d M Y ') }}</span>
             @if ($data->statut=='signé')
                <span class="card-text ml-3" title="signé le"><i class="far fa-calendar-check mr-2"></i></i>{{ $data->date_signe->format('d M Y') }}</span>

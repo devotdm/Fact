@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2020 at 09:22 AM
+-- Generation Time: May 28, 2020 at 01:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -60,6 +60,7 @@ CREATE TABLE `clients` (
   `tele` varchar(255) DEFAULT NULL,
   `site` varchar(255) DEFAULT NULL,
   `mot_cle` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `societe_id` bigint(20) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
@@ -69,12 +70,12 @@ CREATE TABLE `clients` (
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `email`, `prenom`, `nom`, `fonction`, `adresse`, `codep`, `ville`, `pays`, `tele`, `site`, `mot_cle`, `societe_id`, `created_at`, `updated_at`) VALUES
-(5, 'john-doe@gmail.com', 'john', 'doe', 'gerant', NULL, NULL, NULL, NULL, '+2126374885653', NULL, NULL, 2, '2020-04-11 18:15:09', '2020-04-19 23:58:41'),
-(6, 'dsfa@asd.vbu', 'david', 'fsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-11 18:16:56', '2020-04-11 18:16:56'),
-(17, NULL, 'fdggdf', 'dgf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-04-14 02:17:53', '2020-04-14 02:17:53'),
-(19, NULL, 'client', 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-18 00:37:05', '2020-04-18 00:37:05'),
-(20, NULL, 'eqadw', 'qart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, '2020-04-18 02:55:42', '2020-04-18 02:55:42');
+INSERT INTO `clients` (`id`, `email`, `prenom`, `nom`, `fonction`, `adresse`, `codep`, `ville`, `pays`, `tele`, `site`, `mot_cle`, `user_id`, `societe_id`, `created_at`, `updated_at`) VALUES
+(5, 'john-doe@gmail.com', 'john', 'doe', 'gerant', NULL, NULL, NULL, NULL, '+2126374885653', NULL, NULL, NULL, NULL, '2020-04-11 18:15:09', '2020-05-28 09:49:33'),
+(6, 'dsfa@asd.vbu', 'david', 'fsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-11 18:16:56', '2020-05-28 09:50:12'),
+(17, NULL, 'fdggdf', 'dgf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-14 02:17:53', '2020-05-28 09:50:12'),
+(19, NULL, 'client', 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-18 00:37:05', '2020-05-28 09:50:12'),
+(20, NULL, 'eqadw', 'qart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, '2020-04-18 02:55:42', '2020-05-28 09:50:12');
 
 -- --------------------------------------------------------
 
@@ -363,6 +364,7 @@ CREATE TABLE `devis` (
   `mode_reg` varchar(255) DEFAULT 'cheque',
   `intr_retard` varchar(255) DEFAULT NULL,
   `mot_cle` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `devi_id` int(11) DEFAULT NULL,
   `facture_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -373,12 +375,11 @@ CREATE TABLE `devis` (
 -- Dumping data for table `devis`
 --
 
-INSERT INTO `devis` (`id`, `client_id`, `duree`, `devise`, `statut`, `date_finalise`, `date_signe`, `id_num`, `total_ht`, `remise`, `total_tva`, `total_ttc`, `cond_reg`, `mode_reg`, `intr_retard`, `mot_cle`, `devi_id`, `facture_id`, `created_at`, `updated_at`) VALUES
-(25, 20, NULL, 'Dirham marocain', 'finalisé', '2020-04-19 23:41:14', '2020-04-26', 'D200025', 770, 0, 154, 924, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-18 05:55:28', '2020-05-23 07:43:06'),
-(36, 5, NULL, 'Dirham marocain', 'finalisé', '2020-04-21 02:42:19', '2020-04-21', 'D200036', 200, 0, 40, 240, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-21 02:00:16', '2020-04-23 22:45:33'),
-(38, 19, NULL, 'Dirham marocain', 'finalisé', '2020-04-21 03:14:19', NULL, 'D200038', 300, 0, 60, 360, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-21 03:14:05', '2020-04-21 03:34:24'),
-(42, 19, NULL, 'Dirham marocain', 'finalisé', '2020-05-03 04:52:31', '2020-05-03', 'D200042', 1160, 0, 232, 1392, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-25 05:29:21', '2020-05-03 04:55:29'),
-(43, 17, NULL, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 3939, 0, 787.8, 4726.8, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-25 05:30:01', '2020-04-25 05:30:01');
+INSERT INTO `devis` (`id`, `client_id`, `duree`, `devise`, `statut`, `date_finalise`, `date_signe`, `id_num`, `total_ht`, `remise`, `total_tva`, `total_ttc`, `cond_reg`, `mode_reg`, `intr_retard`, `mot_cle`, `user_id`, `devi_id`, `facture_id`, `created_at`, `updated_at`) VALUES
+(25, 20, NULL, 'Dirham marocain', 'finalisé', '2020-04-19 23:41:14', '2020-04-26', 'D200025', 770, 0, 154, 924, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, NULL, '2020-04-18 05:55:28', '2020-05-23 07:43:06'),
+(36, 5, NULL, 'Dirham marocain', 'finalisé', '2020-04-21 02:42:19', '2020-04-21', 'D200036', 200, 0, 40, 240, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, NULL, '2020-04-21 02:00:16', '2020-04-23 22:45:33'),
+(47, 5, 24, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 3250, 0, 650, 3900, 'A réception', 'Carte bancaire', NULL, NULL, NULL, NULL, NULL, '2020-05-28 08:52:08', '2020-05-28 08:52:08'),
+(53, 6, NULL, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 646, 0, 129.2, 775.2, 'A réception', 'Chèque', NULL, NULL, NULL, 25, NULL, '2020-05-28 10:14:17', '2020-05-28 10:14:17');
 
 --
 -- Triggers `devis`
@@ -426,6 +427,7 @@ CREATE TABLE `factures` (
   `mode_reg` varchar(255) DEFAULT 'cheque',
   `intr_retard` varchar(255) DEFAULT NULL,
   `mot_cle` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `facture_id` int(11) DEFAULT NULL,
   `devi_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -436,10 +438,8 @@ CREATE TABLE `factures` (
 -- Dumping data for table `factures`
 --
 
-INSERT INTO `factures` (`id`, `client_id`, `devise`, `statut`, `date_finalise`, `date_payee`, `id_num`, `total_ht`, `remise`, `total_tva`, `total_ttc`, `cond_reg`, `mode_reg`, `intr_retard`, `mot_cle`, `facture_id`, `devi_id`, `created_at`, `updated_at`) VALUES
-(3, 6, NULL, 'finalisé', '2020-05-25 06:45:53', NULL, 'F20003', 0, 0, 0, 0, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-25 04:52:36', '2020-05-25 07:40:45'),
-(4, 20, NULL, 'finalisé', '2020-05-25 07:38:44', NULL, 'F20004', 0, 0, 0, 0, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-25 05:07:10', '2020-05-25 07:54:49'),
-(5, 6, NULL, 'provisoire', NULL, NULL, NULL, 0, 0, 0, 0, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, '2020-04-26 06:26:04', '2020-04-26 06:26:04');
+INSERT INTO `factures` (`id`, `client_id`, `devise`, `statut`, `date_finalise`, `date_payee`, `id_num`, `total_ht`, `remise`, `total_tva`, `total_ttc`, `cond_reg`, `mode_reg`, `intr_retard`, `mot_cle`, `user_id`, `facture_id`, `devi_id`, `created_at`, `updated_at`) VALUES
+(6, 17, NULL, 'finalisé', '2020-05-28 09:29:13', NULL, 'F20006', 600, 0, 120, 720, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, NULL, '2020-05-28 09:26:47', '2020-05-28 09:42:31');
 
 --
 -- Triggers `factures`
@@ -491,23 +491,10 @@ CREATE TABLE `lignes` (
 INSERT INTO `lignes` (`id`, `type`, `quantity`, `prix`, `tva`, `reduction`, `total`, `description`, `devi_id`, `facture_id`) VALUES
 (4, 'produit', 5, 150, 20, 0, 900, 'produit t', 25, NULL),
 (13, 'service', 1, 200, 20, 0, 240, 'gdfgtgtrrhrr', 36, NULL),
-(15, 'service', 2, 150, 20, 0, 360, 'efrrefr hytyht', 38, NULL),
-(17, 'service', 2, 120, 20, 0, 288, 'ewfwef fdvv', 43, NULL),
-(18, 'produit', 3, 1233, 20, 0, 4438.8, 'sdffffffffkl fdsk;lsfd', 43, NULL);
-
---
--- Triggers `lignes`
---
-DELIMITER $$
-CREATE TRIGGER `perso_ligne` BEFORE INSERT ON `lignes` FOR EACH ROW BEGIN
-IF(new.facture_id IS NOT NULL) THEN
-SET new.devi_id = NULL;
-ELSEIF(new.devi_id IS NOT NULL) THEN
-SET new.facture_id = NULL;
-END IF;
-END
-$$
-DELIMITER ;
+(22, 'service', 2, 1000, 20, 0, 2400, 'service X', 47, NULL),
+(23, 'produit', 5, 250, 20, 0, 1500, 'produit X', 47, NULL),
+(30, 'service', 3, 200, 20, 0, 720, NULL, NULL, 6),
+(33, 'service', 2, 323, 20, 0, 775.2, NULL, 53, NULL);
 
 -- --------------------------------------------------------
 
@@ -527,6 +514,7 @@ CREATE TABLE `societes` (
   `tele` varchar(255) DEFAULT NULL,
   `site` varchar(255) DEFAULT NULL,
   `mot_cle` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -535,9 +523,37 @@ CREATE TABLE `societes` (
 -- Dumping data for table `societes`
 --
 
-INSERT INTO `societes` (`id`, `nom`, `tva`, `code_ice`, `adresse`, `codep`, `ville`, `pays`, `tele`, `site`, `mot_cle`, `created_at`, `updated_at`) VALUES
-(2, 'oursoft', 20, '002993884614421', NULL, 43543, 'safi', NULL, '+212537940098', NULL, NULL, '2020-04-05 15:55:21', '2020-04-15 00:31:07'),
-(7, 'test company', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-18 02:55:11', '2020-04-18 02:55:11');
+INSERT INTO `societes` (`id`, `nom`, `tva`, `code_ice`, `adresse`, `codep`, `ville`, `pays`, `tele`, `site`, `mot_cle`, `user_id`, `created_at`, `updated_at`) VALUES
+(7, 'test company', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-18 02:55:11', '2020-05-28 09:48:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `pass` varchar(255) DEFAULT NULL,
+  `email_pro` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `societe` varchar(255) DEFAULT NULL,
+  `code_if` bigint(20) DEFAULT NULL,
+  `code_ice` bigint(20) DEFAULT NULL,
+  `code_tp` bigint(20) DEFAULT NULL,
+  `code_rc` bigint(20) DEFAULT NULL,
+  `code_cnss` bigint(20) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `codep` int(11) DEFAULT NULL,
+  `ville` varchar(255) DEFAULT NULL,
+  `pays` varchar(255) DEFAULT NULL,
+  `tele` varchar(255) DEFAULT NULL,
+  `site` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -554,7 +570,8 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `clients_ibfk_1` (`societe_id`);
+  ADD KEY `clients_ibfk_1` (`societe_id`),
+  ADD KEY `fk_2` (`user_id`);
 
 --
 -- Indexes for table `countries`
@@ -569,7 +586,8 @@ ALTER TABLE `devis`
   ADD PRIMARY KEY (`id`),
   ADD KEY `client_id` (`client_id`),
   ADD KEY `devis_ibfk_2` (`facture_id`),
-  ADD KEY `devis_ibfk_3` (`devi_id`);
+  ADD KEY `devis_ibfk_3` (`devi_id`),
+  ADD KEY `devis_fk_2` (`user_id`);
 
 --
 -- Indexes for table `factures`
@@ -578,7 +596,8 @@ ALTER TABLE `factures`
   ADD PRIMARY KEY (`id`),
   ADD KEY `client_id` (`client_id`),
   ADD KEY `factures_ibfk_2` (`devi_id`),
-  ADD KEY `factures_ibfk_3` (`facture_id`);
+  ADD KEY `factures_ibfk_3` (`facture_id`),
+  ADD KEY `fact_fk_2` (`user_id`);
 
 --
 -- Indexes for table `lignes`
@@ -592,6 +611,13 @@ ALTER TABLE `lignes`
 -- Indexes for table `societes`
 --
 ALTER TABLE `societes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `soc_fk_2` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -620,25 +646,31 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `devis`
 --
 ALTER TABLE `devis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `factures`
 --
 ALTER TABLE `factures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `lignes`
 --
 ALTER TABLE `lignes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `societes`
 --
 ALTER TABLE `societes`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -648,12 +680,14 @@ ALTER TABLE `societes`
 -- Constraints for table `clients`
 --
 ALTER TABLE `clients`
-  ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`societe_id`) REFERENCES `societes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`societe_id`) REFERENCES `societes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `devis`
 --
 ALTER TABLE `devis`
+  ADD CONSTRAINT `devis_fk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `devis_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `devis_ibfk_2` FOREIGN KEY (`facture_id`) REFERENCES `factures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `devis_ibfk_3` FOREIGN KEY (`devi_id`) REFERENCES `devis` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
@@ -662,6 +696,7 @@ ALTER TABLE `devis`
 -- Constraints for table `factures`
 --
 ALTER TABLE `factures`
+  ADD CONSTRAINT `fact_fk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `factures_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `factures_ibfk_2` FOREIGN KEY (`devi_id`) REFERENCES `devis` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `factures_ibfk_3` FOREIGN KEY (`facture_id`) REFERENCES `factures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
@@ -672,6 +707,12 @@ ALTER TABLE `factures`
 ALTER TABLE `lignes`
   ADD CONSTRAINT `lignes_ibfk_1` FOREIGN KEY (`devi_id`) REFERENCES `devis` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `lignes_ibfk_2` FOREIGN KEY (`facture_id`) REFERENCES `factures` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `societes`
+--
+ALTER TABLE `societes`
+  ADD CONSTRAINT `soc_fk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,10 +7,14 @@
 
 <?php $__env->startSection('content'); ?>
 
-
-    <?php echo e(Form::open(array('url' => 'factures/create' , 'method' => 'post' ,
+	<?php if(!isset($devi)): ?>
+   	 <?php echo e(Form::open(array('url' => 'factures/create' , 'method' => 'post' ,
          'id' => 'form5' ))); ?>
 
+    <?php else: ?>
+     <?php echo e(Form::model($devi,array('url' => 'factures/create' , 'method' => 'put'))); ?>
+
+    <?php endif; ?>
 
         <?php echo $__env->make($path.'factures.layouts.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

@@ -38,31 +38,29 @@
     <a class="dropdown-item" href="">Envoyer par e-mail</a>
     @endif
      --}}
-    <div class="dropdown-divider"></div>
-    <span class="dropdown-item disabled">Pour ce{{ ($tbl=='client' || $tbl=='devis') ? ' '.$tbl : 'tte '.$tbl }}</span>
     @if($tbl=='société')
+    <div class="dropdown-divider"></div>
+    <span class="dropdown-item disabled">Pour cette société</span>
     <a class="dropdown-item" href="{{ url('clients/new/'.$data->id) }}">Créer un client</a>
     @endif
 
-    @if($tbl!='devis' && $tbl!='société')
+    {{-- @if($tbl!='devis' && $tbl!='société')
     <a class="dropdown-item" href="{{ url('devis/new/'.$data->id) }}">Créer un devis</a>
     @endif
 
     @if($tbl!='facture' && $tbl!='société')
     <a class="dropdown-item" href="{{ url('factures/new/'.$data->id) }}">Créer une facture</a>
-    @endif
+    @endif --}}
 
-    @if($tbl=='facture')
+    {{-- @if($tbl=='facture')
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="">Duppliquer la facture</a>
-    <a class="dropdown-item" href="">Duppliquer en devis</a>
     @endif
 
     @if($tbl=='devis')
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="">Duppliquer le devis</a>
-    <a class="dropdown-item" href="">Duppliquer en facture</a>
-    @endif
+    <a class="dropdown-item" href="{{ url('factures/duplicate/'.$data->id) }}">Duppliquer en facture</a>
+    @endif --}}
 
 </div>
 

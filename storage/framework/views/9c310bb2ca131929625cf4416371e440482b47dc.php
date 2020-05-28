@@ -13,17 +13,9 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item <?php echo e(($ind==='5')?'active':''); ?>">
-        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#CollapseClients" aria-expanded="true" aria-controls="CollapseClients">
+        <a class="nav-link collapsed" href="<?php echo e(url('parametres/')); ?>" >
             <span>Préférences</span>
         </a>
-        <div id="CollapseClients" class="collapse" aria-labelledby="head\ingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?php echo e(url('parametres/')); ?>"><span>Général</span></a>
-                <a class="collapse-item" href="<?php echo e(url('parametres/preferences/devis')); ?>"><span>Devis</span></a>
-                <a class="collapse-item" href="<?php echo e(url('parametres/preferences/factures')); ?>"><span>Factures</span></a>
-                <a class="collapse-item" href="<?php echo e(url('parametres/preferences/numerotation')); ?>"><span>Numérotation</span></a>
-            </div>
-        </div>
     </li>
     
     <li class="nav-item <?php echo e(($ind==='6')?'active':''); ?>">

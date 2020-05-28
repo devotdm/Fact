@@ -77,32 +77,56 @@ class FactureCtrl extends Controller
     function create() {
         Request::validate([
             'client_id' => 'required'
-            // 'type[]' => 'required',
-            // 'quantity[]' => 'required',
-            // 'prix[]' => 'required',
+            // 'type' => 'required',
+            // 'quantity' => 'required|numeric|min:1',
+            // 'prix' => 'required|numeric|min:1',
         ],
         [
             'required' => 'requis'
         ]);
 
         $data = Facture::create(Request::all());
-        // for ($i=0; $i < count(Request::get('type')) ; $i++) { 
-        //     $ligne = new Ligne();
-        //     $ligne->type = Request::get('type')[$i];
-        //     $ligne->prix = Request::get('prix')[$i]; 
-        //     $ligne->quantity = Request::get('quantity')[$i];
-        //     $ligne->tva = Request::get('tva')[$i]; 
-        //     $ligne->reduction = Request::get('reduction')[$i];
-        //     $ligne->total = Request::get('total')[$i]; 
-        //     $ligne->description = Request::get('description')[$i];
-        //     $ligne->facture_id = $data->id;
-        //     $ligne->save();
-        // }
-        
+        for ($i=0; $i < count(Request::get('type')) ; $i++) { 
+            $ligne = new Ligne();
+            $ligne->type = Request::get('type')[$i];
+            $ligne->prix = Request::get('prix')[$i]; 
+            $ligne->quantity = Request::get('quantity')[$i];
+            $ligne->tva = Request::get('tva')[$i]; 
+            $ligne->reduction = Request::get('reduction')[$i];
+            $ligne->total = Request::get('total')[$i]; 
+            $ligne->description = Request::get('description')[$i];
+            $ligne->facture_id = $data->id;
+            $ligne->save();
+        }
 
         return redirect('factures/info/'.$data->id);
     }
 
+    function edit($id){
+        $data = Facture::find($id);
+        $clients = Client::pluck('nom','id')->prepend('Sélectionnez un destinataire','');
+        $articles = Article::pluck('titre','titre')->prepend('Sélectionnez un type','');
+
+        $title = "Modifier la facture pour ".$data->client->prenom." ".$data->client->nom;
+
+        return view('factures.edit')->with(array('title' => $title, 'obj' => 'facture' ,
+            'clients' => $clients ,'articles' => $articles ,
+            'data' => $data , 'ind'=>'4' , 'path'=>'../../'));
+    }
+
+    function delete($id){
+        $data = Facture::find($id);
+        $data->delete();
+
+        $msg = "La facture ";
+        if($data->statut == 'provisoire')
+            $msg .= "de ".$data->client->prenom." ".$data->client->nom;
+        else
+            $msg .= $data->id_num;
+        $msg .= " a été supprimé avec succès";
+
+        return redirect('factures/list')->withSuccess($msg);
+    }
 
     function statut($id,$s){
         $data = Facture::find($id);

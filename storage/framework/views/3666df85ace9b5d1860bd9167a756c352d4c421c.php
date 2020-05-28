@@ -33,31 +33,15 @@
     <?php endif; ?>
 
     
-    <div class="dropdown-divider"></div>
-    <span class="dropdown-item disabled">Pour ce<?php echo e(($tbl=='client' || $tbl=='devis') ? ' '.$tbl : 'tte '.$tbl); ?></span>
     <?php if($tbl=='société'): ?>
+    <div class="dropdown-divider"></div>
+    <span class="dropdown-item disabled">Pour cette société</span>
     <a class="dropdown-item" href="<?php echo e(url('clients/new/'.$data->id)); ?>">Créer un client</a>
     <?php endif; ?>
 
-    <?php if($tbl!='devis' && $tbl!='société'): ?>
-    <a class="dropdown-item" href="<?php echo e(url('devis/new/'.$data->id)); ?>">Créer un devis</a>
-    <?php endif; ?>
+    
 
-    <?php if($tbl!='facture' && $tbl!='société'): ?>
-    <a class="dropdown-item" href="<?php echo e(url('factures/new/'.$data->id)); ?>">Créer une facture</a>
-    <?php endif; ?>
-
-    <?php if($tbl=='facture'): ?>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="">Duppliquer la facture</a>
-    <a class="dropdown-item" href="">Duppliquer en devis</a>
-    <?php endif; ?>
-
-    <?php if($tbl=='devis'): ?>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="">Duppliquer le devis</a>
-    <a class="dropdown-item" href="">Duppliquer en facture</a>
-    <?php endif; ?>
+    
 
 </div>
 
