@@ -11,26 +11,14 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    
     <li class="nav-item {{ ($ind==='5')?'active':'' }}">
-        <a class="nav-link collapsed" href="{{ url('parametres/') }}" >
-            <span>Préférences</span>
-        </a>
-    </li>
-    
-    <li class="nav-item {{ ($ind==='6')?'active':'' }}">
-        <a class="nav-link collapsed" href="{{ url('parametres/types_articles') }}" >
-            <span>Types d'articles</span>
-        </a>
-    </li>
-    
-    <li class="nav-item {{ ($ind==='7')?'active':'' }}">
         <a class="nav-link collapsed" href="{{ url('parametres/update') }}" >
             <span>Cordonnées</span>
         </a>
     </li>
 
-    <li class="nav-item {{ ($ind==='8')?'active':'' }}">
+    <li class="nav-item {{ ($ind==='6')?'active':'' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSocietes" aria-expanded="true" aria-controls="collapseSocietes">
             <span>Compte</span>
         </a>

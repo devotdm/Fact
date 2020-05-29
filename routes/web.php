@@ -94,25 +94,13 @@ Route::get('factures/statut/{id}/{s}', "FactureCtrl@statut");
 Route::get('factures/cancel/{id}', "FactureCtrl@cancel");
 
 Route::get('parametres/', function () {
-    return view('parametres.preferences.general')->with(array('title'=>'Préférences générales', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
-});
-
-Route::get('parametres/types_articles', function () {
-    return view('parametres.types_articles.list')->with(array('title'=>'Types d\'article', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
-});
-
-Route::get('parametres/update', function () {
-    return view('parametres.update')->with(array('title'=>'Cordonnées', 'obj'=>'' , 'ind'=>'7' , 'path'=>'../'));
-});
-
-Route::get('parametres/types_articles/new', function () {
-    return view('parametres.types_articles.new')->with(array('title'=>'Nouveau type d\'article', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
+    return view('parametres.update')->with(array('title'=>'Cordonnées', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
 });
 
 Route::get('parametres/compte/change', function () {
-    return view('parametres.compte.change')->with(array('title'=>'Compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
+    return view('parametres.compte.change')->with(array('title'=>'Compte', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
 });
 
 Route::get('parametres/compte/delete', function () {
-    return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
+    return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
 });

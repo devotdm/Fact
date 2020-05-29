@@ -10,7 +10,7 @@
         <a class="nav-link p-3 pr-5 d-flex <?php echo e((!isset($societe) && !$errors->isEmpty() && !$errors->has('societe_id'))?'active':''); ?>" id="prt-tab" data-toggle="pill" href="#prt" role="tab" aria-controls="prt" aria-selected="false">
             <i class="fas fa-fw fa-user-tie fa-4x"></i>
             <span><h5>Particulier</h5>
-                <h6>client avec société</h6></span>
+                <h6>client sans société</h6></span>
         </a>
     </li>
     <li class="nav-item bg-white shadow mb-3 mr-4">
@@ -18,7 +18,7 @@
             <i class="fas fa-fw fa-building fa-4x"></i>
             <span>
               <h5>Professionnel</h5>
-              <h6>client sans société</h6>
+              <h6>client avec société</h6>
             </span>
         </a>
     </li>
