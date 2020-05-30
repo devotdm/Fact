@@ -11,26 +11,14 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
+    
     <li class="nav-item <?php echo e(($ind==='5')?'active':''); ?>">
-        <a class="nav-link collapsed" href="<?php echo e(url('parametres/')); ?>" >
-            <span>Préférences</span>
-        </a>
-    </li>
-    
-    <li class="nav-item <?php echo e(($ind==='6')?'active':''); ?>">
-        <a class="nav-link collapsed" href="<?php echo e(url('parametres/types_articles')); ?>" >
-            <span>Types d'articles</span>
-        </a>
-    </li>
-    
-    <li class="nav-item <?php echo e(($ind==='7')?'active':''); ?>">
         <a class="nav-link collapsed" href="<?php echo e(url('parametres/update')); ?>" >
             <span>Cordonnées</span>
         </a>
     </li>
 
-    <li class="nav-item <?php echo e(($ind==='8')?'active':''); ?>">
+    <li class="nav-item <?php echo e(($ind==='6')?'active':''); ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSocietes" aria-expanded="true" aria-controls="collapseSocietes">
             <span>Compte</span>
         </a>
