@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index')->with(array('title'=>'Accueil' , 'ind'=>'0'  , 'path'=>''));
 });
 
+
+
 Route::get('clients/list', "ClientCtrl@ShowList");
 
 Route::get('clients/info/{id}', "ClientCtrl@ShowInfo");
@@ -116,3 +118,6 @@ Route::get('parametres/compte/change', function () {
 Route::get('parametres/compte/delete', function () {
     return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

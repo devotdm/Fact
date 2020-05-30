@@ -9,7 +9,11 @@
     <h3 class="ml-2"> {{ $title }} </h3>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
+  
 
+
+
+  
 
         <!--
 <li class="nav-item">
