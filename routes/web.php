@@ -104,13 +104,8 @@ Route::get('parametres/compte/change', function () {
 });
 
 Route::get('parametres/compte/delete', function () {
-<<<<<<< HEAD
     return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
-    return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
-});
->>>>>>> 2ac288f2570e5cf988a9d647497e86a6ee2d66af
