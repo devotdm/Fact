@@ -7,24 +7,24 @@
         </tr>
         <tr class="border-bottom">
             <td class="text-secondary">Créé le :</td>
-            <td class="text-dark font-weight-bold"><?php echo e($data->created_at); ?></td>
+            <td class="text-dark font-weight-bold"><?php echo e($data->created_at->format('d M Y').' à '.$data->created_at->format('H:i')); ?></td>
         </tr>
         <?php if(isset($data->updated_at)): ?>
         <tr class="border-bottom">
             <td class="text-secondary">Derniére modification le  :</td>
-            <td class="text-dark font-weight-bold"><?php echo e($data->updated_at); ?></td>
+            <td class="text-dark font-weight-bold"><?php echo e($data->updated_at->format('d M Y').' à '.$data->updated_at->format('H:i')); ?></td>
         </tr> 
         <?php endif; ?>
         <?php if($data->statut == 'finalisé'): ?>
         <tr class="border-bottom">
             <td class="text-secondary">Finalisé le :</td>
-            <td class="text-dark font-weight-bold"><?php echo e($data->date_finalise); ?></td>
+            <td class="text-dark font-weight-bold"><?php echo e($data->date_finalise->format('d M Y').' à '.$data->date_finalise->format('H:i')); ?></td>
         </tr>
         <?php endif; ?>
         <?php if($data->statut == 'payée'): ?>
         <tr class="border-bottom">
             <td class="text-secondary"><?php echo e(ucfirst(trans($data->statut))); ?> le :</td>
-            <td class="text-dark font-weight-bold"><?php echo e($data->date_payee); ?></td>
+            <td class="text-dark font-weight-bold"><?php echo e($data->date_payee->format('d M Y')); ?></td>
         </tr>
         <?php endif; ?>
         <?php if(isset($data->mot_cle)): ?>

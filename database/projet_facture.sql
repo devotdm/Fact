@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2020 at 01:26 PM
+-- Generation Time: May 31, 2020 at 10:10 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -74,8 +74,11 @@ INSERT INTO `clients` (`id`, `email`, `prenom`, `nom`, `fonction`, `adresse`, `c
 (5, 'john-doe@gmail.com', 'john', 'doe', 'gerant', NULL, NULL, NULL, NULL, '+2126374885653', NULL, NULL, NULL, NULL, '2020-04-11 18:15:09', '2020-05-28 09:49:33'),
 (6, 'dsfa@asd.vbu', 'david', 'fsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-11 18:16:56', '2020-05-28 09:50:12'),
 (17, NULL, 'fdggdf', 'dgf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-14 02:17:53', '2020-05-28 09:50:12'),
-(19, NULL, 'client', 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-18 00:37:05', '2020-05-28 09:50:12'),
-(20, NULL, 'eqadw', 'qart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, '2020-04-18 02:55:42', '2020-05-28 09:50:12');
+(19, NULL, 'client', 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, NULL, '2020-04-18 00:37:05', '2020-05-31 14:29:26'),
+(20, NULL, 'eqadw', 'qart', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 7, '2020-04-18 02:55:42', '2020-05-31 14:29:21'),
+(21, 'ewfa@ahg.vsd', 'cde', 'n1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, NULL, '2020-05-31 13:23:36', '2020-05-31 14:29:17'),
+(22, 'de@wfasd.vbu', 'cd', 'ope', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 7, '2020-05-31 13:25:17', '2020-05-31 13:25:17'),
+(23, 'dsfa@asd.vbu', 'eqadwer', 'buiuo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL, '2020-05-31 13:43:10', '2020-05-31 13:43:10');
 
 -- --------------------------------------------------------
 
@@ -376,10 +379,11 @@ CREATE TABLE `devis` (
 --
 
 INSERT INTO `devis` (`id`, `client_id`, `duree`, `devise`, `statut`, `date_finalise`, `date_signe`, `id_num`, `total_ht`, `remise`, `total_tva`, `total_ttc`, `cond_reg`, `mode_reg`, `intr_retard`, `mot_cle`, `user_id`, `devi_id`, `facture_id`, `created_at`, `updated_at`) VALUES
-(25, 20, NULL, 'Dirham marocain', 'finalisé', '2020-04-19 23:41:14', '2020-04-26', 'D200025', 770, 0, 154, 924, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, NULL, '2020-04-18 05:55:28', '2020-05-23 07:43:06'),
-(36, 5, NULL, 'Dirham marocain', 'finalisé', '2020-04-21 02:42:19', '2020-04-21', 'D200036', 200, 0, 40, 240, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, NULL, '2020-04-21 02:00:16', '2020-04-23 22:45:33'),
-(47, 5, 24, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 3250, 0, 650, 3900, 'A réception', 'Carte bancaire', NULL, NULL, NULL, NULL, NULL, '2020-05-28 08:52:08', '2020-05-28 08:52:08'),
-(53, 6, NULL, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 646, 0, 129.2, 775.2, 'A réception', 'Chèque', NULL, NULL, NULL, 25, NULL, '2020-05-28 10:14:17', '2020-05-28 10:14:17');
+(25, 20, NULL, 'Dirham marocain', 'finalisé', '2020-04-19 23:41:14', '2020-04-26', 'D200025', 770, 0, 154, 924, 'A réception', 'Chèque', NULL, NULL, 6, NULL, NULL, '2020-04-18 05:55:28', '2020-05-31 14:31:16'),
+(36, 5, NULL, 'Dirham marocain', 'finalisé', '2020-04-21 02:42:19', '2020-04-21', 'D200036', 200, 0, 40, 240, 'A réception', 'Chèque', NULL, NULL, 6, NULL, NULL, '2020-04-21 02:00:16', '2020-05-31 14:31:19'),
+(47, 5, 24, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 3250, 0, 650, 3900, 'A réception', 'Carte bancaire', NULL, NULL, 6, NULL, NULL, '2020-05-28 08:52:08', '2020-05-31 14:31:22'),
+(53, 6, NULL, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 646, 0, 129.2, 775.2, 'A réception', 'Chèque', NULL, NULL, NULL, 25, NULL, '2020-05-28 10:14:17', '2020-05-28 10:14:17'),
+(54, 17, 30, 'Dirham marocain', 'provisoire', NULL, NULL, NULL, 300, 0, 60, 360, 'A réception', 'Chèque', NULL, NULL, 6, NULL, NULL, '2020-05-31 13:33:37', '2020-05-31 13:33:37');
 
 --
 -- Triggers `devis`
@@ -439,7 +443,7 @@ CREATE TABLE `factures` (
 --
 
 INSERT INTO `factures` (`id`, `client_id`, `devise`, `statut`, `date_finalise`, `date_payee`, `id_num`, `total_ht`, `remise`, `total_tva`, `total_ttc`, `cond_reg`, `mode_reg`, `intr_retard`, `mot_cle`, `user_id`, `facture_id`, `devi_id`, `created_at`, `updated_at`) VALUES
-(6, 17, NULL, 'finalisé', '2020-05-28 09:29:13', NULL, 'F20006', 600, 0, 120, 720, 'A réception', 'Chèque', NULL, NULL, NULL, NULL, NULL, '2020-05-28 09:26:47', '2020-05-28 09:42:31');
+(6, 17, NULL, 'finalisé', '2020-05-28 09:29:13', NULL, 'F20006', 600, 0, 120, 720, 'A réception', 'Chèque', NULL, NULL, 6, NULL, NULL, '2020-05-28 09:26:47', '2020-05-31 14:31:32');
 
 --
 -- Triggers `factures`
@@ -494,7 +498,8 @@ INSERT INTO `lignes` (`id`, `type`, `quantity`, `prix`, `tva`, `reduction`, `tot
 (22, 'service', 2, 1000, 20, 0, 2400, 'service X', 47, NULL),
 (23, 'produit', 5, 250, 20, 0, 1500, 'produit X', 47, NULL),
 (30, 'service', 3, 200, 20, 0, 720, NULL, NULL, 6),
-(33, 'service', 2, 323, 20, 0, 775.2, NULL, 53, NULL);
+(33, 'service', 2, 323, 20, 0, 775.2, NULL, 53, NULL),
+(34, 'service', 2, 150, 20, 0, 360, 'service X', 54, NULL);
 
 -- --------------------------------------------------------
 
@@ -524,7 +529,7 @@ CREATE TABLE `societes` (
 --
 
 INSERT INTO `societes` (`id`, `nom`, `tva`, `code_ice`, `adresse`, `codep`, `ville`, `pays`, `tele`, `site`, `mot_cle`, `user_id`, `created_at`, `updated_at`) VALUES
-(7, 'test company', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-04-18 02:55:11', '2020-05-28 09:48:54');
+(7, 'test company', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, '2020-04-18 02:55:11', '2020-05-31 14:30:53');
 
 -- --------------------------------------------------------
 
@@ -535,15 +540,11 @@ INSERT INTO `societes` (`id`, `nom`, `tva`, `code_ice`, `adresse`, `codep`, `vil
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `pass` varchar(255) DEFAULT NULL,
-  `email_pro` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `societe` varchar(255) DEFAULT NULL,
-  `code_if` bigint(20) DEFAULT NULL,
   `code_ice` bigint(20) DEFAULT NULL,
-  `code_tp` bigint(20) DEFAULT NULL,
-  `code_rc` bigint(20) DEFAULT NULL,
   `code_cnss` bigint(20) DEFAULT NULL,
   `adresse` varchar(255) DEFAULT NULL,
   `codep` int(11) DEFAULT NULL,
@@ -552,8 +553,16 @@ CREATE TABLE `users` (
   `tele` varchar(255) DEFAULT NULL,
   `site` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `prenom`, `nom`, `societe`, `code_ice`, `code_cnss`, `adresse`, `codep`, `ville`, `pays`, `tele`, `site`, `created_at`, `updated_at`) VALUES
+(6, 'admin@admin.co', '$2y$10$WYKwW.1D97lw/DHzOrgsaOOFMrNAgSk9227RwScESWTvIlb0QBFia', 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-05-31 13:15:50', '2020-05-31 13:15:50'),
+(7, 'test@gmail.com', '$2y$10$rTSVGmAgxNgwlAVZ5BOeNeRJXjKKwMC05JFWAlATFIMOYwMnr6.72', 'test', 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-05-31 13:42:46', '2020-05-31 13:42:46');
 
 --
 -- Indexes for dumped tables
@@ -634,7 +643,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -646,7 +655,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `devis`
 --
 ALTER TABLE `devis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `factures`
@@ -658,7 +667,7 @@ ALTER TABLE `factures`
 -- AUTO_INCREMENT for table `lignes`
 --
 ALTER TABLE `lignes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `societes`
@@ -670,7 +679,7 @@ ALTER TABLE `societes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
