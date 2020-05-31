@@ -3,30 +3,98 @@
 
 @section('content')
 
-<form method="post" class="w-100 text-dark" id="form6">
-    <div class="form-group">
-        <label for="email">Adresse email</label>
-        <input type="text" name="email" id="email" class="form-control w-50">
-        <span class="email text-danger d-none">n'est pas une adresse email valide</span>
-        <span class="email_ text-danger d-none">doit etre rempli</span>
-    </div>
-    <div class="form-group">
-        <label for="pass">Mot de passe actuel</label>
-        <input type="password" name="pass" id="pass" class="form-control w-50">
-    </div>
-    <div class="form-group">
-        <label for="new_pass">Nouveau mot de passe</label>
-        <input type="password" name="new_pass" id="new_pass" class="form-control w-50">
-    </div>
-    <div class="form-group">
-        <label for="conf">Confirmer nouveau mot de passe</label>
-        <input type="password" name="conf" id="conf" class="form-control w-50">
-    </div>
-    <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-success mb-5">Mettre a jour</button>
+<div class="col-md-8">
+
+    <div class="card">
+
+
+
+        <div class="card-body">
+
+            <form method="POST" action="{{  url('parametres/compte/update') }}">
+
+                @csrf 
+
+
+
+                 @foreach ($errors->all() as $error)
+
+                    <p class="text-danger">{{ $error }}</p>
+
+                 @endforeach 
+
+
+
+                <div class="form-group row">
+
+                    <label for="password" class="col-md-5 col-form-label">Mot de passe actuel</label>
+
+
+
+                    <div class="col-md-6">
+
+                        
+                        {{ Form::input('password','current_password',null, ['class'=>'form-control', 'id'=>'password', 'autocomplete'=>'current-password']) }}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group row">
+
+                    <label for="password" class="col-md-5 col-form-label">Nouveau mot de passe</label>
+
+
+
+                    <div class="col-md-6">
+
+                        {{ Form::input('password','new_password',null, ['class'=>'form-control', 'id'=>'new_password', 'autocomplete'=>'current-password']) }}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group row">
+
+                    <label for="password" class="col-md-5 col-form-label">Confirmer nouveau mot de passe</label>
+
+
+
+                    <div class="col-md-6">
+
+                        {{ Form::input('password','new_confirm_password',null, ['class'=>'form-control', 'id'=>'new_confirm_password', 'autocomplete'=>'current-password']) }}
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group row mb-0">
+
+                    <div class="col-md-8">
+
+                        <button type="submit" class="btn btn-primary">
+
+                            Mettre a jour
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
 
-</form>
+</div>
 
 @endsection
 

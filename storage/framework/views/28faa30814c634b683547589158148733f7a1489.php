@@ -10,14 +10,14 @@
             <?php echo csrf_field(); ?>
 
             <div class="form-group row">
-                <label for="nom" class="col-md-4 col-form-label text-md-right"><?php echo e(__('nom')); ?></label>
+                <label for="nom" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Nom')); ?></label>
 
                 <div class="col-md-6">
                     <input id="nom" type="text" class="form-control <?php if ($errors->has('nom')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('nom'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="nom" value="<?php echo e(old('name')); ?>" required autocomplete="nom" autofocus>
+endif; ?>" name="nom" value="<?php echo e(old('nom')); ?>" required autocomplete="nom" autofocus>
 
                     <?php if ($errors->has('nom')) :
 if (isset($message)) { $messageCache = $message; }
@@ -32,18 +32,18 @@ endif; ?>
             </div>
 
             <div class="form-group row">
-                <label for="prenom " class="col-md-4 col-form-label text-md-right"><?php echo e(__('prenom ')); ?></label>
+                <label for="prenom" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Prenom ')); ?></label>
 
                 <div class="col-md-6">
-                    <input id="prenom " type="text" class="form-control <?php if ($errors->has('prenom ')) :
+                    <input id="prenom" type="text" class="form-control <?php if ($errors->has('prenom')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('prenom '); ?> is-invalid <?php unset($message);
+$message = $errors->first('prenom'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="prenom " value="<?php echo e(old('prenom ')); ?>" required autocomplete="prenom " autofocus>
+endif; ?>" name="prenom" value="<?php echo e(old('prenom')); ?>" required autocomplete="prenom" autofocus>
 
-                    <?php if ($errors->has('prenom ')) :
+                    <?php if ($errors->has('prenom')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('prenom '); ?>
+$message = $errors->first('prenom'); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?php echo e($message); ?></strong>
                         </span>
@@ -54,7 +54,7 @@ endif; ?>
             </div>
 
             <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right"><?php echo e(__('E-Mail Address')); ?></label>
+                <label for="email" class="col-md-4 col-form-label text-md-right"><?php echo e(__('E-Mail')); ?></label>
 
                 <div class="col-md-6">
                     <input id="email" type="email" class="form-control <?php if ($errors->has('email')) :
@@ -76,18 +76,18 @@ endif; ?>
             </div>
 
             <div class="form-group row">
-                <label for="pass" class="col-md-4 col-form-label text-md-right"><?php echo e(__('pass')); ?></label>
+                <label for="password" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Mot de passe')); ?></label>
 
                 <div class="col-md-6">
-                    <input id="pass" type="password" class="form-control <?php if ($errors->has('pass')) :
+                    <input id="password" type="password" class="form-control <?php if ($errors->has('password')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('pass'); ?> is-invalid <?php unset($message);
+$message = $errors->first('password'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="pass" required autocomplete="new-password">
+endif; ?>" name="password" required autocomplete="new-password">
 
-                    <?php if ($errors->has('pass')) :
+                    <?php if ($errors->has('password')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('pass'); ?>
+$message = $errors->first('password'); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?php echo e($message); ?></strong>
                         </span>
@@ -98,7 +98,7 @@ endif; ?>
             </div>
 
             <div class="form-group row">
-                <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Confirm Password')); ?></label>
+                <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Confirmer mot de passe')); ?></label>
 
                 <div class="col-md-6">
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -106,18 +106,18 @@ endif; ?>
             </div>
 
              <div class="form-group row">
-                <label for="societe " class="col-md-4 col-form-label text-md-right"><?php echo e(__('Société  ')); ?></label>
+                <label for="societe" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Société  ')); ?></label>
 
                 <div class="col-md-6">
-                    <input id="societe" type="text" class="form-control <?php if ($errors->has('societe ')) :
+                    <input id="societe" type="text" class="form-control <?php if ($errors->has('societe')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('societe '); ?> is-invalid <?php unset($message);
+$message = $errors->first('societe'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="societe " value="<?php echo e(old('societe ')); ?>" required autocomplete="societe " autofocus>
+endif; ?>" name="societe" value="<?php echo e(old('societe')); ?>" autocomplete="societe" autofocus>
 
-                    <?php if ($errors->has('societe ')) :
+                    <?php if ($errors->has('societe')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('societe '); ?>
+$message = $errors->first('societe'); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?php echo e($message); ?></strong>
                         </span>
@@ -128,14 +128,14 @@ endif; ?>
             </div>
 
             <div class="form-group row">
-                <label for="code_ice" class="col-md-4 col-form-label text-md-right"><?php echo e(__('code ICE')); ?></label>
+                <label for="code_ice" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Code ICE')); ?></label>
 
                 <div class="col-md-6">
                     <input id="code_ice" type="text" class="form-control <?php if ($errors->has('code_ice')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('code_ice'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="code_ice" value="<?php echo e(old('code_ice')); ?>" required autocomplete="code_ice" autofocus>
+endif; ?>" name="code_ice" value="<?php echo e(old('code_ice')); ?>" autocomplete="code_ice" autofocus>
 
                     <?php if ($errors->has('code_ice')) :
 if (isset($message)) { $messageCache = $message; }
@@ -149,15 +149,37 @@ endif; ?>
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="code_cnss" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Code CNSS')); ?></label>
+
+                <div class="col-md-6">
+                    <input id="code_cnss" type="text" class="form-control <?php if ($errors->has('code_cnss')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('code_cnss'); ?> is-invalid <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>" name="code_cnss" value="<?php echo e(old('code_cnss')); ?>" autocomplete="code_cnss" autofocus>
+
+                    <?php if ($errors->has('code_cnss')) :
+if (isset($message)) { $messageCache = $message; }
+$message = $errors->first('code_cnss'); ?>
+                        <span class="invalid-feedback" role="alert">
+                            <strong><?php echo e($message); ?></strong>
+                        </span>
+                    <?php unset($message);
+if (isset($messageCache)) { $message = $messageCache; }
+endif; ?>
+                </div>
+            </div>
+
            <div class="form-group row">
-                <label for="adresse" class="col-md-4 col-form-label text-md-right"><?php echo e(__('adresse')); ?></label>
+                <label for="adresse" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Adresse')); ?></label>
 
                 <div class="col-md-6">
                     <textarea id="adresse" type="text" class="form-control <?php if ($errors->has('adresse')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('adresse'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="adresse" value="<?php echo e(old('adresse')); ?>" required autocomplete="adresse" autofocus></textarea> 
+endif; ?>" name="adresse" value="<?php echo e(old('adresse')); ?>" autocomplete="adresse" autofocus></textarea> 
 
                     <?php if ($errors->has('adresse')) :
 if (isset($message)) { $messageCache = $message; }
@@ -173,18 +195,18 @@ endif; ?>
 
                
            <div class="form-group row">
-                <label for="code_postal" class="col-md-4 col-form-label text-md-right"><?php echo e(__('code postal')); ?></label>
+                <label for="codep" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Code postal')); ?></label>
 
                 <div class="col-md-6">
-                    <input id="code_postal" type="text" class="form-control <?php if ($errors->has('code_postal')) :
+                    <input id="codep" type="text" class="form-control <?php if ($errors->has('codep')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('code_postal'); ?> is-invalid <?php unset($message);
+$message = $errors->first('codep'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="code_postal" value="<?php echo e(old('code_postal')); ?>" required autocomplete="code_postal" autofocus>
+endif; ?>" name="codep" value="<?php echo e(old('codep')); ?>" autocomplete="codep" autofocus>
 
-                    <?php if ($errors->has('code_postal')) :
+                    <?php if ($errors->has('codep')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('code_postal'); ?>
+$message = $errors->first('codep'); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?php echo e($message); ?></strong>
                         </span>
@@ -203,7 +225,7 @@ endif; ?>
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('ville'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="ville" value="<?php echo e(old('ville')); ?>" required autocomplete="ville" autofocus>
+endif; ?>" name="ville" value="<?php echo e(old('ville')); ?>" autocomplete="ville" autofocus>
 
                     <?php if ($errors->has('ville')) :
 if (isset($message)) { $messageCache = $message; }
@@ -226,7 +248,7 @@ endif; ?>
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('pays'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="pays" value="<?php echo e(old('pays')); ?>" required autocomplete="pays" autofocus>
+endif; ?>" name="pays" value="<?php echo e(old('pays')); ?>" autocomplete="pays" autofocus>
 
                     <?php if ($errors->has('pays')) :
 if (isset($message)) { $messageCache = $message; }
@@ -241,18 +263,18 @@ endif; ?>
             </div>
 
           <div class="form-group row">
-                <label for="numero telephone" class="col-md-4 col-form-label text-md-right"><?php echo e(__('numero telephone')); ?></label>
+                <label for="tele" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Numero telephone')); ?></label>
 
                 <div class="col-md-6">
-                    <input id="numero telephone" type="text" class="form-control <?php if ($errors->has('numero telephone')) :
+                    <input id="tele" type="text" class="form-control <?php if ($errors->has('tele')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('numero telephone'); ?> is-invalid <?php unset($message);
+$message = $errors->first('tele'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="numero telephone" value="<?php echo e(old('numero telephone')); ?>" required autocomplete="numero telephone" autofocus>
+endif; ?>" name="tele" value="<?php echo e(old('tele')); ?>" autocomplete="tele" autofocus>
 
-                    <?php if ($errors->has('numero telephone')) :
+                    <?php if ($errors->has('tele')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('numero telephone'); ?>
+$message = $errors->first('tele'); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?php echo e($message); ?></strong>
                         </span>
@@ -263,18 +285,18 @@ endif; ?>
             </div>
 
           <div class="form-group row">
-                <label for="site" class="col-md-4 col-form-label text-md-right"><?php echo e(__('site internet')); ?></label>
+                <label for="site" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Site internet')); ?></label>
 
                 <div class="col-md-6">
                     <input id="site" type="text" class="form-control <?php if ($errors->has('site internet')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('site internet'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="site" value="<?php echo e(old('site internet')); ?>" required autocomplete="site" autofocus>
+endif; ?>" name="site" value="<?php echo e(old('site')); ?>" autocomplete="site" autofocus>
 
-                    <?php if ($errors->has('site internet')) :
+                    <?php if ($errors->has('site')) :
 if (isset($message)) { $messageCache = $message; }
-$message = $errors->first('site internet'); ?>
+$message = $errors->first('site'); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong><?php echo e($message); ?></strong>
                         </span>
@@ -283,17 +305,7 @@ if (isset($messageCache)) { $message = $messageCache; }
 endif; ?>
                 </div>
             </div>
-
-
-
-             
-
-
-
-        
-
-
-
+            
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
@@ -309,5 +321,4 @@ endif; ?>
 </div>
 </div>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views/auth/register.blade.php ENDPATH**/ ?>

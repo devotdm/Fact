@@ -1,4 +1,6 @@
 <h3 class="text-dark mt-2">Destinataire</h3>
+<?php echo e(Form::input('hidden','user_id',Auth::user()->id, ['id'=>'user_id'])); ?>
+
     <div class="form-group">
         <label for="client_id"></label>
         <?php echo e(Form::select('client_id',$clients,(isset($client))?$client->id:null, ['class'=>'form-control w-50' , 'id' => 'destinataire'])); ?>

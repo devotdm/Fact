@@ -9,7 +9,11 @@
     <h3 class="ml-2"> <?php echo e($title); ?> </h3>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
+  
 
+
+
+  
 
         <!--
 <li class="nav-item">
@@ -44,6 +48,16 @@
 </li>
 -->
         <!-- Nav Item - User Information -->
+        <li class="nav-item">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
+                Se déconnecter
+            </a>
+
+            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                <?php echo csrf_field(); ?>
+            </form>
+        </li>
         <li class="nav-item dropdown no-arrow">
             <?php if($obj == 'société'): ?>
             <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => 'societes', 'tbl'=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -53,6 +67,7 @@
             <?php echo $__env->make($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s', 'tbl'=> $obj], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php endif; ?>
         </li>
+
 
     </ul>
 

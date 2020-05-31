@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +49,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nom' => ['required', 'string' , 'max:255'],
+            'prenom' => ['required', 'string' , 'max:255'],
+            'societe' => ['nullable','string' , 'max:255'] ,
+            'code_ice' => ['nullable','string' , 'max:255'] ,
+            'code_cnss' => ['nullable','string' , 'max:255'] ,
+            'adresse' => ['nullable','string' , 'max:255'] ,
+            'codep' => ['nullable','int' ] ,
+            'ville' => ['nullable','string' , 'max:255'] ,
+            'pays' => ['nullable','string' , 'max:255'] ,
+            'tele' => ['nullable','string' , 'max:255'] ,
+            'site' => ['nullable','string' , 'max:255'] 
         ]);
     }
 
@@ -64,9 +74,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nom' => $data['nom'],
+            'prenom' => $data['prenom'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'societe' => $data['societe'] ,
+            'code_ice' => $data['code_ice'] ,
+            'code_cnss' => $data['code_cnss'] ,
+            'adresse' => $data['adresse'] ,
+            'codep' => $data['codep'] ,
+            'ville' => $data['ville'] ,
+            'pays' => $data['pays'] ,
+            'tele' => $data['tele'] ,
+            'site' => $data['site'] 
         ]);
     }
 }

@@ -6,11 +6,16 @@ use Request;
 use App\Societe;
 use App\Client;
 use App\Countrie;
+use Auth;
 
 class SocieteCtrl extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     function ShowList() {
-        $data = Societe::withCount('clients')->get();
+        $data = Societe::withCount('clients')->get()->where('user_id',Auth::id());
         // $_data = Client::with(['societes' => function($query) { $query->with('client'); }])
         //     ->where('id',$id)->first()->societes;
 

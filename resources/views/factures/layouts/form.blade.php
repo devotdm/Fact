@@ -1,4 +1,4 @@
-<input type="hidden" name="devi_id">
+{{ Form::input('hidden','user_id',Auth::user()->id, ['id'=>'user_id']) }}
 <div class="form-group">
     <h3 class="text-dark mt-2">Destinataire</h3>
     <div class="form-group">

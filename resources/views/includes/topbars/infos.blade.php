@@ -48,6 +48,16 @@
 </li>
 -->
         <!-- Nav Item - User Information -->
+        <li class="nav-item">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
+                Se déconnecter
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
         <li class="nav-item dropdown no-arrow">
             @if($obj == 'société')
             @include($path.'includes.dropdown',['index' => '00', 'road' => 'societes', 'tbl'=> $obj])
@@ -57,6 +67,7 @@
             @include($path.'includes.dropdown',['index' => '00', 'road' => $obj.'s', 'tbl'=> $obj])
             @endif
         </li>
+
 
     </ul>
 

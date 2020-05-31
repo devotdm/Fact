@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">DEVOSOFT</div>
+        <div class="sidebar-brand-text mx-3">{{ Auth::user()->prenom.' '.Auth::user()->nom }}</div>
     </a>
 
     <!-- Divider -->

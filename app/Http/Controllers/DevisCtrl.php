@@ -9,11 +9,16 @@ use App\Client;
 use App\Societe;
 use App\Facture;
 use App\Article;
+use Auth;
 
 class DevisCtrl extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     function ShowList() {
-        $data = Devi::All();
+        $data = Devi::All()->where('user_id',Auth::id());
         $url = "";
 
         return view('devis.list')->with(array('data'=> $data, 'url'=> $url,
@@ -21,7 +26,7 @@ class DevisCtrl extends Controller
     }
 
     function ShowListF($s) {
-        $data = Devi::where('statut',$s)->get();
+        $data = Devi::where('statut',$s)->get()->where('user_id',Auth::id());
         $url = $s;
 
         return view('devis.list')->with(array('data'=> $data, 'url'=> $url,

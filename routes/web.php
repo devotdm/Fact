@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index')->with(array('title'=>'Accueil' , 'ind'=>'0'  , 'path'=>''));
-});
-
-
+Route::get('/','HomeController@home');
 
 Route::get('clients/list', "ClientCtrl@ShowList");
 
@@ -95,17 +91,16 @@ Route::get('factures/statut/{id}/{s}', "FactureCtrl@statut");
 
 Route::get('factures/cancel/{id}', "FactureCtrl@cancel");
 
-Route::get('parametres/', function () {
-    return view('parametres.update')->with(array('title'=>'Cordonnées', 'obj'=>'' , 'ind'=>'5' , 'path'=>'../'));
-});
+Route::get('parametres/', 'UserCtrl@edit');
 
-Route::get('parametres/compte/change', function () {
-    return view('parametres.compte.change')->with(array('title'=>'Compte', 'obj'=>'' , 'ind'=>'6' , 'path'=>'../'));
-});
+Route::put('parametres/update', 'UserCtrl@update');
 
-Route::get('parametres/compte/delete', function () {
-    return view('parametres.compte.delete')->with(array('title'=>'Supprimer mon compte', 'obj'=>'' , 'ind'=>'8' , 'path'=>'../'));
-});
+Route::get('parametres/compte/change', 'UserCtrl@change');
+
+Route::post('parametres/compte/update', 'UserCtrl@update_');
+
+Route::get('parametres/compte/remove', 'UserCtrl@remove');
+
+Route::post('parametres/compte/delete', 'UserCtrl@delete');
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

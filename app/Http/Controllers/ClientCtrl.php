@@ -8,12 +8,17 @@ use App\Societe;
 use App\Devi;
 use App\Facture;
 use App\Countrie;
+use Auth;
 
 class ClientCtrl extends Controller
 {
+	public function __construct() {
+		$this->middleware('auth');
+	}
+
 	function ShowList() {
 		//$data = Societe::with(['clients' => function($query) { $query->with('societe'); }])->all()->clients;
-		$data = Client::All();
+		$data = Client::All()->where('user_id',Auth::id());
 
 		return view('clients.list')->with(array('data'=> $data, 'title'=>'Clients', 'obj'=>'client' , 'ind'=>'1' , 'path'=>'../'));
 	}

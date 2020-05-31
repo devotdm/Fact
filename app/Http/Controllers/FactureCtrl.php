@@ -9,11 +9,16 @@ use App\Client;
 use App\Societe;
 use App\Facture;
 use App\Article;
+use Auth;
 
 class FactureCtrl extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     function ShowList() {
-        $data = Facture::All();
+        $data = Facture::All()->where('user_id',Auth::id());
         $url = "";
         
         return view('factures.list')->with(array('data'=> $data, 'url'=> $url,
@@ -22,7 +27,7 @@ class FactureCtrl extends Controller
 
     function ShowListF($s) {
         if($s=='provisoire') {
-            $data = Facture::where('statut',$s)->get();
+            $data = Facture::where('statut',$s)->get()->where('user_id',Auth::id());
         }
         else if($s=='finalisé') {
             $data = Facture::whereNotNull('date_finalise')->get();

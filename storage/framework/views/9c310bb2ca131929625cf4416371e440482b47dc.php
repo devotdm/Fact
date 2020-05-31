@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
     
     <li class="nav-item <?php echo e(($ind==='5')?'active':''); ?>">
-        <a class="nav-link collapsed" href="<?php echo e(url('parametres/update')); ?>" >
+        <a class="nav-link collapsed" href="<?php echo e(url('parametres/')); ?>" >
             <span>Cordonnées</span>
         </a>
     </li>
@@ -25,7 +25,7 @@
         <div id="collapseSocietes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?php echo e(url('parametres/compte/change')); ?>"><span>Changer mot de passe</span></a>
-                <a class="collapse-item" href="<?php echo e(url('parametres/compte/delete')); ?>"><span>Supprimer mon compte</span></a>
+                <a class="collapse-item" href="<?php echo e(url('parametres/compte/remove')); ?>"><span>Supprimer mon compte</span></a>
             </div>
         </div>
     </li>
