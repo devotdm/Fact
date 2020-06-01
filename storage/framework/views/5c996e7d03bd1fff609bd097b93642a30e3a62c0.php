@@ -1,5 +1,5 @@
 <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<div class="col-12">
+<div class="col-12 mb-3">
     <div class="card shadow mt-2">
         <div class="card-header bg-white py-3 d-flex flex-row align-items-center justify-content-between">
             <span><h5 class="card-title mb-3 font-weight-bold text-dark">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="card-body">
-            <span class="card-text"><i class="fas fa-sticky-note mr-2"></i><?php echo e($data->total.' '.$data->devise); ?></span>
+            <span class="card-text"><i class="fas fa-sticky-note mr-2"></i><?php echo e($data->total_ttc.' '.$data->devise); ?></span>
             <span class="card-text ml-3"><i class="far fa-clock mr-2"></i><?php echo e(date('d F Y', strtotime($data->created_at))); ?></span>
             <?php if($data->statut=='payée'): ?>
                 <span class="card-text ml-3" title="payée le"><i class="far fa-calendar-check mr-2"></i></i><?php echo e(date('d F Y', strtotime($data->created_at))); ?></span>

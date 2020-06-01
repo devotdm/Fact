@@ -1,6 +1,8 @@
 <div class="form-group mt-3">
     <h3 class="font-weight-bold">Informations</h3>
 </div>
+<?php echo e(Form::input('hidden','user_id',Auth::user()->id, ['id'=>'user_id'])); ?>
+
 <div class="form-group">
     <label for="email">Email : </label>
     <?php echo e(Form::input('text','email',null, ['class'=>'form-control', 'id'=>'email'])); ?>
