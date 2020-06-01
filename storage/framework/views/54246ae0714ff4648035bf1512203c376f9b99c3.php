@@ -41,13 +41,4 @@
     <?php echo e(Form::select('societe_id',$societes,(isset($societe))?$societe->id:null, ['class'=>'form-control' , 'id' => 'societe'])); ?>
 
   <span class="soct text-danger"> <?php echo e($errors->first('societe_id')); ?></span>
-</div>
-
-<div class="form-group">
-    <label for="mot_cle"><h4>Mot clés : </h4></label>
-  <?php echo e(Form::input('text','mot_cle',null, ['class'=>'form-control', 'id'=>'motcle_'])); ?>
-
-</div>
-
-
-<?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views///////clients/layouts/form2.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views///////clients/layouts/form2.blade.php ENDPATH**/ ?>

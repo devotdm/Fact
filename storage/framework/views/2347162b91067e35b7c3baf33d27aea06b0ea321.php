@@ -59,9 +59,4 @@
     <?php echo e(Form::input('text','tele',null, ['class'=>'form-control', 'id'=>'tele'])); ?>
 
 </div>
-<div class="form-group">
-    <label for="mot_cle" class="d-block">Mot clés : </label>
-    <?php echo e(Form::input('text','mot_cle',null, ['class'=>'form-control', 'id'=>'mot_cle'])); ?>
-
-</div>
 <?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////clients/layouts/form1.blade.php ENDPATH**/ ?>

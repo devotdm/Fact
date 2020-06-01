@@ -48,7 +48,3 @@
     <label for="tele">Numero du téléphone</label>
     {{ Form::input('text','tele',null, ['class'=>'form-control', 'id'=>'tele']) }}
 </div>
-<div class="form-group">
-    <label for="mot_cle" class="d-block">Mot clés : </label>
-    {{ Form::input('text','mot_cle',null, ['class'=>'form-control', 'id'=>'mot_cle']) }}
-</div>

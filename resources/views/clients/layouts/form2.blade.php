@@ -35,10 +35,3 @@
     {{ Form::select('societe_id',$societes,(isset($societe))?$societe->id:null, ['class'=>'form-control' , 'id' => 'societe']) }}
   <span class="soct text-danger"> {{ $errors->first('societe_id') }}</span>
 </div>
-
-<div class="form-group">
-    <label for="mot_cle"><h4>Mot clés : </h4></label>
-  {{ Form::input('text','mot_cle',null, ['class'=>'form-control', 'id'=>'motcle_']) }}
-</div>
-
-
