@@ -15,15 +15,7 @@
     </div>
     
     <div class="col-lg-6 mb-3">
-        @if($data->statut == 'provisoire')
-        <h3 class="text-dark">Votre devis est prete ?</h3>
-        <p>Finalisez votre devis a l'aide du bouton<i class="far fa-check-circle ml-2 mr-2 text-success"></i>ci-dessus pour pouvoir l'envoyer au client. </p>
-        <p>Attention un devis finalisé n'est plus modifiable.</p>
-        @endif
-        <h3 class="text-dark">Documents liés</h3>
-        @if(!isset($data->devi_id) && !isset($data->facture_id))
-        <p>aucun document lié </p>
-        @endif
+        
     </div>
 
     <div class="col-lg-6 mb-3">

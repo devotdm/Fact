@@ -51,14 +51,4 @@
     <label for="tele">Numero du téléphone</label>
     <?php echo e(Form::input('text','tele',null,['class' => 'form-control' , 'id' => 'tele'])); ?>
 
-</div>
-<div class="form-group">
-    <label for="clients">Clients</label>
-    <?php echo e(Form::select('clients',$clients,null, ['class'=>'form-control' , 'id' => 'clients'])); ?>
-
-</div>
-<div class="form-group">
-    <label for="mot_cle">Mot clés : </label>
-    <?php echo e(Form::input('text','mot_cle',null,['class' => 'form-control' , 'id' => 'mot_cle'])); ?>
-
 </div><?php /**PATH C:\xampp\htdocs\DEVOSOFT\Fact\resources\views////societes/layouts/form.blade.php ENDPATH**/ ?>

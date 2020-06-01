@@ -21,12 +21,10 @@
         </div>
         <div class="card-body">
             <span class="card-text"><i class="fas fa-sticky-note mr-2"></i><?php echo e($data->total_ttc.' '.$data->devise); ?></span>
-            <span class="card-text ml-3"><i class="far fa-clock mr-2"></i><?php echo e(date('d F Y', strtotime($data->created_at))); ?></span>
+            <span class="card-text ml-3"  title="crée le"><i class="far fa-clock mr-2"></i><?php echo e($data->created_at->format('d M Y')); ?></span>
             <?php if($data->statut=='payée'): ?>
-                <span class="card-text ml-3" title="payée le"><i class="far fa-calendar-check mr-2"></i></i><?php echo e(date('d F Y', strtotime($data->created_at))); ?></span>
+                <span class="card-text ml-3" title="payée le"><i class="far fa-calendar-check mr-2"></i></i><?php echo e($data->created_at->format('d M Y')); ?></span>
             <?php endif; ?>
-            <hr>
-            <span class="text-white bg-danger p-2">Motcle</span>
         </div>
     </div>
 </div>

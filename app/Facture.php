@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Facture extends Model
 {
     protected $fillable = ["client_id", "devise", "statut", "date_finalise", "date_payee", "id_num", "total_ht", "remise","total_tva", "total_ttc", 
-        "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id"];
+        "cond_reg", "mode_reg", "intr_retard", "mot_cle" , "facture_id", "devi_id", "user_id"];
 
     protected $dates = ["date_finalise", "date_payee"];
 

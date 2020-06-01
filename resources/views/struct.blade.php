@@ -19,6 +19,8 @@
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/tagsinput.css') }}" rel="stylesheet">
 
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/b/bf/TfNSW_F.png">
+
         <style type="text/css">
             body * {
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 

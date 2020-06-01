@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+
+    
+
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/b/bf/TfNSW_F.png">
 </head>
 <body>
     <div id="app">

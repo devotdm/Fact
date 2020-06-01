@@ -25,8 +25,6 @@
             @if ($data->statut=='signé')
                <span class="card-text ml-3" title="signé le"><i class="far fa-calendar-check mr-2"></i></i>{{ $data->date_signe->format('d M Y') }}</span>
             @endif
-            <hr>
-            <span class="text-white bg-danger p-2">Motcle</span>
         </div>
     </div>
 </div>
