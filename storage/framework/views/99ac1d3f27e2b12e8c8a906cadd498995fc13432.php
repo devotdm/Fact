@@ -22,19 +22,11 @@
         <style type="text/css">
             body * {
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-         </style>
+            }
+            body {
+              overflow-x: hidden;
+            }
 
-<style type="text/css">
-}
-#playArea {
-  background: #999; 
-  height: 20%;
-}
-
-</style>
-
-
-        <style type="text/css">
           .ml11 {
   font-weight: 700;
   font-size: 3.5em;
@@ -211,12 +203,10 @@ anime.timeline({loop: true})
 $(function(){
   $(window).resize(function(){
     $("#playArea").attr({
-      'width': $('body').width(),
-      'height': $('body').height()
+      'width': $('#content').width()
     });
     
-    width = $('body').width();
-    height = $('body').height();
+    width = $('#content').width();
     
   });
   $(window).resize();

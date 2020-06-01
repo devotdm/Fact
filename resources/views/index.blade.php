@@ -18,7 +18,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-<canvas id="playArea" width="300" height="20"></canvas>
+<canvas id="playArea" width="600" height="800" style="position: absolute;"></canvas>
 
 <div class="container-fluid">
   <div class="row">
